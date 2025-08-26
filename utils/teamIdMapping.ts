@@ -1,0 +1,222 @@
+// ESPN Team ID Mapping for College Football Teams
+export const TEAM_ID_MAPPING: Record<string, number> = {
+  // SEC
+  'Alabama': 333,
+  'Auburn': 2,
+  'Florida': 57,
+  'Georgia': 61,
+  'Kentucky': 96,
+  'LSU': 99,
+  'Mississippi State': 344,
+  'Ole Miss': 145,
+  'Tennessee': 2633,
+  'Vanderbilt': 238,
+  'Arkansas': 8,
+  'Missouri': 142,
+  'South Carolina': 2579,
+  'Texas A&M': 245,
+  'Texas': 251,
+  'Oklahoma': 201,
+
+  // Big Ten
+  'Ohio State': 194,
+  'Michigan': 130,
+  'Penn State': 213,
+  'Wisconsin': 275,
+  'Iowa': 2294,
+  'Nebraska': 158,
+  'Minnesota': 135,
+  'Illinois': 356,
+  'Indiana': 84,
+  'Northwestern': 77,
+  'Purdue': 2509,
+  'Rutgers': 164,
+  'Michigan State': 127,
+  'Maryland': 120,
+
+  // ACC
+  'Clemson': 228,
+  'Florida State': 52,
+  'Miami': 2390,
+  'Virginia Tech': 259,
+  'North Carolina': 153,
+  'NC State': 152,
+  'Duke': 150,
+  'Wake Forest': 154,
+  'Pittsburgh': 221,
+  'Syracuse': 183,
+  'Boston College': 103,
+  'Louisville': 97,
+  'Virginia': 258,
+  'Georgia Tech': 59,
+
+  // Big 12
+  'Oklahoma State': 197,
+  'Baylor': 239,
+  'Kansas': 2305,
+  'Kansas State': 2306,
+  'Iowa State': 66,
+  'TCU': 2628,
+  'West Virginia': 277,
+  'Texas Tech': 2641,
+
+  // Pac-12
+  'Oregon State': 204,
+  'Washington State': 265,
+  'Arizona State': 9,
+  'Utah': 254,
+  'Stanford': 24,
+  'California': 25,
+  'Oregon': 2483,
+  'Washington': 264,
+  'USC': 30,
+  'UCLA': 26,
+  'Colorado': 38,
+  'Arizona': 12,
+
+  // American Athletic
+  'Memphis': 235,
+  'Navy': 2426,
+  'Temple': 218,
+  'Tulane': 2655,
+  'Tulsa': 202,
+  'East Carolina': 151,
+  'South Florida': 58,
+  'Wichita State': 2724,
+  'UAB': 5,
+  'UTSA': 2636,
+  'Charlotte': 2429,
+  'FAU': 2226,
+
+  // Mountain West
+  'Boise State': 68,
+  'Air Force': 2005,
+  'Colorado State': 36,
+  'Wyoming': 2751,
+  'Utah State': 328,
+  'New Mexico': 167,
+  'UNLV': 2439,
+  'Nevada': 2440,
+  'San Diego State': 21,
+  'Fresno State': 278,
+  'San Jose State': 23,
+  'Hawaii': 62,
+
+  // Conference USA
+  'Marshall': 276,
+  'Western Kentucky': 98,
+  'Southern Miss': 2572,
+  'Louisiana Tech': 2348,
+  'UTEP': 2638,
+  'Middle Tennessee': 2393,
+  'FIU': 2229,
+  'Old Dominion': 295,
+  'Liberty': 2335,
+  'New Mexico State': 166,
+  'Jacksonville State': 55,
+  'Sam Houston': 2534,
+  'Kennesaw State': 338,
+  'SHSU': 2534,
+
+  // MAC
+  'Toledo': 2649,
+  'Northern Illinois': 2459,
+  'Ohio': 195,
+  'Miami (OH)': 193,
+  'Buffalo': 2084,
+  'Bowling Green': 189,
+  'Central Michigan': 2117,
+  'Eastern Michigan': 2199,
+  'Western Michigan': 2711,
+  'Kent State': 2309,
+  'Akron': 2006,
+  'Ball State': 2050,
+
+  // Sun Belt
+  'App State': 2026,
+  'Louisiana': 309,
+  'Troy': 2653,
+  'Arkansas State': 2032,
+  'Georgia Southern': 290,
+  'Georgia State': 2247,
+  'Coastal Carolina': 324,
+  'Texas State': 326,
+  'Louisiana Monroe': 2433,
+  'South Alabama': 6,
+
+  // FCS - Missouri Valley
+  'North Dakota State': 2449,
+  'South Dakota State': 2571,
+  'Northern Iowa': 2460,
+  'Illinois State': 2287,
+  'Indiana State': 282,
+  'Missouri State': 2623,
+  'Southern Illinois': 2576,
+  'Youngstown State': 2750,
+  'Western Illinois': 2710,
+  'South Dakota': 2569,
+  'North Dakota': 2447,
+  'Duquesne': 2184,
+
+  // FCS - Big Sky
+  'Montana State': 2153,
+  'Montana': 2151,
+  'Eastern Washington': 331,
+  'Weber State': 2725,
+  'Idaho State': 304,
+  'Northern Arizona': 2464,
+  'Portland State': 2502,
+  'Sacramento State': 16,
+  'Southern Utah': 253,
+  'UC Davis': 302,
+  'Northern Colorado': 2458,
+  'Cal Poly': 13,
+  'Idaho': 70,
+
+  // FCS - CAA
+  'James Madison': 256,
+  'Delaware': 48,
+  'Richmond': 257,
+  'Villanova': 222,
+  'New Hampshire': 2315,
+  'Maine': 311,
+  'Rhode Island': 227,
+  'Stony Brook': 2619,
+  'Albany': 399,
+  'Elon': 2210,
+  'Towson': 119,
+  'William & Mary': 2729,
+  'Monmouth': 2405,
+  'Hampton': 2215,
+
+  // FCS - Southern Conference
+  'Furman': 231,
+  'Wofford': 2747,
+  'The Citadel': 2643,
+  'Samford': 2524,
+  'Chattanooga': 236,
+  'East Tennessee State': 2198,
+  'Mercer': 2382,
+  'VMI': 261,
+  'Western Carolina': 2717,
+  'UNC Greensboro': 2415,
+
+  // Independent
+  'Notre Dame': 87,
+  'Army': 349,
+  'UMass': 113,
+  'UConn': 41
+}
+
+// Get ESPN team ID by team name
+export function getTeamId(teamName: string): number {
+  return TEAM_ID_MAPPING[teamName] || 0
+}
+
+// Alternative logo URLs for fallback
+export const LOGO_FALLBACK_URLS = [
+  (teamId: number) => `https://a.espncdn.com/i/teamlogos/ncaa/500/${teamId}.png`,
+  (teamId: number) => `https://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/${teamId}.png&w=200&h=200`,
+  (teamName: string) => `https://logos.fansided.com/logos/ncaa/${teamName.toLowerCase().replace(/\s/g, '')}.png`,
+  (teamName: string) => `https://www.sports-reference.com/req/202010011/images/logos/schools/${teamName.toLowerCase().replace(/\s/g, '')}.png`
+]

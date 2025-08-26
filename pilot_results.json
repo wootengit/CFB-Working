@@ -1,0 +1,28 @@
+{
+  "api_calls_used": 7,
+  "training_examples": 2231,
+  "final_accuracy": 44.06095921111609,
+  "q_states_learned": 18,
+  "test_predictions": [
+    {
+      "test_case": 1,
+      "predicted_winner": "away",
+      "confidence": 50.0,
+      "home_q": 0.0,
+      "away_q": 0.0
+    },
+    {
+      "test_case": 2,
+      "predicted_winner": "away",
+      "confidence": 50.0,
+      "home_q": 0.0,
+      "away_q": 0.0
+    }
+  ],
+  "training_years": [
+    2021,
+    2022,
+    2023
+  ],
+  "timestamp": "2025-08-25T19:37:31.586211"
+}
