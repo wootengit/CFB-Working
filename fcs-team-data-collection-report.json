@@ -1,0 +1,4232 @@
+{
+  "timestamp": "2025-08-27T13:02:14.107Z",
+  "pipelineType": "FCS_AUTOMATED_TEAM_DATA_COLLECTION",
+  "division": "FCS",
+  "initialization": {
+    "apiEndpointsWorking": 0,
+    "totalTeams": 128,
+    "mockDataMode": true,
+    "division": "FCS"
+  },
+  "collectionStats": {
+    "totalTeams": 128,
+    "successfulCollections": 128,
+    "failedCollections": 0,
+    "apiEndpointsWorking": 0,
+    "dataCompleteness": 1
+  },
+  "validation": {
+    "fcsConferenceValidation": {
+      "timestamp": "2025-08-27T13:02:14.028Z",
+      "validationType": "COMPREHENSIVE_FCS_TEAM_PAGE_VALIDATION",
+      "division": "FCS",
+      "conferenceGrading": {
+        "conferenceResults": {
+          "Big Sky Conference": {
+            "grade": 1,
+            "actualTeamCount": 12,
+            "expectedTeamCount": 12,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Montana",
+                "mascot": "Grizzlies",
+                "abbreviation": "MONT",
+                "state": "MT",
+                "city": "Missoula"
+              },
+              {
+                "school": "Montana State",
+                "mascot": "Bobcats",
+                "abbreviation": "MTST",
+                "state": "MT",
+                "city": "Bozeman"
+              },
+              {
+                "school": "North Dakota State",
+                "mascot": "Bison",
+                "abbreviation": "NDSU",
+                "state": "ND",
+                "city": "Fargo"
+              },
+              {
+                "school": "South Dakota State",
+                "mascot": "Jackrabbits",
+                "abbreviation": "SDST",
+                "state": "SD",
+                "city": "Brookings"
+              },
+              {
+                "school": "Northern Arizona",
+                "mascot": "Lumberjacks",
+                "abbreviation": "NAU",
+                "state": "AZ",
+                "city": "Flagstaff"
+              },
+              {
+                "school": "Weber State",
+                "mascot": "Wildcats",
+                "abbreviation": "WEB",
+                "state": "UT",
+                "city": "Ogden"
+              },
+              {
+                "school": "Eastern Washington",
+                "mascot": "Eagles",
+                "abbreviation": "EWU",
+                "state": "WA",
+                "city": "Cheney"
+              },
+              {
+                "school": "Idaho State",
+                "mascot": "Bengals",
+                "abbreviation": "IDST",
+                "state": "ID",
+                "city": "Pocatello"
+              },
+              {
+                "school": "Northern Colorado",
+                "mascot": "Bears",
+                "abbreviation": "UNC",
+                "state": "CO",
+                "city": "Greeley"
+              },
+              {
+                "school": "Portland State",
+                "mascot": "Vikings",
+                "abbreviation": "PRST",
+                "state": "OR",
+                "city": "Portland"
+              },
+              {
+                "school": "Sacramento State",
+                "mascot": "Hornets",
+                "abbreviation": "SAC",
+                "state": "CA",
+                "city": "Sacramento"
+              },
+              {
+                "school": "Cal Poly",
+                "mascot": "Mustangs",
+                "abbreviation": "CP",
+                "state": "CA",
+                "city": "San Luis Obispo"
+              }
+            ],
+            "bettingRelevance": "HIGHEST",
+            "playoffPresence": "FREQUENT",
+            "nationalChampionships": [
+              "Montana (1995, 2001)",
+              "Montana State (1984)"
+            ],
+            "bettingVolume": "HIGH"
+          },
+          "Colonial Athletic Association": {
+            "grade": 1,
+            "actualTeamCount": 14,
+            "expectedTeamCount": 14,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "James Madison",
+                "mascot": "Dukes",
+                "abbreviation": "JMU",
+                "state": "VA",
+                "city": "Harrisonburg"
+              },
+              {
+                "school": "Delaware",
+                "mascot": "Fightin' Blue Hens",
+                "abbreviation": "DEL",
+                "state": "DE",
+                "city": "Newark"
+              },
+              {
+                "school": "Villanova",
+                "mascot": "Wildcats",
+                "abbreviation": "NOVA",
+                "state": "PA",
+                "city": "Villanova"
+              },
+              {
+                "school": "Richmond",
+                "mascot": "Spiders",
+                "abbreviation": "RICH",
+                "state": "VA",
+                "city": "Richmond"
+              },
+              {
+                "school": "William & Mary",
+                "mascot": "Tribe",
+                "abbreviation": "WM",
+                "state": "VA",
+                "city": "Williamsburg"
+              },
+              {
+                "school": "New Hampshire",
+                "mascot": "Wildcats",
+                "abbreviation": "UNH",
+                "state": "NH",
+                "city": "Durham"
+              },
+              {
+                "school": "Maine",
+                "mascot": "Black Bears",
+                "abbreviation": "MAINE",
+                "state": "ME",
+                "city": "Orono"
+              },
+              {
+                "school": "Rhode Island",
+                "mascot": "Rams",
+                "abbreviation": "URI",
+                "state": "RI",
+                "city": "Kingston"
+              },
+              {
+                "school": "Albany",
+                "mascot": "Great Danes",
+                "abbreviation": "ALB",
+                "state": "NY",
+                "city": "Albany"
+              },
+              {
+                "school": "Stony Brook",
+                "mascot": "Seawolves",
+                "abbreviation": "SBU",
+                "state": "NY",
+                "city": "Stony Brook"
+              },
+              {
+                "school": "Elon",
+                "mascot": "Phoenix",
+                "abbreviation": "ELON",
+                "state": "NC",
+                "city": "Elon"
+              },
+              {
+                "school": "Towson",
+                "mascot": "Tigers",
+                "abbreviation": "TOWS",
+                "state": "MD",
+                "city": "Towson"
+              },
+              {
+                "school": "Hampton",
+                "mascot": "Pirates",
+                "abbreviation": "HAMP",
+                "state": "VA",
+                "city": "Hampton"
+              },
+              {
+                "school": "Monmouth",
+                "mascot": "Hawks",
+                "abbreviation": "MONM",
+                "state": "NJ",
+                "city": "West Long Branch"
+              }
+            ],
+            "bettingRelevance": "HIGHEST",
+            "playoffPresence": "FREQUENT",
+            "nationalChampionships": [
+              "James Madison (2004, 2016)",
+              "Delaware (2003)",
+              "Richmond (2008)"
+            ],
+            "bettingVolume": "HIGH"
+          },
+          "Missouri Valley Football Conference": {
+            "grade": 1,
+            "actualTeamCount": 11,
+            "expectedTeamCount": 11,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "North Dakota State",
+                "mascot": "Bison",
+                "abbreviation": "NDSU",
+                "state": "ND",
+                "city": "Fargo"
+              },
+              {
+                "school": "South Dakota State",
+                "mascot": "Jackrabbits",
+                "abbreviation": "SDST",
+                "state": "SD",
+                "city": "Brookings"
+              },
+              {
+                "school": "Northern Iowa",
+                "mascot": "Panthers",
+                "abbreviation": "UNI",
+                "state": "IA",
+                "city": "Cedar Falls"
+              },
+              {
+                "school": "Illinois State",
+                "mascot": "Redbirds",
+                "abbreviation": "ILST",
+                "state": "IL",
+                "city": "Normal"
+              },
+              {
+                "school": "Southern Illinois",
+                "mascot": "Salukis",
+                "abbreviation": "SIU",
+                "state": "IL",
+                "city": "Carbondale"
+              },
+              {
+                "school": "Youngstown State",
+                "mascot": "Penguins",
+                "abbreviation": "YSU",
+                "state": "OH",
+                "city": "Youngstown"
+              },
+              {
+                "school": "Western Illinois",
+                "mascot": "Leathernecks",
+                "abbreviation": "WIU",
+                "state": "IL",
+                "city": "Macomb"
+              },
+              {
+                "school": "Missouri State",
+                "mascot": "Bears",
+                "abbreviation": "MOST",
+                "state": "MO",
+                "city": "Springfield"
+              },
+              {
+                "school": "Indiana State",
+                "mascot": "Sycamores",
+                "abbreviation": "INST",
+                "state": "IN",
+                "city": "Terre Haute"
+              },
+              {
+                "school": "South Dakota",
+                "mascot": "Coyotes",
+                "abbreviation": "USD",
+                "state": "SD",
+                "city": "Vermillion"
+              },
+              {
+                "school": "North Dakota",
+                "mascot": "Fighting Hawks",
+                "abbreviation": "UND",
+                "state": "ND",
+                "city": "Grand Forks"
+              }
+            ],
+            "bettingRelevance": "HIGHEST",
+            "playoffPresence": "FREQUENT",
+            "nationalChampionships": [
+              "Northern Iowa (2009)",
+              "Youngstown State (1991, 1993, 1994, 1997)"
+            ],
+            "bettingVolume": "HIGH"
+          },
+          "Southland Conference": {
+            "grade": 1,
+            "actualTeamCount": 9,
+            "expectedTeamCount": 9,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "McNeese State",
+                "mascot": "Cowboys",
+                "abbreviation": "MCNS",
+                "state": "LA",
+                "city": "Lake Charles"
+              },
+              {
+                "school": "Southeastern Louisiana",
+                "mascot": "Lions",
+                "abbreviation": "SELU",
+                "state": "LA",
+                "city": "Hammond"
+              },
+              {
+                "school": "Nicholls State",
+                "mascot": "Colonels",
+                "abbreviation": "NICH",
+                "state": "LA",
+                "city": "Thibodaux"
+              },
+              {
+                "school": "Northwestern State",
+                "mascot": "Demons",
+                "abbreviation": "NWST",
+                "state": "LA",
+                "city": "Natchitoches"
+              },
+              {
+                "school": "Incarnate Word",
+                "mascot": "Cardinals",
+                "abbreviation": "UIW",
+                "state": "TX",
+                "city": "San Antonio"
+              },
+              {
+                "school": "Houston Baptist",
+                "mascot": "Huskies",
+                "abbreviation": "HBU",
+                "state": "TX",
+                "city": "Houston"
+              },
+              {
+                "school": "Lamar",
+                "mascot": "Cardinals",
+                "abbreviation": "LAM",
+                "state": "TX",
+                "city": "Beaumont"
+              },
+              {
+                "school": "Texas A&M-Commerce",
+                "mascot": "Lions",
+                "abbreviation": "TAMC",
+                "state": "TX",
+                "city": "Commerce"
+              },
+              {
+                "school": "Eastern Kentucky",
+                "mascot": "Colonels",
+                "abbreviation": "EKU",
+                "state": "KY",
+                "city": "Richmond"
+              }
+            ],
+            "bettingRelevance": "HIGH",
+            "playoffPresence": "OCCASIONAL",
+            "nationalChampionships": [
+              "McNeese State (1989)",
+              "Northeast Louisiana (1987)"
+            ],
+            "bettingVolume": "MEDIUM-HIGH"
+          },
+          "Southern Conference": {
+            "grade": 1,
+            "actualTeamCount": 9,
+            "expectedTeamCount": 9,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Furman",
+                "mascot": "Paladins",
+                "abbreviation": "FUR",
+                "state": "SC",
+                "city": "Greenville"
+              },
+              {
+                "school": "Wofford",
+                "mascot": "Terriers",
+                "abbreviation": "WOF",
+                "state": "SC",
+                "city": "Spartanburg"
+              },
+              {
+                "school": "The Citadel",
+                "mascot": "Bulldogs",
+                "abbreviation": "CIT",
+                "state": "SC",
+                "city": "Charleston"
+              },
+              {
+                "school": "Chattanooga",
+                "mascot": "Mocs",
+                "abbreviation": "CHAT",
+                "state": "TN",
+                "city": "Chattanooga"
+              },
+              {
+                "school": "East Tennessee State",
+                "mascot": "Buccaneers",
+                "abbreviation": "ETSU",
+                "state": "TN",
+                "city": "Johnson City"
+              },
+              {
+                "school": "Mercer",
+                "mascot": "Bears",
+                "abbreviation": "MER",
+                "state": "GA",
+                "city": "Macon"
+              },
+              {
+                "school": "Samford",
+                "mascot": "Bulldogs",
+                "abbreviation": "SAM",
+                "state": "AL",
+                "city": "Birmingham"
+              },
+              {
+                "school": "Western Carolina",
+                "mascot": "Catamounts",
+                "abbreviation": "WCU",
+                "state": "NC",
+                "city": "Cullowhee"
+              },
+              {
+                "school": "VMI",
+                "mascot": "Keydets",
+                "abbreviation": "VMI",
+                "state": "VA",
+                "city": "Lexington"
+              }
+            ],
+            "bettingRelevance": "HIGH",
+            "playoffPresence": "FREQUENT",
+            "nationalChampionships": [
+              "Appalachian State (2005, 2006, 2007)",
+              "Georgia Southern (1985, 1986, 1989, 1990, 1999, 2000)"
+            ],
+            "bettingVolume": "MEDIUM-HIGH"
+          },
+          "Western Athletic Conference": {
+            "grade": 1,
+            "actualTeamCount": 9,
+            "expectedTeamCount": 9,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Abilene Christian",
+                "mascot": "Wildcats",
+                "abbreviation": "ACU",
+                "state": "TX",
+                "city": "Abilene"
+              },
+              {
+                "school": "Central Arkansas",
+                "mascot": "Bears",
+                "abbreviation": "UCA",
+                "state": "AR",
+                "city": "Conway"
+              },
+              {
+                "school": "Lamar",
+                "mascot": "Cardinals",
+                "abbreviation": "LAM",
+                "state": "TX",
+                "city": "Beaumont"
+              },
+              {
+                "school": "Sam Houston State",
+                "mascot": "Bearkats",
+                "abbreviation": "SHSU",
+                "state": "TX",
+                "city": "Huntsville"
+              },
+              {
+                "school": "Stephen F. Austin",
+                "mascot": "Lumberjacks",
+                "abbreviation": "SFA",
+                "state": "TX",
+                "city": "Nacogdoches"
+              },
+              {
+                "school": "Tarleton State",
+                "mascot": "Texans",
+                "abbreviation": "TARS",
+                "state": "TX",
+                "city": "Stephenville"
+              },
+              {
+                "school": "Utah Tech",
+                "mascot": "Trailblazers",
+                "abbreviation": "UTAH",
+                "state": "UT",
+                "city": "St. George"
+              },
+              {
+                "school": "Southern Utah",
+                "mascot": "Thunderbirds",
+                "abbreviation": "SUU",
+                "state": "UT",
+                "city": "Cedar City"
+              },
+              {
+                "school": "Northern Arizona",
+                "mascot": "Lumberjacks",
+                "abbreviation": "NAU",
+                "state": "AZ",
+                "city": "Flagstaff"
+              }
+            ],
+            "bettingRelevance": "MEDIUM",
+            "playoffPresence": "OCCASIONAL",
+            "nationalChampionships": [
+              "Abilene Christian (1973, 1977, 1979)"
+            ],
+            "bettingVolume": "MEDIUM"
+          },
+          "Patriot League": {
+            "grade": 1,
+            "actualTeamCount": 7,
+            "expectedTeamCount": 7,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Colgate",
+                "mascot": "Raiders",
+                "abbreviation": "COLG",
+                "state": "NY",
+                "city": "Hamilton"
+              },
+              {
+                "school": "Holy Cross",
+                "mascot": "Crusaders",
+                "abbreviation": "HC",
+                "state": "MA",
+                "city": "Worcester"
+              },
+              {
+                "school": "Bucknell",
+                "mascot": "Bison",
+                "abbreviation": "BUCK",
+                "state": "PA",
+                "city": "Lewisburg"
+              },
+              {
+                "school": "Lafayette",
+                "mascot": "Leopards",
+                "abbreviation": "LAF",
+                "state": "PA",
+                "city": "Easton"
+              },
+              {
+                "school": "Lehigh",
+                "mascot": "Mountain Hawks",
+                "abbreviation": "LEH",
+                "state": "PA",
+                "city": "Bethlehem"
+              },
+              {
+                "school": "Fordham",
+                "mascot": "Rams",
+                "abbreviation": "FOR",
+                "state": "NY",
+                "city": "Bronx"
+              },
+              {
+                "school": "Georgetown",
+                "mascot": "Hoyas",
+                "abbreviation": "GTWN",
+                "state": "DC",
+                "city": "Washington"
+              }
+            ],
+            "bettingRelevance": "MEDIUM",
+            "playoffPresence": "OCCASIONAL",
+            "nationalChampionships": [
+              "Colgate (2003)",
+              "Holy Cross (1987)"
+            ],
+            "bettingVolume": "MEDIUM"
+          },
+          "Ivy League": {
+            "grade": 1,
+            "actualTeamCount": 8,
+            "expectedTeamCount": 8,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Harvard",
+                "mascot": "Crimson",
+                "abbreviation": "HARV",
+                "state": "MA",
+                "city": "Cambridge"
+              },
+              {
+                "school": "Yale",
+                "mascot": "Bulldogs",
+                "abbreviation": "YALE",
+                "state": "CT",
+                "city": "New Haven"
+              },
+              {
+                "school": "Princeton",
+                "mascot": "Tigers",
+                "abbreviation": "PRIN",
+                "state": "NJ",
+                "city": "Princeton"
+              },
+              {
+                "school": "Dartmouth",
+                "mascot": "Big Green",
+                "abbreviation": "DART",
+                "state": "NH",
+                "city": "Hanover"
+              },
+              {
+                "school": "Columbia",
+                "mascot": "Lions",
+                "abbreviation": "CLMB",
+                "state": "NY",
+                "city": "New York"
+              },
+              {
+                "school": "Brown",
+                "mascot": "Bears",
+                "abbreviation": "BRWN",
+                "state": "RI",
+                "city": "Providence"
+              },
+              {
+                "school": "Pennsylvania",
+                "mascot": "Quakers",
+                "abbreviation": "PENN",
+                "state": "PA",
+                "city": "Philadelphia"
+              },
+              {
+                "school": "Cornell",
+                "mascot": "Big Red",
+                "abbreviation": "COR",
+                "state": "NY",
+                "city": "Ithaca"
+              }
+            ],
+            "bettingRelevance": "MEDIUM",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [
+              "Harvard (1890, 1919)",
+              "Yale (1900, 1909)",
+              "Princeton (1935)"
+            ],
+            "bettingVolume": "MEDIUM"
+          },
+          "Mid-Eastern Athletic Conference": {
+            "grade": 1,
+            "actualTeamCount": 8,
+            "expectedTeamCount": 8,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Florida A&M",
+                "mascot": "Rattlers",
+                "abbreviation": "FAMU",
+                "state": "FL",
+                "city": "Tallahassee"
+              },
+              {
+                "school": "Bethune-Cookman",
+                "mascot": "Wildcats",
+                "abbreviation": "BCU",
+                "state": "FL",
+                "city": "Daytona Beach"
+              },
+              {
+                "school": "Howard",
+                "mascot": "Bison",
+                "abbreviation": "HOW",
+                "state": "DC",
+                "city": "Washington"
+              },
+              {
+                "school": "Morgan State",
+                "mascot": "Bears",
+                "abbreviation": "MORG",
+                "state": "MD",
+                "city": "Baltimore"
+              },
+              {
+                "school": "Norfolk State",
+                "mascot": "Spartans",
+                "abbreviation": "NSU",
+                "state": "VA",
+                "city": "Norfolk"
+              },
+              {
+                "school": "North Carolina Central",
+                "mascot": "Eagles",
+                "abbreviation": "NCCU",
+                "state": "NC",
+                "city": "Durham"
+              },
+              {
+                "school": "South Carolina State",
+                "mascot": "Bulldogs",
+                "abbreviation": "SCSU",
+                "state": "SC",
+                "city": "Orangeburg"
+              },
+              {
+                "school": "Delaware State",
+                "mascot": "Hornets",
+                "abbreviation": "DSU",
+                "state": "DE",
+                "city": "Dover"
+              }
+            ],
+            "bettingRelevance": "MEDIUM-LOW",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [
+              "Florida A&M (1978)",
+              "South Carolina State (1976, 1994)"
+            ],
+            "bettingVolume": "LOW-MEDIUM"
+          },
+          "Southwestern Athletic Conference": {
+            "grade": 1,
+            "actualTeamCount": 10,
+            "expectedTeamCount": 10,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Grambling State",
+                "mascot": "Tigers",
+                "abbreviation": "GRAM",
+                "state": "LA",
+                "city": "Grambling"
+              },
+              {
+                "school": "Southern",
+                "mascot": "Jaguars",
+                "abbreviation": "SU",
+                "state": "LA",
+                "city": "Baton Rouge"
+              },
+              {
+                "school": "Jackson State",
+                "mascot": "Tigers",
+                "abbreviation": "JSU",
+                "state": "MS",
+                "city": "Jackson"
+              },
+              {
+                "school": "Alabama A&M",
+                "mascot": "Bulldogs",
+                "abbreviation": "AAMU",
+                "state": "AL",
+                "city": "Huntsville"
+              },
+              {
+                "school": "Alabama State",
+                "mascot": "Hornets",
+                "abbreviation": "ASU",
+                "state": "AL",
+                "city": "Montgomery"
+              },
+              {
+                "school": "Alcorn State",
+                "mascot": "Braves",
+                "abbreviation": "ALCN",
+                "state": "MS",
+                "city": "Lorman"
+              },
+              {
+                "school": "Mississippi Valley State",
+                "mascot": "Delta Devils",
+                "abbreviation": "MVSU",
+                "state": "MS",
+                "city": "Itta Bena"
+              },
+              {
+                "school": "Prairie View A&M",
+                "mascot": "Panthers",
+                "abbreviation": "PVAM",
+                "state": "TX",
+                "city": "Prairie View"
+              },
+              {
+                "school": "Texas Southern",
+                "mascot": "Tigers",
+                "abbreviation": "TSU",
+                "state": "TX",
+                "city": "Houston"
+              },
+              {
+                "school": "Arkansas-Pine Bluff",
+                "mascot": "Golden Lions",
+                "abbreviation": "UAPB",
+                "state": "AR",
+                "city": "Pine Bluff"
+              }
+            ],
+            "bettingRelevance": "MEDIUM-LOW",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [
+              "Grambling State (1967)",
+              "Prairie View A&M (1964)"
+            ],
+            "bettingVolume": "LOW-MEDIUM"
+          },
+          "Ohio Valley Conference": {
+            "grade": 1,
+            "actualTeamCount": 9,
+            "expectedTeamCount": 9,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Austin Peay",
+                "mascot": "Governors",
+                "abbreviation": "APSU",
+                "state": "TN",
+                "city": "Clarksville"
+              },
+              {
+                "school": "Eastern Illinois",
+                "mascot": "Panthers",
+                "abbreviation": "EIU",
+                "state": "IL",
+                "city": "Charleston"
+              },
+              {
+                "school": "Murray State",
+                "mascot": "Racers",
+                "abbreviation": "MUR",
+                "state": "KY",
+                "city": "Murray"
+              },
+              {
+                "school": "Tennessee State",
+                "mascot": "Tigers",
+                "abbreviation": "TSU",
+                "state": "TN",
+                "city": "Nashville"
+              },
+              {
+                "school": "Tennessee Tech",
+                "mascot": "Golden Eagles",
+                "abbreviation": "TTU",
+                "state": "TN",
+                "city": "Cookeville"
+              },
+              {
+                "school": "Tennessee-Martin",
+                "mascot": "Skyhawks",
+                "abbreviation": "UTM",
+                "state": "TN",
+                "city": "Martin"
+              },
+              {
+                "school": "Southeast Missouri State",
+                "mascot": "Redhawks",
+                "abbreviation": "SEMO",
+                "state": "MO",
+                "city": "Cape Girardeau"
+              },
+              {
+                "school": "SIU Edwardsville",
+                "mascot": "Cougars",
+                "abbreviation": "SIUE",
+                "state": "IL",
+                "city": "Edwardsville"
+              },
+              {
+                "school": "Lindenwood",
+                "mascot": "Lions",
+                "abbreviation": "LU",
+                "state": "MO",
+                "city": "St. Charles"
+              }
+            ],
+            "bettingRelevance": "MEDIUM-LOW",
+            "playoffPresence": "OCCASIONAL",
+            "nationalChampionships": [
+              "Eastern Kentucky (1979, 1982)",
+              "Murray State (1996)"
+            ],
+            "bettingVolume": "LOW-MEDIUM"
+          },
+          "Northeast Conference": {
+            "grade": 1,
+            "actualTeamCount": 7,
+            "expectedTeamCount": 7,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Central Connecticut State",
+                "mascot": "Blue Devils",
+                "abbreviation": "CCSU",
+                "state": "CT",
+                "city": "New Britain"
+              },
+              {
+                "school": "Duquesne",
+                "mascot": "Dukes",
+                "abbreviation": "DUQ",
+                "state": "PA",
+                "city": "Pittsburgh"
+              },
+              {
+                "school": "Long Island",
+                "mascot": "Sharks",
+                "abbreviation": "LIU",
+                "state": "NY",
+                "city": "Brookville"
+              },
+              {
+                "school": "Merrimack",
+                "mascot": "Warriors",
+                "abbreviation": "MER",
+                "state": "MA",
+                "city": "North Andover"
+              },
+              {
+                "school": "Robert Morris",
+                "mascot": "Colonials",
+                "abbreviation": "RMU",
+                "state": "PA",
+                "city": "Moon Township"
+              },
+              {
+                "school": "Sacred Heart",
+                "mascot": "Pioneers",
+                "abbreviation": "SHU",
+                "state": "CT",
+                "city": "Fairfield"
+              },
+              {
+                "school": "Wagner",
+                "mascot": "Seahawks",
+                "abbreviation": "WAG",
+                "state": "NY",
+                "city": "Staten Island"
+              }
+            ],
+            "bettingRelevance": "LOW",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [],
+            "bettingVolume": "LOW"
+          },
+          "Pioneer Football League": {
+            "grade": 1,
+            "actualTeamCount": 11,
+            "expectedTeamCount": 11,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Davidson",
+                "mascot": "Wildcats",
+                "abbreviation": "DAV",
+                "state": "NC",
+                "city": "Davidson"
+              },
+              {
+                "school": "Drake",
+                "mascot": "Bulldogs",
+                "abbreviation": "DRAKE",
+                "state": "IA",
+                "city": "Des Moines"
+              },
+              {
+                "school": "Butler",
+                "mascot": "Bulldogs",
+                "abbreviation": "BUT",
+                "state": "IN",
+                "city": "Indianapolis"
+              },
+              {
+                "school": "Valparaiso",
+                "mascot": "Crusaders",
+                "abbreviation": "VALP",
+                "state": "IN",
+                "city": "Valparaiso"
+              },
+              {
+                "school": "Dayton",
+                "mascot": "Flyers",
+                "abbreviation": "DAY",
+                "state": "OH",
+                "city": "Dayton"
+              },
+              {
+                "school": "Morehead State",
+                "mascot": "Eagles",
+                "abbreviation": "MORE",
+                "state": "KY",
+                "city": "Morehead"
+              },
+              {
+                "school": "Marist",
+                "mascot": "Red Foxes",
+                "abbreviation": "MARIS",
+                "state": "NY",
+                "city": "Poughkeepsie"
+              },
+              {
+                "school": "San Diego",
+                "mascot": "Toreros",
+                "abbreviation": "USD",
+                "state": "CA",
+                "city": "San Diego"
+              },
+              {
+                "school": "Stetson",
+                "mascot": "Hatters",
+                "abbreviation": "STET",
+                "state": "FL",
+                "city": "DeLand"
+              },
+              {
+                "school": "Presbyterian",
+                "mascot": "Blue Hose",
+                "abbreviation": "PC",
+                "state": "SC",
+                "city": "Clinton"
+              },
+              {
+                "school": "St. Thomas",
+                "mascot": "Tommies",
+                "abbreviation": "UST",
+                "state": "MN",
+                "city": "St. Paul"
+              }
+            ],
+            "bettingRelevance": "LOW",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [],
+            "bettingVolume": "MINIMAL"
+          },
+          "FCS Independents": {
+            "grade": 1,
+            "actualTeamCount": 4,
+            "expectedTeamCount": 4,
+            "isComplete": true,
+            "teams": [
+              {
+                "school": "Hampton",
+                "mascot": "Pirates",
+                "abbreviation": "HAMP",
+                "state": "VA",
+                "city": "Hampton"
+              },
+              {
+                "school": "North Alabama",
+                "mascot": "Lions",
+                "abbreviation": "UNA",
+                "state": "AL",
+                "city": "Florence"
+              },
+              {
+                "school": "Kennesaw State",
+                "mascot": "Owls",
+                "abbreviation": "KSU",
+                "state": "GA",
+                "city": "Kennesaw"
+              },
+              {
+                "school": "North Carolina A&T",
+                "mascot": "Aggies",
+                "abbreviation": "NCAT",
+                "state": "NC",
+                "city": "Greensboro"
+              }
+            ],
+            "bettingRelevance": "VARIABLE",
+            "playoffPresence": "RARE",
+            "nationalChampionships": [],
+            "bettingVolume": "VARIABLE"
+          }
+        },
+        "summary": {
+          "completeConferences": 14,
+          "totalConferences": 14,
+          "overallGrade": 1,
+          "totalTeams": 128,
+          "division": "FCS"
+        }
+      },
+      "teamDataValidation": {
+        "teamValidation": {
+          "Montana": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Montana State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "North Dakota State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "South Dakota State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Northern Arizona": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Weber State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Eastern Washington": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Idaho State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Northern Colorado": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Portland State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Sacramento State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Cal Poly": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Big Sky Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "James Madison": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Delaware": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Villanova": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Richmond": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "William & Mary": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "New Hampshire": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Maine": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Rhode Island": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Albany": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Stony Brook": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Elon": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Towson": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Hampton": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "FCS Independents",
+            "bettingPriority": "VARIABLE",
+            "division": "FCS"
+          },
+          "Monmouth": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Colonial Athletic Association",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Northern Iowa": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Illinois State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Southern Illinois": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Youngstown State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Western Illinois": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Missouri State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "Indiana State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "South Dakota": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "North Dakota": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Missouri Valley Football Conference",
+            "bettingPriority": "HIGHEST",
+            "division": "FCS"
+          },
+          "McNeese State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Southeastern Louisiana": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Nicholls State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Northwestern State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Incarnate Word": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Houston Baptist": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Lamar": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Texas A&M-Commerce": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Eastern Kentucky": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southland Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Furman": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Wofford": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "The Citadel": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Chattanooga": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "East Tennessee State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Mercer": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Samford": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Western Carolina": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "VMI": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southern Conference",
+            "bettingPriority": "HIGH",
+            "division": "FCS"
+          },
+          "Abilene Christian": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Central Arkansas": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Sam Houston State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Stephen F. Austin": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Tarleton State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Utah Tech": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Southern Utah": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Western Athletic Conference",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Colgate": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Holy Cross": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Bucknell": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Lafayette": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Lehigh": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Fordham": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Georgetown": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Patriot League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Harvard": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Yale": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Princeton": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Dartmouth": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Columbia": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Brown": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Pennsylvania": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Cornell": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ivy League",
+            "bettingPriority": "MEDIUM",
+            "division": "FCS"
+          },
+          "Florida A&M": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Bethune-Cookman": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Howard": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Morgan State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Norfolk State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "North Carolina Central": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "South Carolina State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Delaware State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Mid-Eastern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Grambling State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Southern": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Jackson State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Alabama A&M": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Alabama State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Alcorn State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Mississippi Valley State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Prairie View A&M": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Texas Southern": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Arkansas-Pine Bluff": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Southwestern Athletic Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Austin Peay": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Eastern Illinois": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Murray State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Tennessee State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Tennessee Tech": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Tennessee-Martin": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Southeast Missouri State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "SIU Edwardsville": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Lindenwood": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Ohio Valley Conference",
+            "bettingPriority": "MEDIUM-LOW",
+            "division": "FCS"
+          },
+          "Central Connecticut State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Duquesne": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Long Island": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Merrimack": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Robert Morris": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Sacred Heart": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Wagner": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Northeast Conference",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Davidson": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Drake": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Butler": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Valparaiso": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Dayton": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Morehead State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Marist": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "San Diego": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Stetson": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "Presbyterian": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "St. Thomas": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "Pioneer Football League",
+            "bettingPriority": "LOW",
+            "division": "FCS"
+          },
+          "North Alabama": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "FCS Independents",
+            "bettingPriority": "VARIABLE",
+            "division": "FCS"
+          },
+          "Kennesaw State": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "FCS Independents",
+            "bettingPriority": "VARIABLE",
+            "division": "FCS"
+          },
+          "North Carolina A&T": {
+            "isComplete": true,
+            "completenessScore": 1,
+            "missingFields": [],
+            "conference": "FCS Independents",
+            "bettingPriority": "VARIABLE",
+            "division": "FCS"
+          }
+        },
+        "summary": {
+          "completeTeams": 128,
+          "totalTeams": 128,
+          "completenessRate": 1,
+          "incompleteTeams": 0,
+          "division": "FCS"
+        }
+      },
+      "implementationRoadmap": {
+        "fcs_phase1_highest_priority": {
+          "description": "FCS Playoff Powers (Big Sky, CAA, MVFC)",
+          "conferences": [
+            "Big Sky Conference",
+            "Colonial Athletic Association",
+            "Missouri Valley Football Conference"
+          ],
+          "teamCount": 37,
+          "estimatedEffort": "3-4 weeks",
+          "criticalFeatures": [
+            "FCS playoff odds integration",
+            "Historical championship data",
+            "Advanced FCS analytics",
+            "Rivalry game betting",
+            "Conference tournament odds"
+          ]
+        },
+        "fcs_phase2_high_priority": {
+          "description": "Regional FCS Powers (Southland, Southern Conference)",
+          "conferences": [
+            "Southland Conference",
+            "Southern Conference"
+          ],
+          "teamCount": 18,
+          "estimatedEffort": "2-3 weeks",
+          "criticalFeatures": [
+            "Regional betting patterns",
+            "Conference standings",
+            "Head-to-head records",
+            "FCS recruiting rankings",
+            "Coaching changes tracking"
+          ]
+        },
+        "fcs_phase3_medium_priority": {
+          "description": "Academic and Regional Conferences",
+          "conferences": [
+            "Western Athletic Conference",
+            "Patriot League",
+            "Ivy League"
+          ],
+          "teamCount": 51,
+          "estimatedEffort": "2-3 weeks",
+          "criticalFeatures": [
+            "Academic rivalry betting",
+            "Schedule integration",
+            "Player rosters",
+            "Venue information",
+            "Alumni network metrics"
+          ]
+        },
+        "fcs_phase4_specialty_conferences": {
+          "description": "HBCU and Non-scholarship Conferences",
+          "conferences": [
+            "Mid-Eastern Athletic Conference",
+            "Southwestern Athletic Conference",
+            "Ohio Valley Conference",
+            "Northeast Conference",
+            "Pioneer Football League"
+          ],
+          "teamCount": 18,
+          "estimatedEffort": "2 weeks",
+          "criticalFeatures": [
+            "HBCU Classic game betting",
+            "Cultural significance tracking",
+            "Non-scholarship considerations",
+            "Special event integration"
+          ]
+        },
+        "fcs_phase5_independents": {
+          "description": "FCS Independent teams (variable betting)",
+          "conferences": [
+            "FCS Independents"
+          ],
+          "teamCount": 4,
+          "estimatedEffort": "1 week",
+          "criticalFeatures": [
+            "Independent scheduling considerations",
+            "Unique betting patterns",
+            "Conference affiliation tracking",
+            "Transition monitoring"
+          ]
+        }
+      },
+      "summary": {
+        "totalConferences": 14,
+        "completeConferences": 14,
+        "conferenceCompleteness": 1,
+        "totalTeams": 128,
+        "completeTeams": 128,
+        "teamDataCompleteness": 1,
+        "readyForImplementation": true,
+        "division": "FCS"
+      },
+      "combinedDivisionIStats": {
+        "totalFBSTeams": 136,
+        "totalFCSTeams": 128,
+        "totalDivisionITeams": 264,
+        "completeCoverage": true
+      }
+    },
+    "fcsDataValidation": {
+      "Montana": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Montana State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "North Dakota State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "South Dakota State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Northern Arizona": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Weber State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Eastern Washington": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Idaho State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Northern Colorado": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Portland State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Sacramento State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Cal Poly": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "James Madison": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Delaware": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Villanova": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Richmond": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "William & Mary": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "New Hampshire": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Maine": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Rhode Island": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Albany": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Stony Brook": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Elon": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Towson": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Hampton": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "VARIABLE",
+        "division": "FCS"
+      },
+      "Monmouth": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Northern Iowa": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Illinois State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Southern Illinois": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Youngstown State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Western Illinois": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Missouri State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "Indiana State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "South Dakota": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "North Dakota": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGHEST",
+        "division": "FCS"
+      },
+      "McNeese State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Southeastern Louisiana": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Nicholls State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Northwestern State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Incarnate Word": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Houston Baptist": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Lamar": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Texas A&M-Commerce": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Eastern Kentucky": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Furman": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Wofford": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "The Citadel": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Chattanooga": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "East Tennessee State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Mercer": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Samford": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Western Carolina": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "VMI": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "100.0%",
+        "bettingRelevance": "HIGH",
+        "division": "FCS"
+      },
+      "Abilene Christian": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Central Arkansas": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Sam Houston State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Stephen F. Austin": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Tarleton State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Utah Tech": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Southern Utah": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Colgate": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Holy Cross": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Bucknell": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Lafayette": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Lehigh": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Fordham": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Georgetown": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Harvard": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Yale": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Princeton": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Dartmouth": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Columbia": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Brown": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Pennsylvania": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Cornell": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM",
+        "division": "FCS"
+      },
+      "Florida A&M": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Bethune-Cookman": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Howard": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Morgan State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Norfolk State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "North Carolina Central": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "South Carolina State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Delaware State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Grambling State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Southern": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Jackson State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Alabama A&M": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Alabama State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Alcorn State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Mississippi Valley State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Prairie View A&M": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Texas Southern": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Arkansas-Pine Bluff": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Austin Peay": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Eastern Illinois": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Murray State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Tennessee State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Tennessee Tech": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Tennessee-Martin": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Southeast Missouri State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "SIU Edwardsville": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Lindenwood": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "MEDIUM-LOW",
+        "division": "FCS"
+      },
+      "Central Connecticut State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Duquesne": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Long Island": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Merrimack": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Robert Morris": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Sacred Heart": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Wagner": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Davidson": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Drake": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Butler": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Valparaiso": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Dayton": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Morehead State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Marist": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "San Diego": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Stetson": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "Presbyterian": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "St. Thomas": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "LOW",
+        "division": "FCS"
+      },
+      "North Alabama": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "VARIABLE",
+        "division": "FCS"
+      },
+      "Kennesaw State": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "VARIABLE",
+        "division": "FCS"
+      },
+      "North Carolina A&T": {
+        "isComplete": true,
+        "missingFields": [],
+        "dataQuality": "87.5%",
+        "bettingRelevance": "VARIABLE",
+        "division": "FCS"
+      }
+    },
+    "fcsStats": {
+      "totalTeams": 128,
+      "successfulCollections": 128,
+      "failedCollections": 0,
+      "apiEndpointsWorking": 0,
+      "dataCompleteness": 1
+    }
+  },
+  "fileGeneration": {
+    "filesGenerated": 123,
+    "fcsDataDirectory": "C:\\CFB-WORKING\\data\\fcs-teams",
+    "fcsIndex": {
+      "timestamp": "2025-08-27T13:02:14.106Z",
+      "totalTeams": 123,
+      "division": "FCS",
+      "dataSource": "FCS_MOCK_DATA",
+      "teams": [
+        {
+          "name": "Montana",
+          "slug": "montana",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.015Z"
+        },
+        {
+          "name": "Montana State",
+          "slug": "montana-state",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.043Z"
+        },
+        {
+          "name": "North Dakota State",
+          "slug": "north-dakota-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.833Z"
+        },
+        {
+          "name": "South Dakota State",
+          "slug": "south-dakota-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.865Z"
+        },
+        {
+          "name": "Northern Arizona",
+          "slug": "northern-arizona",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.991Z"
+        },
+        {
+          "name": "Weber State",
+          "slug": "weber-state",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.175Z"
+        },
+        {
+          "name": "Eastern Washington",
+          "slug": "eastern-washington",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.208Z"
+        },
+        {
+          "name": "Idaho State",
+          "slug": "idaho-state",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.241Z"
+        },
+        {
+          "name": "Northern Colorado",
+          "slug": "northern-colorado",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.272Z"
+        },
+        {
+          "name": "Portland State",
+          "slug": "portland-state",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.303Z"
+        },
+        {
+          "name": "Sacramento State",
+          "slug": "sacramento-state",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.334Z"
+        },
+        {
+          "name": "Cal Poly",
+          "slug": "cal-poly",
+          "conference": "Big Sky Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.365Z"
+        },
+        {
+          "name": "James Madison",
+          "slug": "james-madison",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.396Z"
+        },
+        {
+          "name": "Delaware",
+          "slug": "delaware",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.427Z"
+        },
+        {
+          "name": "Villanova",
+          "slug": "villanova",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.458Z"
+        },
+        {
+          "name": "Richmond",
+          "slug": "richmond",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.489Z"
+        },
+        {
+          "name": "William & Mary",
+          "slug": "william--mary",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.520Z"
+        },
+        {
+          "name": "New Hampshire",
+          "slug": "new-hampshire",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.551Z"
+        },
+        {
+          "name": "Maine",
+          "slug": "maine",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.583Z"
+        },
+        {
+          "name": "Rhode Island",
+          "slug": "rhode-island",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.613Z"
+        },
+        {
+          "name": "Albany",
+          "slug": "albany",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.645Z"
+        },
+        {
+          "name": "Stony Brook",
+          "slug": "stony-brook",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.676Z"
+        },
+        {
+          "name": "Elon",
+          "slug": "elon",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.707Z"
+        },
+        {
+          "name": "Towson",
+          "slug": "towson",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.739Z"
+        },
+        {
+          "name": "Hampton",
+          "slug": "hampton",
+          "conference": "FCS Independents",
+          "bettingRelevance": "VARIABLE",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.896Z"
+        },
+        {
+          "name": "Monmouth",
+          "slug": "monmouth",
+          "conference": "Colonial Athletic Association",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.802Z"
+        },
+        {
+          "name": "Northern Iowa",
+          "slug": "northern-iowa",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.896Z"
+        },
+        {
+          "name": "Illinois State",
+          "slug": "illinois-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.927Z"
+        },
+        {
+          "name": "Southern Illinois",
+          "slug": "southern-illinois",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.958Z"
+        },
+        {
+          "name": "Youngstown State",
+          "slug": "youngstown-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:10.990Z"
+        },
+        {
+          "name": "Western Illinois",
+          "slug": "western-illinois",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.022Z"
+        },
+        {
+          "name": "Missouri State",
+          "slug": "missouri-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.053Z"
+        },
+        {
+          "name": "Indiana State",
+          "slug": "indiana-state",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.084Z"
+        },
+        {
+          "name": "South Dakota",
+          "slug": "south-dakota",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.115Z"
+        },
+        {
+          "name": "North Dakota",
+          "slug": "north-dakota",
+          "conference": "Missouri Valley Football Conference",
+          "bettingRelevance": "HIGHEST",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.146Z"
+        },
+        {
+          "name": "McNeese State",
+          "slug": "mcneese-state",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.177Z"
+        },
+        {
+          "name": "Southeastern Louisiana",
+          "slug": "southeastern-louisiana",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.209Z"
+        },
+        {
+          "name": "Nicholls State",
+          "slug": "nicholls-state",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.240Z"
+        },
+        {
+          "name": "Northwestern State",
+          "slug": "northwestern-state",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.272Z"
+        },
+        {
+          "name": "Incarnate Word",
+          "slug": "incarnate-word",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.303Z"
+        },
+        {
+          "name": "Houston Baptist",
+          "slug": "houston-baptist",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.335Z"
+        },
+        {
+          "name": "Lamar",
+          "slug": "lamar",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.803Z"
+        },
+        {
+          "name": "Texas A&M-Commerce",
+          "slug": "texas-am-commerce",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.397Z"
+        },
+        {
+          "name": "Eastern Kentucky",
+          "slug": "eastern-kentucky",
+          "conference": "Southland Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.428Z"
+        },
+        {
+          "name": "Furman",
+          "slug": "furman",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.459Z"
+        },
+        {
+          "name": "Wofford",
+          "slug": "wofford",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.491Z"
+        },
+        {
+          "name": "The Citadel",
+          "slug": "the-citadel",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.522Z"
+        },
+        {
+          "name": "Chattanooga",
+          "slug": "chattanooga",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.554Z"
+        },
+        {
+          "name": "East Tennessee State",
+          "slug": "east-tennessee-state",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.584Z"
+        },
+        {
+          "name": "Mercer",
+          "slug": "mercer",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.615Z"
+        },
+        {
+          "name": "Samford",
+          "slug": "samford",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.647Z"
+        },
+        {
+          "name": "Western Carolina",
+          "slug": "western-carolina",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.678Z"
+        },
+        {
+          "name": "VMI",
+          "slug": "vmi",
+          "conference": "Southern Conference",
+          "bettingRelevance": "HIGH",
+          "dataQuality": "100.0%",
+          "playoffEligible": true,
+          "lastUpdated": "2025-08-27T13:02:11.709Z"
+        },
+        {
+          "name": "Abilene Christian",
+          "slug": "abilene-christian",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.741Z"
+        },
+        {
+          "name": "Central Arkansas",
+          "slug": "central-arkansas",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.771Z"
+        },
+        {
+          "name": "Sam Houston State",
+          "slug": "sam-houston-state",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.834Z"
+        },
+        {
+          "name": "Stephen F. Austin",
+          "slug": "stephen-f-austin",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.865Z"
+        },
+        {
+          "name": "Tarleton State",
+          "slug": "tarleton-state",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.898Z"
+        },
+        {
+          "name": "Utah Tech",
+          "slug": "utah-tech",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.929Z"
+        },
+        {
+          "name": "Southern Utah",
+          "slug": "southern-utah",
+          "conference": "Western Athletic Conference",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:11.960Z"
+        },
+        {
+          "name": "Colgate",
+          "slug": "colgate",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.022Z"
+        },
+        {
+          "name": "Holy Cross",
+          "slug": "holy-cross",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.054Z"
+        },
+        {
+          "name": "Bucknell",
+          "slug": "bucknell",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.085Z"
+        },
+        {
+          "name": "Lafayette",
+          "slug": "lafayette",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.117Z"
+        },
+        {
+          "name": "Lehigh",
+          "slug": "lehigh",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.148Z"
+        },
+        {
+          "name": "Fordham",
+          "slug": "fordham",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.179Z"
+        },
+        {
+          "name": "Georgetown",
+          "slug": "georgetown",
+          "conference": "Patriot League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.211Z"
+        },
+        {
+          "name": "Harvard",
+          "slug": "harvard",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.241Z"
+        },
+        {
+          "name": "Yale",
+          "slug": "yale",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.273Z"
+        },
+        {
+          "name": "Princeton",
+          "slug": "princeton",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.304Z"
+        },
+        {
+          "name": "Dartmouth",
+          "slug": "dartmouth",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.335Z"
+        },
+        {
+          "name": "Columbia",
+          "slug": "columbia",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.366Z"
+        },
+        {
+          "name": "Brown",
+          "slug": "brown",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.397Z"
+        },
+        {
+          "name": "Pennsylvania",
+          "slug": "pennsylvania",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.428Z"
+        },
+        {
+          "name": "Cornell",
+          "slug": "cornell",
+          "conference": "Ivy League",
+          "bettingRelevance": "MEDIUM",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.459Z"
+        },
+        {
+          "name": "Florida A&M",
+          "slug": "florida-am",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.490Z"
+        },
+        {
+          "name": "Bethune-Cookman",
+          "slug": "bethune-cookman",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.521Z"
+        },
+        {
+          "name": "Howard",
+          "slug": "howard",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.552Z"
+        },
+        {
+          "name": "Morgan State",
+          "slug": "morgan-state",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.584Z"
+        },
+        {
+          "name": "Norfolk State",
+          "slug": "norfolk-state",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.615Z"
+        },
+        {
+          "name": "North Carolina Central",
+          "slug": "north-carolina-central",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.646Z"
+        },
+        {
+          "name": "South Carolina State",
+          "slug": "south-carolina-state",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.677Z"
+        },
+        {
+          "name": "Delaware State",
+          "slug": "delaware-state",
+          "conference": "Mid-Eastern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.708Z"
+        },
+        {
+          "name": "Grambling State",
+          "slug": "grambling-state",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.739Z"
+        },
+        {
+          "name": "Southern",
+          "slug": "southern",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.772Z"
+        },
+        {
+          "name": "Jackson State",
+          "slug": "jackson-state",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.803Z"
+        },
+        {
+          "name": "Alabama A&M",
+          "slug": "alabama-am",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.834Z"
+        },
+        {
+          "name": "Alabama State",
+          "slug": "alabama-state",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.865Z"
+        },
+        {
+          "name": "Alcorn State",
+          "slug": "alcorn-state",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.897Z"
+        },
+        {
+          "name": "Mississippi Valley State",
+          "slug": "mississippi-valley-state",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.928Z"
+        },
+        {
+          "name": "Prairie View A&M",
+          "slug": "prairie-view-am",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.959Z"
+        },
+        {
+          "name": "Texas Southern",
+          "slug": "texas-southern",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:12.991Z"
+        },
+        {
+          "name": "Arkansas-Pine Bluff",
+          "slug": "arkansas-pine-bluff",
+          "conference": "Southwestern Athletic Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.022Z"
+        },
+        {
+          "name": "Austin Peay",
+          "slug": "austin-peay",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.053Z"
+        },
+        {
+          "name": "Eastern Illinois",
+          "slug": "eastern-illinois",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.084Z"
+        },
+        {
+          "name": "Murray State",
+          "slug": "murray-state",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.116Z"
+        },
+        {
+          "name": "Tennessee State",
+          "slug": "tennessee-state",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.147Z"
+        },
+        {
+          "name": "Tennessee Tech",
+          "slug": "tennessee-tech",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.178Z"
+        },
+        {
+          "name": "Tennessee-Martin",
+          "slug": "tennessee-martin",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.209Z"
+        },
+        {
+          "name": "Southeast Missouri State",
+          "slug": "southeast-missouri-state",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.240Z"
+        },
+        {
+          "name": "SIU Edwardsville",
+          "slug": "siu-edwardsville",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.272Z"
+        },
+        {
+          "name": "Lindenwood",
+          "slug": "lindenwood",
+          "conference": "Ohio Valley Conference",
+          "bettingRelevance": "MEDIUM-LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.302Z"
+        },
+        {
+          "name": "Central Connecticut State",
+          "slug": "central-connecticut-state",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.333Z"
+        },
+        {
+          "name": "Duquesne",
+          "slug": "duquesne",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.363Z"
+        },
+        {
+          "name": "Long Island",
+          "slug": "long-island",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.395Z"
+        },
+        {
+          "name": "Merrimack",
+          "slug": "merrimack",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.427Z"
+        },
+        {
+          "name": "Robert Morris",
+          "slug": "robert-morris",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.458Z"
+        },
+        {
+          "name": "Sacred Heart",
+          "slug": "sacred-heart",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.489Z"
+        },
+        {
+          "name": "Wagner",
+          "slug": "wagner",
+          "conference": "Northeast Conference",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.520Z"
+        },
+        {
+          "name": "Davidson",
+          "slug": "davidson",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.552Z"
+        },
+        {
+          "name": "Drake",
+          "slug": "drake",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.584Z"
+        },
+        {
+          "name": "Butler",
+          "slug": "butler",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.615Z"
+        },
+        {
+          "name": "Valparaiso",
+          "slug": "valparaiso",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.646Z"
+        },
+        {
+          "name": "Dayton",
+          "slug": "dayton",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.677Z"
+        },
+        {
+          "name": "Morehead State",
+          "slug": "morehead-state",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.708Z"
+        },
+        {
+          "name": "Marist",
+          "slug": "marist",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.739Z"
+        },
+        {
+          "name": "San Diego",
+          "slug": "san-diego",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.770Z"
+        },
+        {
+          "name": "Stetson",
+          "slug": "stetson",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.802Z"
+        },
+        {
+          "name": "Presbyterian",
+          "slug": "presbyterian",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.833Z"
+        },
+        {
+          "name": "St. Thomas",
+          "slug": "st-thomas",
+          "conference": "Pioneer Football League",
+          "bettingRelevance": "LOW",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.865Z"
+        },
+        {
+          "name": "North Alabama",
+          "slug": "north-alabama",
+          "conference": "FCS Independents",
+          "bettingRelevance": "VARIABLE",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.928Z"
+        },
+        {
+          "name": "Kennesaw State",
+          "slug": "kennesaw-state",
+          "conference": "FCS Independents",
+          "bettingRelevance": "VARIABLE",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.959Z"
+        },
+        {
+          "name": "North Carolina A&T",
+          "slug": "north-carolina-at",
+          "conference": "FCS Independents",
+          "bettingRelevance": "VARIABLE",
+          "dataQuality": "87.5%",
+          "playoffEligible": false,
+          "lastUpdated": "2025-08-27T13:02:13.991Z"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "totalTeams": 128,
+    "successfulCollections": 128,
+    "dataCompleteness": 1,
+    "readyForProduction": true,
+    "division": "FCS",
+    "recommendedNextStep": "Deploy FCS team pages to production"
+  },
+  "combinedDivisionI": {
+    "totalFBSTeams": 136,
+    "totalFCSTeams": 128,
+    "combinedTeams": 264,
+    "completeCoverage": "100% of Division I NCAA Football"
+  }
+}

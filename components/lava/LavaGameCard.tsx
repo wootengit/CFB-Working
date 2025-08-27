@@ -706,6 +706,60 @@ export const LavaGameCard: React.FC<LavaProps> = ({
             </div>
             )}
 
+            {/* API Data Points Section */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+              marginTop: '20px',
+              padding: '12px 16px',
+              background: '#f8fafc',
+              borderRadius: '8px',
+              border: '1px solid #e2e8f0'
+            }}>
+              {/* Row 1: Road/Home Win/Loss Records */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#475569',
+                fontWeight: '500'
+              }}>
+                <span>(0-0-0 Road)</span>
+                <span style={{ fontWeight: '600', color: '#1e293b' }}>0-0-0 Win/Loss 0-0-0</span>
+                <span>(0-0-0 Home)</span>
+              </div>
+              
+              {/* Row 2: Road/Home Against the Spread Records */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#475569',
+                fontWeight: '500'
+              }}>
+                <span>(0-0-0 Road)</span>
+                <span style={{ fontWeight: '600', color: '#1e293b' }}>0-0-0 Against the Spread 0-0-0</span>
+                <span>(0-0-0 Home)</span>
+              </div>
+              
+              {/* Row 3: ATS Last 10 Records */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#475569',
+                fontWeight: '500'
+              }}>
+                <span>(0-0-0 ATS)</span>
+                <span style={{ fontWeight: '600', color: '#1e293b' }}>0-0-0 Last 10 0-0-0</span>
+                <span>(0-0-0 ATS)</span>
+              </div>
+            </div>
+
             {/* AI Recommendation Bar */}
             <div style={{
               background: 'linear-gradient(135deg, #bfdbfe 0%, #dbeafe 100%)',

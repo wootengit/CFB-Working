@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegas LED Sportsbook Odds Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Orbitron', 'SF Mono', monospace;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Professional LED Board Housing */
+        .sportsbook-monitor {
+            width: 1400px;
+            height: 900px;
+            margin: 50px auto;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 8px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.8),
+                0 10px 25px rgba(0, 0, 0, 0.6),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        /* LED Screen Surface */
+        .led-screen {
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            border: 2px solid #222;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Professional Scanlines */
+        .led-screen::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                transparent 98%,
+                rgba(0, 255, 0, 0.02) 99%,
+                rgba(0, 255, 0, 0.04) 100%
+            );
+            background-size: 100% 3px;
+            pointer-events: none;
+            animation: scanline-drift 0.08s linear infinite;
+        }
+
+        @keyframes scanline-drift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(3px); }
+        }
+
+        /* Board Header */
+        .board-header {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            border-bottom: 2px solid #333;
+            background: linear-gradient(90deg, #111 0%, #222 50%, #111 100%);
+        }
+
+        .board-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            font-weight: 900;
+            color: #FFAA00;
+            text-shadow: 
+                0 0 3px #FFAA00,
+                0 0 6px #FFAA00,
+                0 0 9px #FFAA00,
+                0 0 12px #FFAA00;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-dot {
+            width: 12px;
+            height: 12px;
+            background: #FF0000;
+            border-radius: 50%;
+            animation: pulse-live 1s ease-in-out infinite;
+            box-shadow: 0 0 8px #FF0000;
+        }
+
+        @keyframes pulse-live {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        .live-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF0000;
+            text-shadow: 0 0 4px #FF0000;
+            letter-spacing: 0.1em;
+        }
+
+        .datetime {
+            font-family: 'Orbitron', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-shadow: 0 0 3px #FFFFFF;
+            letter-spacing: 0.05em;
+        }
+
+        /* Main Odds Board */
+        .odds-board {
+            height: calc(100% - 80px);
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr;
+            gap: 0;
+            padding: 15px;
+        }
+
+        .column-separator {
+            background: linear-gradient(to bottom, #333 0%, #555 50%, #333 100%);
+            width: 2px;
+            margin: 10px 0;
+        }
+
+        /* Game Columns */
+        .games-column {
+            padding: 10px 15px;
+            overflow: hidden;
+        }
+
+        /* Column Headers */
+        .column-header {
+            display: grid;
+            grid-template-columns: 40px 50px 140px 60px 50px 65px;
+            gap: 8px;
+            padding: 8px 5px;
+            border-bottom: 1px solid #444;
+            margin-bottom: 5px;
+        }
+
+        .header-cell {
+            font-family: 'Orbitron', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            color: #FFAA00;
+            text-align: center;
+            text-shadow: 0 0 3px #FFAA00;
+            letter-spacing: 0.1em;
+        }
+
+        /* Individual Games */
+        .game {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            margin-bottom: 1px;
+            background: linear-gradient(90deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+
+        .game:hover {
+            background: linear-gradient(90deg, #111 0%, #1a1a1a 50%, #111 100%);
+            border-color: #333;
+        }
+
+        .game.updating {
+            animation: odds-flash 0.6s ease-out;
+        }
+
+        @keyframes odds-flash {
+            0% { background: #000; }
+            50% { 
+                background: #FFAA00; 
+                box-shadow: 0 0 15px rgba(255, 170, 0, 0.5);
+            }
+            100% { background: #000; }
+        }
+
+        /* Team Rows */
+        .team-row {
+            display: grid;
+            grid-template-columns: 40px 50px 140px 60px 50px 65px;
+            gap: 8px;
+            align-items: center;
+            padding: 3px 5px;
+            min-height: 24px;
+        }
+
+        .team-row:first-child {
+            border-bottom: 1px solid #333;
+        }
+
+        /* Data Cells */
+        .game-num {
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #FFAA00;
+            text-align: center;
+            text-shadow: 0 0 3px #FFAA00;
+        }
+
+        .time {
+            font-family: 'Orbitron', monospace;
+            font-size: 10px;
+            font-weight: 400;
+            color: #FFFFFF;
+            text-align: center;
+            text-shadow: 0 0 2px #FFFFFF;
+        }
+
+        .team {
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-align: left;
+            text-shadow: 0 0 3px #FFFFFF;
+            padding-left: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .spread {
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .spread.favorite {
+            color: #FF0000;
+            text-shadow: 
+                0 0 2px #FF0000,
+                0 0 4px #FF0000,
+                0 0 6px #FF0000;
+        }
+
+        .spread.underdog {
+            color: #00FF00;
+            text-shadow: 
+                0 0 2px #00FF00,
+                0 0 4px #00FF00,
+                0 0 6px #00FF00;
+        }
+
+        .total {
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #FFAA00;
+            text-align: center;
+            text-shadow: 0 0 3px #FFAA00;
+            letter-spacing: 0.05em;
+        }
+
+        .moneyline {
+            font-family: 'Orbitron', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+        .moneyline.favorite {
+            color: #FF0000;
+            text-shadow: 0 0 3px #FF0000;
+        }
+
+        .moneyline.underdog {
+            color: #00FF00;
+            text-shadow: 0 0 3px #00FF00;
+        }
+
+        /* Flicker Animation */
+        .flicker {
+            animation: led-flicker 0.12s infinite alternate;
+        }
+
+        @keyframes led-flicker {
+            0% { opacity: 1; }
+            20% { opacity: 1; }
+            21% { opacity: 0.95; }
+            22% { opacity: 1; }
+            40% { opacity: 1; }
+            41% { opacity: 0.98; }
+            42% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        /* Ambient Glow */
+        .sportsbook-monitor::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(255, 170, 0, 0.1) 0%,
+                rgba(255, 170, 0, 0.05) 40%,
+                transparent 70%
+            );
+            z-index: -1;
+            animation: ambient-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes ambient-pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1500px) {
+            .sportsbook-monitor {
+                width: 95%;
+                height: 600px;
+                margin: 20px auto;
+            }
+            
+            .board-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-monitor">
+        <div class="led-screen">
+            <!-- Board Header -->
+            <div class="board-header">
+                <div class="board-title">College Football Live Odds</div>
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <div class="live-text">LIVE</div>
+                </div>
+                <div class="datetime" id="datetime"></div>
+            </div>
+
+            <!-- Main Odds Board -->
+            <div class="odds-board">
+                <!-- Left Column -->
+                <div class="games-column">
+                    <div class="column-header">
+                        <div class="header-cell">GM#</div>
+                        <div class="header-cell">TIME</div>
+                        <div class="header-cell">TEAM</div>
+                        <div class="header-cell">SPREAD</div>
+                        <div class="header-cell">TOTAL</div>
+                        <div class="header-cell">ML</div>
+                    </div>
+
+                    <!-- Game 101 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">101</div>
+                            <div class="time">8:00P</div>
+                            <div class="team">GEORGIA</div>
+                            <div class="spread favorite">-3.5</div>
+                            <div class="total">52.5</div>
+                            <div class="moneyline favorite">-165</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">ALABAMA</div>
+                            <div class="spread underdog">+3.5</div>
+                            <div class="total">U52.5</div>
+                            <div class="moneyline underdog">+145</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 102 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">102</div>
+                            <div class="time">8:30P</div>
+                            <div class="team">TENNESSEE</div>
+                            <div class="spread favorite">-2.0</div>
+                            <div class="total">49.0</div>
+                            <div class="moneyline favorite">-125</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">LSU</div>
+                            <div class="spread underdog">+2.0</div>
+                            <div class="total">U49.0</div>
+                            <div class="moneyline underdog">+105</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 103 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">103</div>
+                            <div class="time">9:00P</div>
+                            <div class="team">TEXAS</div>
+                            <div class="spread favorite">-7.5</div>
+                            <div class="total">45.5</div>
+                            <div class="moneyline favorite">-285</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">OKLAHOMA</div>
+                            <div class="spread underdog">+7.5</div>
+                            <div class="total">U45.5</div>
+                            <div class="moneyline underdog">+230</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 104 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">104</div>
+                            <div class="time">9:30P</div>
+                            <div class="team">OLE MISS</div>
+                            <div class="spread favorite">-4.5</div>
+                            <div class="total">54.5</div>
+                            <div class="moneyline favorite">-195</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">ARKANSAS</div>
+                            <div class="spread underdog">+4.5</div>
+                            <div class="total">U54.5</div>
+                            <div class="moneyline underdog">+165</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 105 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">105</div>
+                            <div class="time">10:00P</div>
+                            <div class="team">FLORIDA</div>
+                            <div class="spread underdog">+6.5</div>
+                            <div class="total">48.5</div>
+                            <div class="moneyline underdog">+245</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">KENTUCKY</div>
+                            <div class="spread favorite">-6.5</div>
+                            <div class="total">U48.5</div>
+                            <div class="moneyline favorite">-295</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 106 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">106</div>
+                            <div class="time">10:30P</div>
+                            <div class="team">MISSOURI</div>
+                            <div class="spread underdog">+1.5</div>
+                            <div class="total">51.5</div>
+                            <div class="moneyline underdog">+110</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">TEXAS A&M</div>
+                            <div class="spread favorite">-1.5</div>
+                            <div class="total">U51.5</div>
+                            <div class="moneyline favorite">-130</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 107 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">107</div>
+                            <div class="time">11:00P</div>
+                            <div class="team">VANDERBILT</div>
+                            <div class="spread underdog">+14.5</div>
+                            <div class="total">46.0</div>
+                            <div class="moneyline underdog">+550</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">S CAROLINA</div>
+                            <div class="spread favorite">-14.5</div>
+                            <div class="total">U46.0</div>
+                            <div class="moneyline favorite">-750</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 108 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">108</div>
+                            <div class="time">11:30P</div>
+                            <div class="team">MISS STATE</div>
+                            <div class="spread underdog">+10.5</div>
+                            <div class="total">43.5</div>
+                            <div class="moneyline underdog">+380</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">AUBURN</div>
+                            <div class="spread favorite">-10.5</div>
+                            <div class="total">U43.5</div>
+                            <div class="moneyline favorite">-465</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column Separator -->
+                <div class="column-separator"></div>
+
+                <!-- Right Column -->
+                <div class="games-column">
+                    <div class="column-header">
+                        <div class="header-cell">GM#</div>
+                        <div class="header-cell">TIME</div>
+                        <div class="header-cell">TEAM</div>
+                        <div class="header-cell">SPREAD</div>
+                        <div class="header-cell">TOTAL</div>
+                        <div class="header-cell">ML</div>
+                    </div>
+
+                    <!-- Game 201 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">201</div>
+                            <div class="time">12:00P</div>
+                            <div class="team">MICHIGAN</div>
+                            <div class="spread favorite">-6.0</div>
+                            <div class="total">41.5</div>
+                            <div class="moneyline favorite">-240</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">OHIO STATE</div>
+                            <div class="spread underdog">+6.0</div>
+                            <div class="total">U41.5</div>
+                            <div class="moneyline underdog">+200</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 202 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">202</div>
+                            <div class="time">12:30P</div>
+                            <div class="team">OREGON</div>
+                            <div class="spread favorite">-9.5</div>
+                            <div class="total">58.5</div>
+                            <div class="moneyline favorite">-350</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">WASHINGTON</div>
+                            <div class="spread underdog">+9.5</div>
+                            <div class="total">U58.5</div>
+                            <div class="moneyline underdog">+280</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 203 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">203</div>
+                            <div class="time">1:00P</div>
+                            <div class="team">USC</div>
+                            <div class="spread underdog">+3.5</div>
+                            <div class="total">56.5</div>
+                            <div class="moneyline underdog">+155</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">UCLA</div>
+                            <div class="spread favorite">-3.5</div>
+                            <div class="total">U56.5</div>
+                            <div class="moneyline favorite">-185</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 204 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">204</div>
+                            <div class="time">1:30P</div>
+                            <div class="team">CLEMSON</div>
+                            <div class="spread favorite">-12.5</div>
+                            <div class="total">44.0</div>
+                            <div class="moneyline favorite">-485</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">WAKE FOREST</div>
+                            <div class="spread underdog">+12.5</div>
+                            <div class="total">U44.0</div>
+                            <div class="moneyline underdog">+385</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 205 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">205</div>
+                            <div class="time">2:00P</div>
+                            <div class="team">MIAMI</div>
+                            <div class="spread favorite">-8.5</div>
+                            <div class="total">52.0</div>
+                            <div class="moneyline favorite">-320</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">VT</div>
+                            <div class="spread underdog">+8.5</div>
+                            <div class="total">U52.0</div>
+                            <div class="moneyline underdog">+260</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 206 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">206</div>
+                            <div class="time">2:30P</div>
+                            <div class="team">NOTRE DAME</div>
+                            <div class="spread favorite">-5.5</div>
+                            <div class="total">47.5</div>
+                            <div class="moneyline favorite">-215</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">DUKE</div>
+                            <div class="spread underdog">+5.5</div>
+                            <div class="total">U47.5</div>
+                            <div class="moneyline underdog">+185</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 207 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">207</div>
+                            <div class="time">3:00P</div>
+                            <div class="team">PENN STATE</div>
+                            <div class="spread favorite">-11.0</div>
+                            <div class="total">43.5</div>
+                            <div class="moneyline favorite">-425</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">RUTGERS</div>
+                            <div class="spread underdog">+11.0</div>
+                            <div class="total">U43.5</div>
+                            <div class="moneyline underdog">+340</div>
+                        </div>
+                    </div>
+
+                    <!-- Game 208 -->
+                    <div class="game">
+                        <div class="team-row">
+                            <div class="game-num">208</div>
+                            <div class="time">3:30P</div>
+                            <div class="team">WISCONSIN</div>
+                            <div class="spread underdog">+2.5</div>
+                            <div class="total">39.5</div>
+                            <div class="moneyline underdog">+125</div>
+                        </div>
+                        <div class="team-row">
+                            <div class="game-num"></div>
+                            <div class="time"></div>
+                            <div class="team">IOWA</div>
+                            <div class="spread favorite">-2.5</div>
+                            <div class="total">U39.5</div>
+                            <div class="moneyline favorite">-145</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update datetime every second
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            document.getElementById('datetime').textContent = dateStr.toUpperCase();
+        }
+
+        // Random LED flicker effect
+        function addFlicker() {
+            const elements = document.querySelectorAll('.spread, .moneyline, .total, .team');
+            elements.forEach(el => el.classList.remove('flicker'));
+            
+            if (Math.random() > 0.93) {
+                const randomEl = elements[Math.floor(Math.random() * elements.length)];
+                randomEl.classList.add('flicker');
+                setTimeout(() => {
+                    randomEl.classList.remove('flicker');
+                }, 120);
+            }
+        }
+
+        // Simulate odds updates
+        function simulateOddsUpdate() {
+            const games = document.querySelectorAll('.game');
+            
+            if (Math.random() > 0.7) {
+                const randomGame = games[Math.floor(Math.random() * games.length)];
+                randomGame.classList.add('updating');
+                setTimeout(() => {
+                    randomGame.classList.remove('updating');
+                }, 600);
+            }
+        }
+
+        // Initialize
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+        setInterval(addFlicker, 150);
+        setInterval(simulateOddsUpdate, 5000);
+
+        // Add some initial flicker on load
+        setTimeout(() => {
+            const elements = document.querySelectorAll('.spread, .moneyline');
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const randomEl = elements[Math.floor(Math.random() * elements.length)];
+                    randomEl.classList.add('flicker');
+                    setTimeout(() => randomEl.classList.remove('flicker'), 120);
+                }, i * 200);
+            }
+        }, 500);
+    </script>
+</body>
+</html>

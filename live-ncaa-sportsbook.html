@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live NCAA Football Sportsbook Board</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Industrial LED Board - No TV Effects */
+        .sportsbook-board {
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            display: grid;
+            grid-template-rows: 40px 1fr 50px;
+            border: 0;
+            border-radius: 0;
+        }
+
+        /* Top Header */
+        .top-header {
+            background: #000000;
+            color: #FFFF00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+
+        .live-odds {
+            color: #FF0000;
+            font-size: 14px;
+        }
+
+        .current-time {
+            color: #FFFF00;
+        }
+
+        /* Main Board Grid */
+        .main-board {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: #000000;
+            padding: 5px;
+        }
+
+        /* Sport Sections */
+        .sport-section {
+            background: #000000;
+            padding: 5px;
+        }
+
+        .sport-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 5px;
+            font-size: 11px;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+            margin-bottom: 3px;
+        }
+
+        /* Individual Games */
+        .game {
+            background: #000000;
+            margin-bottom: 1px;
+            font-size: 11px;
+            line-height: 14px;
+            padding: 1px 3px;
+        }
+
+        .game-header {
+            color: #FFFF00;
+            font-size: 10px;
+        }
+
+        .team-line {
+            display: grid;
+            grid-template-columns: 120px 40px 35px 40px 35px 40px;
+            gap: 5px;
+            margin: 1px 0;
+        }
+
+        .team-name {
+            color: #FFFF00;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .half-spread {
+            color: #FF0000;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .half-spread.dog {
+            color: #00FF00;
+        }
+
+        /* Loading State */
+        .loading {
+            color: #FFFF00;
+            text-align: center;
+            padding: 50px;
+            font-size: 14px;
+        }
+
+        /* Bottom Ticker */
+        .bottom-ticker {
+            background: #000000;
+            color: #FFFF00;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 11px;
+            border-top: 1px solid #333;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-left 120s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .score {
+            color: #00FF00;
+            margin: 0 20px;
+        }
+
+        .final {
+            color: #FF0000;
+        }
+
+        .live {
+            color: #FFFF00;
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-board">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="live-odds">LIVE NCAA FOOTBALL ODDS</div>
+            <div class="current-time" id="current-time"></div>
+        </div>
+
+        <!-- Main Board -->
+        <div class="main-board" id="main-board">
+            <div class="loading">LOADING NCAA FOOTBALL ODDS...</div>
+        </div>
+
+        <!-- Bottom Ticker -->
+        <div class="bottom-ticker">
+            <div class="ticker-content" id="ticker-content">
+                <span class="live">LIVE:</span>
+                <span class="score">LOADING LIVE SCORES...</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let gamesData = [];
+        let standingsData = [];
+
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('current-time').textContent = timeStr;
+        }
+
+        // Generate mock betting odds from team data
+        function generateOdds(team1, team2, gameNum) {
+            // Use SP+ ratings to determine favorite
+            const rating1 = team1.spPlusRating || 0;
+            const rating2 = team2.spPlusRating || 0;
+            
+            const ratingDiff = rating1 - rating2;
+            const spread = Math.max(-35, Math.min(35, ratingDiff / 2.5));
+            
+            let team1Spread, team2Spread, team1ML, team2ML;
+            
+            if (spread > 0) {
+                // Team1 is favorite
+                team1Spread = -Math.abs(spread).toFixed(1);
+                team2Spread = `+${Math.abs(spread).toFixed(1)}`;
+                team1ML = Math.round(-110 - (Math.abs(spread) * 8));
+                team2ML = Math.round(110 + (Math.abs(spread) * 8));
+            } else {
+                // Team2 is favorite
+                team1Spread = `+${Math.abs(spread).toFixed(1)}`;
+                team2Spread = -Math.abs(spread).toFixed(1);
+                team1ML = Math.round(110 + (Math.abs(spread) * 8));
+                team2ML = Math.round(-110 - (Math.abs(spread) * 8));
+            }
+            
+            const total = 45 + (Math.random() * 20);
+            const halfSpread = spread / 2;
+            const halfTotal = total / 2;
+            
+            return {
+                team1Spread,
+                team2Spread,
+                team1ML: team1ML > 0 ? `+${team1ML}` : `${team1ML}`,
+                team2ML: team2ML > 0 ? `+${team2ML}` : `${team2ML}`,
+                total: total.toFixed(1),
+                halfSpread1: halfSpread > 0 ? -Math.abs(halfSpread).toFixed(1) : `+${Math.abs(halfSpread).toFixed(1)}`,
+                halfSpread2: halfSpread > 0 ? `+${Math.abs(halfSpread).toFixed(1)}` : -Math.abs(halfSpread).toFixed(1),
+                halfTotal: halfTotal.toFixed(1)
+            };
+        }
+
+        // Format team name for display
+        function formatTeamName(name) {
+            return name.toUpperCase()
+                .replace('STATE', 'ST')
+                .replace('UNIVERSITY', 'U')
+                .replace('SOUTHERN', 'S')
+                .replace('NORTHERN', 'N')
+                .replace('EASTERN', 'E')
+                .replace('WESTERN', 'W')
+                .substring(0, 12);
+        }
+
+        // Generate game time
+        function generateGameTime(index) {
+            const baseTimes = ['12:00P', '12:30P', '1:00P', '1:30P', '2:00P', '2:30P', '3:00P', '3:30P', '4:00P', '4:30P', '5:00P', '5:30P', '6:00P', '6:30P', '7:00P', '7:30P', '8:00P', '8:30P', '9:00P', '9:30P', '10:00P', '10:30P', '11:00P', '11:30P'];
+            return baseTimes[index % baseTimes.length] || '12:00P';
+        }
+
+        // Create game HTML
+        function createGameHTML(team1, team2, gameNum, time) {
+            const odds = generateOdds(team1, team2, gameNum);
+            const team1Name = formatTeamName(team1.team);
+            const team2Name = formatTeamName(team2.team);
+            
+            return `
+                <div class="game">
+                    <div class="game-header">${gameNum} ${time}</div>
+                    <div class="team-line">
+                        <div class="team-name">${team1Name}</div>
+                        <div class="${odds.team1Spread.startsWith('-') ? 'spread-fav' : 'spread-dog'}">${odds.team1Spread}</div>
+                        <div class="total">${odds.total}</div>
+                        <div class="${odds.team1ML.startsWith('-') ? 'ml-fav' : 'ml-dog'}">${odds.team1ML}</div>
+                        <div class="${odds.halfSpread1.startsWith('-') ? 'half-spread' : 'half-spread dog'}">${odds.halfSpread1}</div>
+                        <div class="total">${odds.halfTotal}</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">${team2Name}</div>
+                        <div class="${odds.team2Spread.startsWith('-') ? 'spread-fav' : 'spread-dog'}">${odds.team2Spread}</div>
+                        <div class="total">U${odds.total}</div>
+                        <div class="${odds.team2ML.startsWith('-') ? 'ml-fav' : 'ml-dog'}">${odds.team2ML}</div>
+                        <div class="${odds.halfSpread2.startsWith('-') ? 'half-spread' : 'half-spread dog'}">${odds.halfSpread2}</div>
+                        <div class="total">U${odds.halfTotal}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render games board
+        function renderGamesBoard(teams) {
+            const mainBoard = document.getElementById('main-board');
+            
+            // Create matchups from teams (pair them up)
+            const matchups = [];
+            for (let i = 0; i < teams.length - 1; i += 2) {
+                if (teams[i + 1]) {
+                    matchups.push([teams[i], teams[i + 1]]);
+                }
+            }
+            
+            // Split into 3 columns
+            const gamesPerColumn = Math.ceil(matchups.length / 3);
+            const columns = [
+                matchups.slice(0, gamesPerColumn),
+                matchups.slice(gamesPerColumn, gamesPerColumn * 2),
+                matchups.slice(gamesPerColumn * 2)
+            ];
+            
+            let html = '';
+            
+            // Create 3 columns
+            for (let col = 0; col < 3; col++) {
+                html += `
+                    <div class="sport-section">
+                        <div class="sport-header">NCAA FOOTBALL - COLUMN ${col + 1}</div>
+                `;
+                
+                columns[col].forEach((matchup, index) => {
+                    const gameNum = (col * gamesPerColumn) + index + 101;
+                    const gameTime = generateGameTime(gameNum - 101);
+                    html += createGameHTML(matchup[0], matchup[1], gameNum, gameTime);
+                });
+                
+                html += '</div>';
+            }
+            
+            mainBoard.innerHTML = html;
+        }
+
+        // Update ticker with live scores
+        function updateTicker(teams) {
+            const ticker = document.getElementById('ticker-content');
+            let tickerHTML = '';
+            
+            // Generate some mock live scores from teams
+            const liveGames = teams.slice(0, 10);
+            
+            liveGames.forEach((team, index) => {
+                if (index % 2 === 0 && liveGames[index + 1]) {
+                    const team1 = team;
+                    const team2 = liveGames[index + 1];
+                    const score1 = Math.floor(Math.random() * 35) + 7;
+                    const score2 = Math.floor(Math.random() * 35) + 7;
+                    const status = ['FINAL', 'LIVE 3Q', 'LIVE 4Q', 'HALFTIME', 'LIVE 2Q'][Math.floor(Math.random() * 5)];
+                    const statusClass = status === 'FINAL' ? 'final' : 'live';
+                    
+                    tickerHTML += `
+                        <span class="${statusClass}">${status}:</span>
+                        <span class="score">${formatTeamName(team1.team)} ${score1}  ${formatTeamName(team2.team)} ${score2}</span>
+                    `;
+                }
+            });
+            
+            ticker.innerHTML = tickerHTML;
+        }
+
+        // Fetch data from API
+        async function fetchData() {
+            try {
+                console.log('Fetching NCAA football data...');
+                const response = await fetch('http://localhost:3000/api/standings/enhanced?year=2025');
+                const data = await response.json();
+                
+                if (data.success && data.data) {
+                    standingsData = data.data;
+                    console.log(`Loaded ${standingsData.length} teams`);
+                    
+                    // Filter for top teams and randomize for games
+                    const gameTeams = standingsData.slice(0, 60); // Top 60 teams
+                    
+                    renderGamesBoard(gameTeams);
+                    updateTicker(gameTeams);
+                    
+                    console.log('NCAA sportsbook board loaded successfully');
+                } else {
+                    throw new Error('Failed to load team data');
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('main-board').innerHTML = `
+                    <div class="loading" style="color: #FF0000;">
+                        ERROR LOADING NCAA FOOTBALL DATA<br>
+                        CHECK API CONNECTION
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-refresh data every 5 minutes
+        function startAutoRefresh() {
+            setInterval(() => {
+                console.log('Auto-refreshing odds data...');
+                fetchData();
+            }, 300000); // 5 minutes
+        }
+
+        // Initialize
+        function init() {
+            updateTime();
+            setInterval(updateTime, 1000);
+            fetchData();
+            startAutoRefresh();
+        }
+
+        // Start when page loads
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

@@ -21,9 +21,9 @@ const StandingsPage: React.FC = () => {
       try {
         console.log('🏆 Starting comprehensive standings fetch - 171+ teams with MIT research fields...')
         
-        // Fetch all teams with MIT research data (comprehensive implementation)
-        console.log('🏈 Fetching comprehensive teams with MIT research fields...')
-        const allTeamsResponse = await fetch('/api/conferences/all')
+        // Fetch all teams with MIT research data (live CFBD data)
+        console.log('🏈 Fetching enhanced standings with MIT research fields...')
+        const allTeamsResponse = await fetch('/api/standings/enhanced?year=2024')
         
         console.log('✅ Comprehensive API response status:', allTeamsResponse.status)
         
@@ -140,7 +140,7 @@ const StandingsPage: React.FC = () => {
       
       // Filter by search term
       const searchFiltered = confTeams.filter(team => 
-        (team.team || team.name).toLowerCase().includes(searchTerm.toLowerCase()) ||
+        team.team.toLowerCase().includes(searchTerm.toLowerCase()) ||
         team.conference.toLowerCase().includes(searchTerm.toLowerCase())
       )
       
@@ -823,18 +823,6 @@ const StandingsPage: React.FC = () => {
                         Field Pos
                       </th>
                       
-                      <th onClick={() => handleSort('fpiRating')} style={{ 
-                        textAlign: 'center', 
-                        padding: '0 8px',
-                        color: sortField === 'fpiRating' ? '#2D81FF' : '#A1ACB8',
-                        fontSize: '12px',
-                        fontWeight: '600',
-                        lineHeight: '18px',
-                        cursor: 'pointer',
-                        userSelect: 'none'
-                      }}>
-                        FPI
-                      </th>
                     </>
                   )}
                 </tr>
@@ -893,8 +881,8 @@ const StandingsPage: React.FC = () => {
                           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <img
                               data-standings-logo="true"
-                              src={team.logo || team.logoUrl}
-                              alt={team.team || team.name}
+                              src={team.logo}
+                              alt={team.team}
                               style={{
                                 width: '30px',
                                 height: 'auto',
@@ -906,7 +894,7 @@ const StandingsPage: React.FC = () => {
                               }}
                             />
                             <a 
-                              href={`/team/${encodeURIComponent(team.team || team.name)}`}
+                              href={`/team/${encodeURIComponent(team.team)}`}
                               style={{
                                 color: '#E6E8EB',
                                 fontSize: '15px',
@@ -924,7 +912,7 @@ const StandingsPage: React.FC = () => {
                                 e.currentTarget.style.textDecoration = 'none'
                               }}
                             >
-                              {team.team || team.name}
+                              {team.team}
                             </a>
                           </div>
                         </td>
@@ -1129,7 +1117,7 @@ const StandingsPage: React.FC = () => {
                               padding: '0 8px',
                               lineHeight: '22px'
                             }}>
-                              {team.sosRank && (
+                              {(team as any).strengthOfSchedule && (
                                 <span style={{
                                   color: '#A1ACB8',
                                   fontSize: '12px',
@@ -1138,7 +1126,7 @@ const StandingsPage: React.FC = () => {
                                   borderRadius: '4px',
                                   padding: '2px 6px'
                                 }}>
-                                  #{team.sosRank}
+                                  {(team as any).strengthOfSchedule.toFixed(1)}
                                 </span>
                               )}
                             </td>
@@ -1149,16 +1137,16 @@ const StandingsPage: React.FC = () => {
                               padding: '0 8px',
                               lineHeight: '22px'
                             }}>
-                              {team.spOverallRank && (
+                              {(team as any).spPlusRanking && (
                                 <span style={{
                                   color: '#A1ACB8',
                                   fontSize: '12px',
                                   fontWeight: '500',
-                                  backgroundColor: team.spOverallRank <= 25 ? '#22C55E' : team.spOverallRank <= 50 ? '#3B82F6' : '#1C232C',
+                                  backgroundColor: (team as any).spPlusRanking <= 25 ? '#22C55E' : (team as any).spPlusRanking <= 50 ? '#3B82F6' : '#1C232C',
                                   borderRadius: '4px',
                                   padding: '2px 6px'
                                 }}>
-                                  #{team.spOverallRank}
+                                  #{(team as any).spPlusRanking}
                                 </span>
                               )}
                             </td>
@@ -1167,36 +1155,36 @@ const StandingsPage: React.FC = () => {
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: team.offensivePPA && team.offensivePPA > 0 ? '#22C55E' : '#EF4444',
+                              color: (team as any).offensePPA && (team as any).offensePPA > 0 ? '#22C55E' : '#EF4444',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {team.offensivePPA ? team.offensivePPA.toFixed(2) : '-'}
+                              {(team as any).offensePPA ? (team as any).offensePPA.toFixed(2) : '-'}
                             </td>
                             
                             {/* Defensive PPA */}
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: team.defensivePPA && team.defensivePPA < 0 ? '#22C55E' : '#EF4444',
+                              color: (team as any).defensePPA && (team as any).defensePPA < 0 ? '#22C55E' : '#EF4444',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {team.defensivePPA ? team.defensivePPA.toFixed(2) : '-'}
+                              {(team as any).defensePPA ? (team as any).defensePPA.toFixed(2) : '-'}
                             </td>
                             
                             {/* SP+ Overall */}
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: (team as any).spPlusOverall && (team as any).spPlusOverall > 0 ? '#22C55E' : '#EF4444',
+                              color: (team as any).spPlusRating && (team as any).spPlusRating > 0 ? '#22C55E' : '#EF4444',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {(team as any).spPlusOverall ? (team as any).spPlusOverall.toFixed(1) : '-'}
+                              {(team as any).spPlusRating ? (team as any).spPlusRating.toFixed(1) : '-'}
                             </td>
                             
                             {/* Explosiveness */}
@@ -1215,24 +1203,24 @@ const StandingsPage: React.FC = () => {
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: (team as any).efficiency && (team as any).efficiency > 0.7 ? '#22C55E' : (team as any).efficiency > 0.5 ? '#3B82F6' : '#A1ACB8',
+                              color: (team as any).offensiveEfficiency && (team as any).offensiveEfficiency > 0.7 ? '#22C55E' : (team as any).offensiveEfficiency > 0.5 ? '#3B82F6' : '#A1ACB8',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {(team as any).efficiency ? (team as any).efficiency.toFixed(2) : '-'}
+                              {(team as any).offensiveEfficiency ? (team as any).offensiveEfficiency.toFixed(2) : '-'}
                             </td>
                             
                             {/* PPA Overall */}
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: (team as any).ppaOverall && (team as any).ppaOverall > 0 ? '#22C55E' : '#EF4444',
+                              color: (team as any).offensePPA && (team as any).offensePPA > 0 ? '#22C55E' : '#EF4444',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {(team as any).ppaOverall ? (team as any).ppaOverall.toFixed(2) : '-'}
+                              {(team as any).offensePPA ? (team as any).offensePPA.toFixed(2) : '-'}
                             </td>
                             
                             {/* Talent Rank */}
@@ -1272,24 +1260,24 @@ const StandingsPage: React.FC = () => {
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: (team as any).havocRate > 10 ? '#22C55E' : (team as any).havocRate > 7 ? '#3B82F6' : '#A1ACB8',
+                              color: (team as any).havocRate > 0.10 ? '#22C55E' : (team as any).havocRate > 0.07 ? '#3B82F6' : '#A1ACB8',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {(team as any).havocRate ? (team as any).havocRate.toFixed(1) + '%' : '-'}
+                              {(team as any).havocRate ? ((team as any).havocRate * 100).toFixed(1) + '%' : '-'}
                             </td>
                             
                             {/* Finishing Rate */}
                             <td style={{ 
                               textAlign: 'center', 
                               padding: '0 8px',
-                              color: (team as any).finishingRate > 70 ? '#22C55E' : (team as any).finishingRate > 55 ? '#3B82F6' : '#A1ACB8',
+                              color: (team as any).finishingRate > 0.70 ? '#22C55E' : (team as any).finishingRate > 0.55 ? '#3B82F6' : '#A1ACB8',
                               fontSize: '12px',
                               fontWeight: '500',
                               lineHeight: '22px'
                             }}>
-                              {(team as any).finishingRate ? (team as any).finishingRate.toFixed(0) + '%' : '-'}
+                              {(team as any).finishingRate ? ((team as any).finishingRate * 100).toFixed(0) + '%' : '-'}
                             </td>
                             
                             {/* Field Position */}
@@ -1304,17 +1292,6 @@ const StandingsPage: React.FC = () => {
                               {(team as any).fieldPosition ? ((team as any).fieldPosition > 0 ? '+' : '') + (team as any).fieldPosition.toFixed(1) : '-'}
                             </td>
                             
-                            {/* FPI Rating */}
-                            <td style={{ 
-                              textAlign: 'center', 
-                              padding: '0 8px',
-                              color: (team as any).fpiRating > 0 ? '#22C55E' : '#EF4444',
-                              fontSize: '12px',
-                              fontWeight: '500',
-                              lineHeight: '22px'
-                            }}>
-                              {(team as any).fpiRating ? (team as any).fpiRating.toFixed(1) : '-'}
-                            </td>
                           </>
                         )}
                       </tr>

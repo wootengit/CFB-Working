@@ -1,0 +1,587 @@
+{
+  "timestamp": "2025-08-27T07:08:25.050Z",
+  "foundationType": "PHASE_2_PLAYER_PAGES_FOUNDATION",
+  "components": {
+    "dataStructure": "Complete player data schema with betting analytics",
+    "pageTemplates": "Dynamic player pages with Next.js routing",
+    "apiArchitecture": "6 API endpoints with caching and rate limiting",
+    "databaseDesign": "Scalable from files to distributed database",
+    "integrationPoints": "Seamless connection with existing team pages",
+    "scalabilityPlan": "3-phase rollout from 200 to 2000+ players"
+  },
+  "implementationGuide": {
+    "immediateNextSteps": [
+      "Set up player data directory structure",
+      "Create first 10 player data files (Alabama QB, RB, WR)",
+      "Build basic player page component",
+      "Implement team-to-player navigation",
+      "Add player search functionality"
+    ],
+    "week1Tasks": [
+      "Complete Phase 2A data structure implementation",
+      "Generate player pages for SEC quarterbacks",
+      "Implement basic betting props display",
+      "Add player photos and team integration",
+      "Create player listing pages"
+    ],
+    "month1Goals": [
+      "Launch with 50 top players from major conferences",
+      "Complete API architecture implementation",
+      "Deploy player page templates",
+      "Integrate with existing team pages",
+      "Implement search and filtering"
+    ],
+    "technicalPrerequisites": [
+      "Database setup (start with file-based)",
+      "API route structure implementation",
+      "Player data collection pipeline",
+      "Image CDN for player photos",
+      "Search index implementation"
+    ],
+    "businessPrerequisites": [
+      "Player selection criteria (betting volume)",
+      "Data collection agreements",
+      "Photo licensing arrangements",
+      "Performance monitoring setup",
+      "User testing plan"
+    ]
+  },
+  "readyForDevelopment": true,
+  "estimatedDevelopmentTime": {
+    "phase2A_MVP": "6-8 weeks",
+    "phase2B_expansion": "4-6 weeks",
+    "phase2C_fullScale": "6-8 weeks",
+    "total": "16-22 weeks"
+  },
+  "foundationStructure": {
+    "dataArchitecture": {
+      "playerInfo": {
+        "id": "number",
+        "name": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "position": "string",
+        "positionGroup": "string",
+        "jerseyNumber": "number",
+        "height": "string",
+        "weight": "number",
+        "year": "string",
+        "hometown": "string",
+        "homeState": "string",
+        "highSchool": "string",
+        "team": {
+          "id": "number",
+          "school": "string",
+          "conference": "string",
+          "slug": "string"
+        },
+        "photoUrl": "string",
+        "socialMedia": {
+          "twitter": "string",
+          "instagram": "string"
+        }
+      },
+      "currentSeason": {
+        "stats": {
+          "passing": {
+            "attempts": "number",
+            "completions": "number",
+            "yards": "number",
+            "touchdowns": "number",
+            "interceptions": "number",
+            "completionPct": "number",
+            "qbRating": "number",
+            "yardsPerAttempt": "number"
+          },
+          "rushing": {
+            "carries": "number",
+            "yards": "number",
+            "touchdowns": "number",
+            "yardsPerCarry": "number",
+            "longRush": "number"
+          },
+          "receiving": {
+            "receptions": "number",
+            "yards": "number",
+            "touchdowns": "number",
+            "yardsPerReception": "number",
+            "longReception": "number",
+            "targets": "number"
+          },
+          "defensive": {
+            "tackles": "number",
+            "soloTackles": "number",
+            "tacklesForLoss": "number",
+            "sacks": "number",
+            "interceptions": "number",
+            "passBreakups": "number",
+            "forcedFumbles": "number",
+            "fumbleRecoveries": "number"
+          }
+        },
+        "games": {
+          "played": "number",
+          "started": "number",
+          "injured": "number",
+          "suspended": "number"
+        },
+        "awards": "array",
+        "milestones": "array"
+      },
+      "careerStats": {
+        "totalGames": "number",
+        "careerHighs": "object",
+        "averagePerGame": "object",
+        "seasonBySeasonBreakdown": "array"
+      },
+      "bettingAnalytics": {
+        "propBetMetrics": {
+          "passingYards": {
+            "averageLine": "number",
+            "overRecord": "string",
+            "recentTrend": "string"
+          },
+          "rushingYards": {
+            "averageLine": "number",
+            "overRecord": "string",
+            "recentTrend": "string"
+          },
+          "receivingYards": {
+            "averageLine": "number",
+            "overRecord": "string",
+            "recentTrend": "string"
+          },
+          "touchdowns": {
+            "averageLine": "number",
+            "overRecord": "string",
+            "recentTrend": "string"
+          }
+        },
+        "performanceFactors": {
+          "vsTop25": "object",
+          "homeVsAway": "object",
+          "byWeather": "object",
+          "byGameSituation": "object"
+        },
+        "injuryRisk": {
+          "score": "number",
+          "factors": "array",
+          "recentInjuries": "array"
+        },
+        "bettingValue": {
+          "overallRating": "string",
+          "valueScore": "number",
+          "consistencyRating": "string"
+        }
+      },
+      "recentGames": {
+        "type": "array",
+        "structure": {
+          "gameId": "number",
+          "date": "string",
+          "opponent": "string",
+          "homeAway": "string",
+          "gameResult": "string",
+          "playerStats": "object",
+          "gameGrade": "string",
+          "keyPlays": "array"
+        }
+      },
+      "upcomingGames": {
+        "type": "array",
+        "structure": {
+          "date": "string",
+          "opponent": "string",
+          "homeAway": "string",
+          "projectedStats": "object",
+          "propProjections": "object",
+          "matchupAdvantage": "string"
+        }
+      },
+      "recruitingInfo": {
+        "stars": "number",
+        "nationalRank": "number",
+        "positionRank": "number",
+        "stateRank": "number",
+        "recruitingClass": "number",
+        "offers": "array"
+      },
+      "metadata": {
+        "lastUpdated": "string",
+        "dataQuality": "string",
+        "apiSource": "string",
+        "bettingRelevance": "string"
+      },
+      "database": {
+        "fileStructure": {
+          "data/players/": {
+            "by-team/": {
+              "[team-slug]/": {
+                "players-index.json": "Team player listing",
+                "[player-slug].json": "Individual player data"
+              }
+            },
+            "by-position/": {
+              "[position]/": {
+                "players-index.json": "Position-based listing",
+                "stats-summary.json": "Position statistics"
+              }
+            },
+            "search-indices/": {
+              "name-index.json": "Searchable name index",
+              "stats-index.json": "Statistics-based search"
+            }
+          }
+        },
+        "databaseTables": {
+          "players": {
+            "primary_key": "id",
+            "indexes": [
+              "team_id",
+              "position",
+              "name",
+              "jersey_number"
+            ],
+            "partitioning": "by_team_id",
+            "fields": [
+              "id",
+              "name",
+              "first_name",
+              "last_name",
+              "position",
+              "jersey_number",
+              "height",
+              "weight",
+              "year",
+              "team_id",
+              "photo_url",
+              "created_at",
+              "updated_at"
+            ]
+          },
+          "player_stats": {
+            "primary_key": "id",
+            "indexes": [
+              "player_id",
+              "season",
+              "week",
+              "stat_type"
+            ],
+            "partitioning": "by_season",
+            "fields": [
+              "id",
+              "player_id",
+              "season",
+              "week",
+              "game_id",
+              "stat_type",
+              "stat_value",
+              "opponent_id",
+              "home_away",
+              "created_at"
+            ]
+          },
+          "player_betting_props": {
+            "primary_key": "id",
+            "indexes": [
+              "player_id",
+              "prop_type",
+              "game_date",
+              "sportsbook"
+            ],
+            "partitioning": "by_game_date",
+            "fields": [
+              "id",
+              "player_id",
+              "game_id",
+              "prop_type",
+              "line_value",
+              "over_odds",
+              "under_odds",
+              "sportsbook",
+              "game_date",
+              "created_at"
+            ]
+          },
+          "player_performance": {
+            "primary_key": "id",
+            "indexes": [
+              "player_id",
+              "metric_type",
+              "updated_at"
+            ],
+            "fields": [
+              "id",
+              "player_id",
+              "metric_type",
+              "value",
+              "percentile",
+              "trend",
+              "last_5_games",
+              "vs_ranked",
+              "updated_at"
+            ]
+          }
+        },
+        "estimatedScale": {
+          "totalPlayers": "2000+",
+          "playersPerTeam": "~15 key betting players",
+          "statsRecordsPerPlayer": "~500 per season",
+          "bettingPropsPerPlayer": "~50 per week during season",
+          "totalRecords": "~2 million per season",
+          "storageEstimate": "~500MB per season"
+        }
+      }
+    },
+    "pageTemplates": {
+      "dynamicPlayerPage": "Dynamic Next.js player page template with betting focus",
+      "playerListing": "Team roster listing page with position filters and betting props"
+    },
+    "apiEndpoints": {
+      "endpoints": {
+        "/api/players/[teamSlug]/[playerSlug]": {
+          "method": "GET",
+          "description": "Get detailed player data with betting analytics",
+          "parameters": [
+            "teamSlug",
+            "playerSlug"
+          ],
+          "response": "PlayerDataStructure",
+          "caching": "5 minutes",
+          "rateLimiting": "100 req/min"
+        },
+        "/api/players/[teamSlug]": {
+          "method": "GET",
+          "description": "Get all players for a team",
+          "parameters": [
+            "teamSlug",
+            "position?",
+            "year?"
+          ],
+          "response": "PlayerListResponse",
+          "caching": "10 minutes",
+          "rateLimiting": "50 req/min"
+        },
+        "/api/players/search": {
+          "method": "GET",
+          "description": "Search players across all teams",
+          "parameters": [
+            "query",
+            "position?",
+            "conference?",
+            "limit?"
+          ],
+          "response": "PlayerSearchResponse",
+          "caching": "15 minutes",
+          "rateLimiting": "30 req/min"
+        },
+        "/api/players/[teamSlug]/[playerSlug]/stats": {
+          "method": "GET",
+          "description": "Get detailed player statistics",
+          "parameters": [
+            "teamSlug",
+            "playerSlug",
+            "season?",
+            "gameType?"
+          ],
+          "response": "PlayerStatsResponse",
+          "caching": "5 minutes",
+          "rateLimiting": "100 req/min"
+        },
+        "/api/players/[teamSlug]/[playerSlug]/props": {
+          "method": "GET",
+          "description": "Get player betting props and analytics",
+          "parameters": [
+            "teamSlug",
+            "playerSlug",
+            "upcoming?"
+          ],
+          "response": "PlayerPropsResponse",
+          "caching": "2 minutes",
+          "rateLimiting": "200 req/min"
+        },
+        "/api/players/compare": {
+          "method": "POST",
+          "description": "Compare multiple players",
+          "body": "PlayerComparisonRequest",
+          "response": "PlayerComparisonResponse",
+          "caching": "10 minutes",
+          "rateLimiting": "20 req/min"
+        }
+      },
+      "dataFlow": {
+        "collection": "CFBD API + Custom Scraping",
+        "processing": "Real-time calculation engine",
+        "storage": "JSON files + Database integration",
+        "delivery": "CDN + API Gateway",
+        "updates": "Every 5 minutes during games, hourly otherwise"
+      },
+      "scalability": {
+        "horizontalScaling": "Load balancer + multiple API instances",
+        "databaseSharding": "By conference and position",
+        "caching": "Redis + CDN + Browser cache",
+        "monitoring": "Performance metrics + Error tracking"
+      }
+    },
+    "integrationPoints": {
+      "teamPageIntegration": {
+        "rosterSection": {
+          "location": "Team page new tab",
+          "component": "PlayerRosterGrid",
+          "data": "Top players with betting props",
+          "linking": "Direct links to player pages"
+        },
+        "keyPlayersWidget": {
+          "location": "Team overview sidebar",
+          "component": "KeyPlayersWidget",
+          "data": "Top 3-5 most bet players",
+          "metrics": [
+            "Prop bet frequency",
+            "Recent performance"
+          ]
+        },
+        "depthChartIntegration": {
+          "location": "New team analytics tab",
+          "component": "InteractiveDepthChart",
+          "features": [
+            "Click player for detailed page",
+            "Injury status",
+            "Betting props"
+          ]
+        }
+      },
+      "navigationEnhancements": {
+        "teamNavigation": {
+          "newRoute": "/team/[slug]/players",
+          "breadcrumb": "Team > Players > Individual Player",
+          "backLinks": "Consistent back to team navigation"
+        },
+        "crossLinking": {
+          "playerToTeam": "Player page links back to team",
+          "playerToPlayer": "Position group navigation",
+          "playerComparisons": "Compare with teammates"
+        }
+      },
+      "dataSharing": {
+        "teamStatsAggregation": {
+          "description": "Player stats roll up to team totals",
+          "implementation": "Real-time calculation from player data",
+          "caching": "Team-level cache invalidated on player updates"
+        },
+        "bettingCorrelations": {
+          "description": "Team performance correlated with key player props",
+          "metrics": [
+            "QB performance vs team total",
+            "RB yards vs team spread"
+          ],
+          "display": "Enhanced betting insights on team pages"
+        }
+      },
+      "searchIntegration": {
+        "globalSearch": {
+          "scope": "Search both teams and players",
+          "results": "Combined results with type indicators",
+          "suggestions": "Autocomplete for both teams and players"
+        },
+        "filteringEnhancements": {
+          "teamFiltering": "Filter players by current team",
+          "positionFiltering": "Cross-team position comparisons",
+          "performanceFiltering": "Top performers across positions"
+        }
+      }
+    },
+    "scalabilityPlan": {
+      "phaseRollout": {
+        "Phase 2A - MVP (Months 1-2)": {
+          "scope": "Top 200 players from highest betting conferences",
+          "teams": "SEC, Big Ten, Big 12, ACC key teams",
+          "positions": "QB, RB, WR (highest prop bet volume)",
+          "features": [
+            "Basic player pages",
+            "Key stats",
+            "Simple betting props"
+          ],
+          "dataSource": "CFBD API + manual entry",
+          "infrastructure": "File-based storage + existing API"
+        },
+        "Phase 2B - Expansion (Months 3-4)": {
+          "scope": "All FBS starting players (~500 total)",
+          "teams": "All 133 FBS teams",
+          "positions": "All offensive skill positions + key defensive",
+          "features": [
+            "Advanced analytics",
+            "Historical trends",
+            "Injury tracking"
+          ],
+          "dataSource": "CFBD API + web scraping automation",
+          "infrastructure": "Database migration + caching layer"
+        },
+        "Phase 2C - Full Scale (Months 5-6)": {
+          "scope": "All scholarship players (~2000 total)",
+          "teams": "FBS + select FCS for betting interest",
+          "positions": "Complete rosters with depth charts",
+          "features": [
+            "Live props",
+            "Comparison tools",
+            "Draft projections"
+          ],
+          "dataSource": "Multiple APIs + real-time feeds",
+          "infrastructure": "Full microservices + CDN"
+        }
+      },
+      "technicalScaling": {
+        "dataStorage": {
+          "current": "JSON files (~1MB total)",
+          "phase2A": "JSON files + Redis cache (~50MB)",
+          "phase2B": "PostgreSQL + Redis (~200MB)",
+          "phase2C": "Distributed database + CDN (~1GB)"
+        },
+        "apiPerformance": {
+          "targetResponseTime": "<100ms for player pages",
+          "cachingStrategy": "Multi-layer: Browser -> CDN -> Redis -> DB",
+          "rateLimiting": "By API key with burst allowance",
+          "monitoring": "Real-time alerts on performance degradation"
+        },
+        "contentDelivery": {
+          "playerPhotos": "CDN optimization for 2000+ images",
+          "dataAPIs": "Geographic distribution for low latency",
+          "staticGeneration": "Pre-build top 500 player pages",
+          "dynamicGeneration": "On-demand for long-tail players"
+        }
+      },
+      "operationalScaling": {
+        "dataCollection": {
+          "automation": "Scheduled jobs for stats updates",
+          "validation": "Data quality checks before publishing",
+          "monitoring": "Alerts on missing/stale data",
+          "backup": "Daily snapshots with point-in-time recovery"
+        },
+        "teamManagement": {
+          "responsibilities": "Split by conference/position expertise",
+          "tooling": "Admin dashboard for data management",
+          "processes": "Standard workflows for player additions",
+          "quality": "Peer review for high-profile players"
+        }
+      },
+      "businessScaling": {
+        "revenueImpact": {
+          "userEngagement": "+40% expected from player pages",
+          "sessionDuration": "+25% with player deep-dives",
+          "bettingConversion": "+15% with personalized player props",
+          "adRevenue": "+30% from increased page views"
+        },
+        "competitiveAdvantage": {
+          "uniqueValue": "College football player-level betting analytics",
+          "marketDifferentiation": "First comprehensive CFB player prop tool",
+          "userStickiness": "Follow favorite players across seasons"
+        }
+      }
+    }
+  },
+  "businessImpact": {
+    "userEngagement": "+40% expected",
+    "revenueIncrease": "+30% from ads and betting conversion",
+    "competitiveAdvantage": "First comprehensive CFB player prop platform",
+    "marketPosition": "Industry leader in college football analytics"
+  }
+}

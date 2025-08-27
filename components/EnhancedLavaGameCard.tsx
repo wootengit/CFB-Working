@@ -43,7 +43,7 @@ export const EnhancedLavaGameCard: React.FC<{ game: GameData }> = ({ game }) => 
     record: `${game.homeRecord.wins}-${game.homeRecord.losses}`,
     ats: '—',
     last5: parseLast5(game.homeLast5),
-    spread: typeof game.spread === 'number' ? -(game.spread || 0) : 0,
+    spread: typeof game.spread === 'number' ? (game.spread || 0) : 0,
     score: game.homeScore
   }
 
@@ -53,7 +53,7 @@ export const EnhancedLavaGameCard: React.FC<{ game: GameData }> = ({ game }) => 
     record: `${game.awayRecord.wins}-${game.awayRecord.losses}`,
     ats: '—',
     last5: parseLast5(game.awayLast5),
-    spread: typeof game.spread === 'number' ? (game.spread || 0) : 0,
+    spread: typeof game.spread === 'number' ? -(game.spread || 0) : 0,
     score: game.awayScore
   }
 
@@ -80,13 +80,29 @@ export const EnhancedLavaGameCard: React.FC<{ game: GameData }> = ({ game }) => 
     </div>
   )
 
-  // Use flippable card for completed games, regular card for upcoming games
-  if (game.completed) {
+  // Use enhanced card for completed games with both prediction and results
+  if (game.completed && (game.homeScore !== undefined || game.awayScore !== undefined)) {
+    const homeScore = game.homeScore || 0
+    const awayScore = game.awayScore || 0
+    const totalScore = homeScore + awayScore
+    const margin = homeScore - awayScore
+    const spread = game.spread || 0
+    const overUnder = game.overUnder || 0
+    
+    // Determine who covered the spread
+    const homeCovered = margin > -spread
+    const coveringTeam = homeCovered ? game.homeTeam : game.awayTeam
+    const coverMargin = Math.abs(margin + spread)
+    
+    // Determine over/under
+    const wasOver = totalScore > overUnder
+    const ouMargin = Math.abs(totalScore - overUnder)
+
     return (
-      <LavaGameCardFlippable
+      <LavaGameCard
         venue={game.venue}
-        home={homeSnapshot}
-        away={awaySnapshot}
+        home={{...homeSnapshot, score: homeScore}}
+        away={{...awaySnapshot, score: awayScore}}
         totalOU={game.overUnder || 0}
         homeLogoUrl={game.homeLogoUrl}
         awayLogoUrl={game.awayLogoUrl}
@@ -104,8 +120,135 @@ export const EnhancedLavaGameCard: React.FC<{ game: GameData }> = ({ game }) => 
           feelsLike: game.feelsLike
         }}
         watermark={true}
-        preGameSpread={game.spread}
-        preGameOverUnder={game.overUnder}
+        isExpanded={true}
+        detailsContent={
+          <div>
+            {/* Original Predictions Section - Muted */}
+            <div style={{
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
+              borderRadius: '8px',
+              padding: '12px 16px',
+              marginBottom: '16px'
+            }}>
+              <div style={{
+                fontSize: '12px',
+                fontWeight: '700',
+                color: '#64748b',
+                marginBottom: '8px'
+              }}>
+                ORIGINAL PREDICTIONS
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', fontSize: '11px' }}>
+                <div style={{ color: '#475569' }}>
+                  Away Spread: {awaySnapshot.spread > 0 ? `+${awaySnapshot.spread}` : awaySnapshot.spread}
+                </div>
+                <div style={{ color: '#475569', textAlign: 'center' }}>
+                  O/U: {overUnder}
+                </div>
+                <div style={{ color: '#475569', textAlign: 'right' }}>
+                  Home Spread: {homeSnapshot.spread > 0 ? `+${homeSnapshot.spread}` : homeSnapshot.spread}
+                </div>
+              </div>
+            </div>
+
+            {/* Actual Results Section - Prominent */}
+            <div style={{
+              background: 'linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%)',
+              border: '2px solid #16a34a',
+              borderRadius: '8px',
+              padding: '16px',
+              marginBottom: '12px'
+            }}>
+              <div style={{
+                fontSize: '14px',
+                fontWeight: '700',
+                color: '#15803d',
+                marginBottom: '12px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <span>FINAL RESULT</span>
+                <span style={{ fontSize: '12px', fontWeight: '500' }}>
+                  {game.venue}
+                </span>
+              </div>
+              
+              {/* Final scores */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '16px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>
+                    {game.awayTeam}
+                  </span>
+                  <span style={{ 
+                    fontSize: '24px', 
+                    fontWeight: '800', 
+                    color: awayScore > homeScore ? '#16a34a' : '#64748b'
+                  }}>
+                    {awayScore}
+                  </span>
+                </div>
+                
+                <div style={{ color: '#94a3b8', fontSize: '18px', fontWeight: '600' }}>-</div>
+                
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ 
+                    fontSize: '24px', 
+                    fontWeight: '800', 
+                    color: homeScore > awayScore ? '#16a34a' : '#64748b'
+                  }}>
+                    {homeScore}
+                  </span>
+                  <span style={{ fontSize: '16px', fontWeight: '600', color: '#1e293b' }}>
+                    {game.homeTeam}
+                  </span>
+                </div>
+              </div>
+
+              {/* Spread coverage analysis */}
+              <div style={{
+                background: '#e0f2fe',
+                border: '1px solid #0284c7',
+                borderRadius: '6px',
+                padding: '10px 12px',
+                marginBottom: '10px'
+              }}>
+                <div style={{
+                  fontSize: '13px',
+                  color: '#0c4a6e',
+                  fontWeight: '600',
+                  lineHeight: '1.4'
+                }}>
+                  <strong>{coveringTeam}</strong> covered the spread of {spread > 0 ? `+${spread}` : spread} by {coverMargin.toFixed(1)} points.
+                </div>
+              </div>
+              
+              {/* Over/Under result */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '12px',
+                color: '#475569'
+              }}>
+                <span>
+                  O/U {overUnder}: <strong style={{ color: wasOver ? '#dc2626' : '#16a34a' }}>
+                    {wasOver ? 'OVER' : 'UNDER'} by {ouMargin.toFixed(1)}
+                  </strong>
+                </span>
+                <span>
+                  Total Score: <strong style={{ color: '#1e293b' }}>{totalScore}</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        }
       />
     )
   }

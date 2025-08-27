@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NCAA SPORTSBOOK - WORKING VERSION</title>
+    <style>
+        body { 
+            background: #000000; 
+            color: #FFFF00; 
+            font-family: 'Courier New', monospace; 
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            font-size: 24px;
+            color: #FF0000;
+            margin-bottom: 20px;
+        }
+        .game {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .team {
+            color: #FFFF00;
+            font-size: 18px;
+        }
+        .odds {
+            color: #00FF00;
+            font-size: 16px;
+        }
+        .status {
+            color: #FF0000;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">🏈 NCAA FOOTBALL SPORTSBOOK - LIVE 2025</div>
+    
+    <div class="status" id="status">LOADING...</div>
+    
+    <div id="games-container"></div>
+
+    <script>
+        console.log('Starting sportsbook...');
+        
+        const statusDiv = document.getElementById('status');
+        const gamesContainer = document.getElementById('games-container');
+        
+        // Test direct connection
+        statusDiv.innerHTML = 'TESTING API CONNECTION...';
+        
+        fetch('http://localhost:3001/api/standings/enhanced?year=2025')
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                statusDiv.innerHTML = `✅ CONNECTED - ${data.data.length} TEAMS LOADED`;
+                
+                let html = '';
+                for (let i = 0; i < Math.min(20, data.data.length); i++) {
+                    const team = data.data[i];
+                    html += `
+                        <div class="game">
+                            <div class="team">${team.team} (${team.conference})</div>
+                            <div class="odds">SP+ Rating: ${team.spPlusRating}</div>
+                            <div class="odds">Record: ${team.wins}-${team.losses}</div>
+                        </div>
+                    `;
+                }
+                
+                gamesContainer.innerHTML = html;
+            })
+            .catch(error => {
+                console.error('ERROR:', error);
+                statusDiv.innerHTML = '❌ CONNECTION FAILED: ' + error.message;
+                
+                // Try without server
+                statusDiv.innerHTML += '<br>TRYING HARDCODED DATA...';
+                
+                gamesContainer.innerHTML = `
+                    <div class="game">
+                        <div class="team">ALABAMA (SEC)</div>
+                        <div class="odds">SPREAD: -14.5 | ML: -450</div>
+                    </div>
+                    <div class="game">
+                        <div class="team">GEORGIA (SEC)</div>
+                        <div class="odds">SPREAD: -10.5 | ML: -320</div>
+                    </div>
+                    <div class="game">
+                        <div class="team">TEXAS (SEC)</div>
+                        <div class="odds">SPREAD: -7.5 | ML: -280</div>
+                    </div>
+                `;
+            });
+    </script>
+</body>
+</html>

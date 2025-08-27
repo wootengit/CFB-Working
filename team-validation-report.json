@@ -1,0 +1,1934 @@
+{
+  "timestamp": "2025-08-27T13:04:20.869Z",
+  "validationType": "COMPREHENSIVE_TEAM_PAGE_VALIDATION",
+  "conferenceGrading": {
+    "conferenceResults": {
+      "SEC": {
+        "grade": 1,
+        "actualTeamCount": 16,
+        "expectedTeamCount": 16,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Alabama",
+            "mascot": "Crimson Tide",
+            "abbreviation": "ALA",
+            "state": "AL"
+          },
+          {
+            "school": "Arkansas",
+            "mascot": "Razorbacks",
+            "abbreviation": "ARK",
+            "state": "AR"
+          },
+          {
+            "school": "Auburn",
+            "mascot": "Tigers",
+            "abbreviation": "AUB",
+            "state": "AL"
+          },
+          {
+            "school": "Florida",
+            "mascot": "Gators",
+            "abbreviation": "FLA",
+            "state": "FL"
+          },
+          {
+            "school": "Georgia",
+            "mascot": "Bulldogs",
+            "abbreviation": "UGA",
+            "state": "GA"
+          },
+          {
+            "school": "Kentucky",
+            "mascot": "Wildcats",
+            "abbreviation": "UK",
+            "state": "KY"
+          },
+          {
+            "school": "LSU",
+            "mascot": "Tigers",
+            "abbreviation": "LSU",
+            "state": "LA"
+          },
+          {
+            "school": "Mississippi State",
+            "mascot": "Bulldogs",
+            "abbreviation": "MSST",
+            "state": "MS"
+          },
+          {
+            "school": "Missouri",
+            "mascot": "Tigers",
+            "abbreviation": "MIZ",
+            "state": "MO"
+          },
+          {
+            "school": "Ole Miss",
+            "mascot": "Rebels",
+            "abbreviation": "MISS",
+            "state": "MS"
+          },
+          {
+            "school": "South Carolina",
+            "mascot": "Gamecocks",
+            "abbreviation": "SC",
+            "state": "SC"
+          },
+          {
+            "school": "Tennessee",
+            "mascot": "Volunteers",
+            "abbreviation": "TENN",
+            "state": "TN"
+          },
+          {
+            "school": "Texas",
+            "mascot": "Longhorns",
+            "abbreviation": "TEX",
+            "state": "TX"
+          },
+          {
+            "school": "Texas A&M",
+            "mascot": "Aggies",
+            "abbreviation": "TAMU",
+            "state": "TX"
+          },
+          {
+            "school": "Oklahoma",
+            "mascot": "Sooners",
+            "abbreviation": "OU",
+            "state": "OK"
+          },
+          {
+            "school": "Vanderbilt",
+            "mascot": "Commodores",
+            "abbreviation": "VANDY",
+            "state": "TN"
+          }
+        ],
+        "bettingRelevance": "HIGHEST"
+      },
+      "Big Ten": {
+        "grade": 1,
+        "actualTeamCount": 18,
+        "expectedTeamCount": 18,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Illinois",
+            "mascot": "Fighting Illini",
+            "abbreviation": "ILL",
+            "state": "IL"
+          },
+          {
+            "school": "Indiana",
+            "mascot": "Hoosiers",
+            "abbreviation": "IU",
+            "state": "IN"
+          },
+          {
+            "school": "Iowa",
+            "mascot": "Hawkeyes",
+            "abbreviation": "IOWA",
+            "state": "IA"
+          },
+          {
+            "school": "Maryland",
+            "mascot": "Terrapins",
+            "abbreviation": "MD",
+            "state": "MD"
+          },
+          {
+            "school": "Michigan",
+            "mascot": "Wolverines",
+            "abbreviation": "MICH",
+            "state": "MI"
+          },
+          {
+            "school": "Michigan State",
+            "mascot": "Spartans",
+            "abbreviation": "MSU",
+            "state": "MI"
+          },
+          {
+            "school": "Minnesota",
+            "mascot": "Golden Gophers",
+            "abbreviation": "MINN",
+            "state": "MN"
+          },
+          {
+            "school": "Nebraska",
+            "mascot": "Cornhuskers",
+            "abbreviation": "NEB",
+            "state": "NE"
+          },
+          {
+            "school": "Northwestern",
+            "mascot": "Wildcats",
+            "abbreviation": "NW",
+            "state": "IL"
+          },
+          {
+            "school": "Ohio State",
+            "mascot": "Buckeyes",
+            "abbreviation": "OSU",
+            "state": "OH"
+          },
+          {
+            "school": "Penn State",
+            "mascot": "Nittany Lions",
+            "abbreviation": "PSU",
+            "state": "PA"
+          },
+          {
+            "school": "Purdue",
+            "mascot": "Boilermakers",
+            "abbreviation": "PUR",
+            "state": "IN"
+          },
+          {
+            "school": "Rutgers",
+            "mascot": "Scarlet Knights",
+            "abbreviation": "RU",
+            "state": "NJ"
+          },
+          {
+            "school": "Wisconsin",
+            "mascot": "Badgers",
+            "abbreviation": "WISC",
+            "state": "WI"
+          },
+          {
+            "school": "USC",
+            "mascot": "Trojans",
+            "abbreviation": "USC",
+            "state": "CA"
+          },
+          {
+            "school": "UCLA",
+            "mascot": "Bruins",
+            "abbreviation": "UCLA",
+            "state": "CA"
+          },
+          {
+            "school": "Oregon",
+            "mascot": "Ducks",
+            "abbreviation": "ORE",
+            "state": "OR"
+          },
+          {
+            "school": "Washington",
+            "mascot": "Huskies",
+            "abbreviation": "UW",
+            "state": "WA"
+          }
+        ],
+        "bettingRelevance": "HIGHEST"
+      },
+      "Big 12": {
+        "grade": 1,
+        "actualTeamCount": 16,
+        "expectedTeamCount": 16,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Baylor",
+            "mascot": "Bears",
+            "abbreviation": "BAY",
+            "state": "TX"
+          },
+          {
+            "school": "BYU",
+            "mascot": "Cougars",
+            "abbreviation": "BYU",
+            "state": "UT"
+          },
+          {
+            "school": "Cincinnati",
+            "mascot": "Bearcats",
+            "abbreviation": "CIN",
+            "state": "OH"
+          },
+          {
+            "school": "Colorado",
+            "mascot": "Buffaloes",
+            "abbreviation": "COL",
+            "state": "CO"
+          },
+          {
+            "school": "Houston",
+            "mascot": "Cougars",
+            "abbreviation": "HOU",
+            "state": "TX"
+          },
+          {
+            "school": "Iowa State",
+            "mascot": "Cyclones",
+            "abbreviation": "ISU",
+            "state": "IA"
+          },
+          {
+            "school": "Kansas",
+            "mascot": "Jayhawks",
+            "abbreviation": "KU",
+            "state": "KS"
+          },
+          {
+            "school": "Kansas State",
+            "mascot": "Wildcats",
+            "abbreviation": "KSU",
+            "state": "KS"
+          },
+          {
+            "school": "Oklahoma State",
+            "mascot": "Cowboys",
+            "abbreviation": "OKST",
+            "state": "OK"
+          },
+          {
+            "school": "TCU",
+            "mascot": "Horned Frogs",
+            "abbreviation": "TCU",
+            "state": "TX"
+          },
+          {
+            "school": "Texas Tech",
+            "mascot": "Red Raiders",
+            "abbreviation": "TTU",
+            "state": "TX"
+          },
+          {
+            "school": "UCF",
+            "mascot": "Knights",
+            "abbreviation": "UCF",
+            "state": "FL"
+          },
+          {
+            "school": "Utah",
+            "mascot": "Utes",
+            "abbreviation": "UTAH",
+            "state": "UT"
+          },
+          {
+            "school": "West Virginia",
+            "mascot": "Mountaineers",
+            "abbreviation": "WVU",
+            "state": "WV"
+          },
+          {
+            "school": "Arizona",
+            "mascot": "Wildcats",
+            "abbreviation": "ARIZ",
+            "state": "AZ"
+          },
+          {
+            "school": "Arizona State",
+            "mascot": "Sun Devils",
+            "abbreviation": "ASU",
+            "state": "AZ"
+          }
+        ],
+        "bettingRelevance": "HIGH"
+      },
+      "ACC": {
+        "grade": 1,
+        "actualTeamCount": 17,
+        "expectedTeamCount": 17,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Boston College",
+            "mascot": "Eagles",
+            "abbreviation": "BC",
+            "state": "MA"
+          },
+          {
+            "school": "Clemson",
+            "mascot": "Tigers",
+            "abbreviation": "CLEM",
+            "state": "SC"
+          },
+          {
+            "school": "Duke",
+            "mascot": "Blue Devils",
+            "abbreviation": "DUKE",
+            "state": "NC"
+          },
+          {
+            "school": "Florida State",
+            "mascot": "Seminoles",
+            "abbreviation": "FSU",
+            "state": "FL"
+          },
+          {
+            "school": "Georgia Tech",
+            "mascot": "Yellow Jackets",
+            "abbreviation": "GT",
+            "state": "GA"
+          },
+          {
+            "school": "Louisville",
+            "mascot": "Cardinals",
+            "abbreviation": "LOU",
+            "state": "KY"
+          },
+          {
+            "school": "Miami",
+            "mascot": "Hurricanes",
+            "abbreviation": "MIA",
+            "state": "FL"
+          },
+          {
+            "school": "NC State",
+            "mascot": "Wolfpack",
+            "abbreviation": "NCST",
+            "state": "NC"
+          },
+          {
+            "school": "North Carolina",
+            "mascot": "Tar Heels",
+            "abbreviation": "UNC",
+            "state": "NC"
+          },
+          {
+            "school": "Pittsburgh",
+            "mascot": "Panthers",
+            "abbreviation": "PITT",
+            "state": "PA"
+          },
+          {
+            "school": "Syracuse",
+            "mascot": "Orange",
+            "abbreviation": "SYR",
+            "state": "NY"
+          },
+          {
+            "school": "Virginia",
+            "mascot": "Cavaliers",
+            "abbreviation": "UVA",
+            "state": "VA"
+          },
+          {
+            "school": "Virginia Tech",
+            "mascot": "Hokies",
+            "abbreviation": "VT",
+            "state": "VA"
+          },
+          {
+            "school": "Wake Forest",
+            "mascot": "Demon Deacons",
+            "abbreviation": "WAKE",
+            "state": "NC"
+          },
+          {
+            "school": "California",
+            "mascot": "Golden Bears",
+            "abbreviation": "CAL",
+            "state": "CA"
+          },
+          {
+            "school": "Stanford",
+            "mascot": "Cardinal",
+            "abbreviation": "STAN",
+            "state": "CA"
+          },
+          {
+            "school": "SMU",
+            "mascot": "Mustangs",
+            "abbreviation": "SMU",
+            "state": "TX"
+          }
+        ],
+        "bettingRelevance": "HIGH"
+      },
+      "American Athletic": {
+        "grade": 1,
+        "actualTeamCount": 14,
+        "expectedTeamCount": 14,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "East Carolina",
+            "mascot": "Pirates",
+            "abbreviation": "ECU",
+            "state": "NC"
+          },
+          {
+            "school": "Memphis",
+            "mascot": "Tigers",
+            "abbreviation": "MEM",
+            "state": "TN"
+          },
+          {
+            "school": "Navy",
+            "mascot": "Midshipmen",
+            "abbreviation": "NAVY",
+            "state": "MD"
+          },
+          {
+            "school": "South Florida",
+            "mascot": "Bulls",
+            "abbreviation": "USF",
+            "state": "FL"
+          },
+          {
+            "school": "Temple",
+            "mascot": "Owls",
+            "abbreviation": "TEM",
+            "state": "PA"
+          },
+          {
+            "school": "Tulane",
+            "mascot": "Green Wave",
+            "abbreviation": "TUL",
+            "state": "LA"
+          },
+          {
+            "school": "Tulsa",
+            "mascot": "Golden Hurricane",
+            "abbreviation": "TLSA",
+            "state": "OK"
+          },
+          {
+            "school": "UAB",
+            "mascot": "Blazers",
+            "abbreviation": "UAB",
+            "state": "AL"
+          },
+          {
+            "school": "UTSA",
+            "mascot": "Roadrunners",
+            "abbreviation": "UTSA",
+            "state": "TX"
+          },
+          {
+            "school": "Wichita State",
+            "mascot": "Shockers",
+            "abbreviation": "WSU",
+            "state": "KS"
+          },
+          {
+            "school": "Rice",
+            "mascot": "Owls",
+            "abbreviation": "RICE",
+            "state": "TX"
+          },
+          {
+            "school": "North Texas",
+            "mascot": "Mean Green",
+            "abbreviation": "UNT",
+            "state": "TX"
+          },
+          {
+            "school": "Charlotte",
+            "mascot": "49ers",
+            "abbreviation": "CHAR",
+            "state": "NC"
+          },
+          {
+            "school": "FAU",
+            "mascot": "Owls",
+            "abbreviation": "FAU",
+            "state": "FL"
+          }
+        ],
+        "bettingRelevance": "MEDIUM"
+      },
+      "Mountain West": {
+        "grade": 1,
+        "actualTeamCount": 12,
+        "expectedTeamCount": 12,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Air Force",
+            "mascot": "Falcons",
+            "abbreviation": "AF",
+            "state": "CO"
+          },
+          {
+            "school": "Boise State",
+            "mascot": "Broncos",
+            "abbreviation": "BSU",
+            "state": "ID"
+          },
+          {
+            "school": "Colorado State",
+            "mascot": "Rams",
+            "abbreviation": "CSU",
+            "state": "CO"
+          },
+          {
+            "school": "Fresno State",
+            "mascot": "Bulldogs",
+            "abbreviation": "FRES",
+            "state": "CA"
+          },
+          {
+            "school": "Hawaii",
+            "mascot": "Rainbow Warriors",
+            "abbreviation": "HAW",
+            "state": "HI"
+          },
+          {
+            "school": "Nevada",
+            "mascot": "Wolf Pack",
+            "abbreviation": "NEV",
+            "state": "NV"
+          },
+          {
+            "school": "New Mexico",
+            "mascot": "Lobos",
+            "abbreviation": "UNM",
+            "state": "NM"
+          },
+          {
+            "school": "San Diego State",
+            "mascot": "Aztecs",
+            "abbreviation": "SDSU",
+            "state": "CA"
+          },
+          {
+            "school": "San Jose State",
+            "mascot": "Spartans",
+            "abbreviation": "SJSU",
+            "state": "CA"
+          },
+          {
+            "school": "UNLV",
+            "mascot": "Rebels",
+            "abbreviation": "UNLV",
+            "state": "NV"
+          },
+          {
+            "school": "Utah State",
+            "mascot": "Aggies",
+            "abbreviation": "USU",
+            "state": "UT"
+          },
+          {
+            "school": "Wyoming",
+            "mascot": "Cowboys",
+            "abbreviation": "WYO",
+            "state": "WY"
+          }
+        ],
+        "bettingRelevance": "MEDIUM"
+      },
+      "MAC": {
+        "grade": 1,
+        "actualTeamCount": 12,
+        "expectedTeamCount": 12,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Akron",
+            "mascot": "Zips",
+            "abbreviation": "AKR",
+            "state": "OH"
+          },
+          {
+            "school": "Ball State",
+            "mascot": "Cardinals",
+            "abbreviation": "BALL",
+            "state": "IN"
+          },
+          {
+            "school": "Bowling Green",
+            "mascot": "Falcons",
+            "abbreviation": "BGSU",
+            "state": "OH"
+          },
+          {
+            "school": "Buffalo",
+            "mascot": "Bulls",
+            "abbreviation": "BUF",
+            "state": "NY"
+          },
+          {
+            "school": "Central Michigan",
+            "mascot": "Chippewas",
+            "abbreviation": "CMU",
+            "state": "MI"
+          },
+          {
+            "school": "Eastern Michigan",
+            "mascot": "Eagles",
+            "abbreviation": "EMU",
+            "state": "MI"
+          },
+          {
+            "school": "Kent State",
+            "mascot": "Golden Flashes",
+            "abbreviation": "KENT",
+            "state": "OH"
+          },
+          {
+            "school": "Miami (OH)",
+            "mascot": "RedHawks",
+            "abbreviation": "MIA",
+            "state": "OH"
+          },
+          {
+            "school": "Northern Illinois",
+            "mascot": "Huskies",
+            "abbreviation": "NIU",
+            "state": "IL"
+          },
+          {
+            "school": "Ohio",
+            "mascot": "Bobcats",
+            "abbreviation": "OHIO",
+            "state": "OH"
+          },
+          {
+            "school": "Toledo",
+            "mascot": "Rockets",
+            "abbreviation": "TOL",
+            "state": "OH"
+          },
+          {
+            "school": "Western Michigan",
+            "mascot": "Broncos",
+            "abbreviation": "WMU",
+            "state": "MI"
+          }
+        ],
+        "bettingRelevance": "MEDIUM"
+      },
+      "Sun Belt": {
+        "grade": 1,
+        "actualTeamCount": 14,
+        "expectedTeamCount": 14,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Appalachian State",
+            "mascot": "Mountaineers",
+            "abbreviation": "APP",
+            "state": "NC"
+          },
+          {
+            "school": "Arkansas State",
+            "mascot": "Red Wolves",
+            "abbreviation": "ARST",
+            "state": "AR"
+          },
+          {
+            "school": "Coastal Carolina",
+            "mascot": "Chanticleers",
+            "abbreviation": "CCU",
+            "state": "SC"
+          },
+          {
+            "school": "Georgia Southern",
+            "mascot": "Eagles",
+            "abbreviation": "GASO",
+            "state": "GA"
+          },
+          {
+            "school": "Georgia State",
+            "mascot": "Panthers",
+            "abbreviation": "GSU",
+            "state": "GA"
+          },
+          {
+            "school": "James Madison",
+            "mascot": "Dukes",
+            "abbreviation": "JMU",
+            "state": "VA"
+          },
+          {
+            "school": "Louisiana",
+            "mascot": "Ragin' Cajuns",
+            "abbreviation": "ULL",
+            "state": "LA"
+          },
+          {
+            "school": "Louisiana Monroe",
+            "mascot": "Warhawks",
+            "abbreviation": "ULM",
+            "state": "LA"
+          },
+          {
+            "school": "Marshall",
+            "mascot": "Thundering Herd",
+            "abbreviation": "MARS",
+            "state": "WV"
+          },
+          {
+            "school": "Old Dominion",
+            "mascot": "Monarchs",
+            "abbreviation": "ODU",
+            "state": "VA"
+          },
+          {
+            "school": "South Alabama",
+            "mascot": "Jaguars",
+            "abbreviation": "USA",
+            "state": "AL"
+          },
+          {
+            "school": "Southern Miss",
+            "mascot": "Golden Eagles",
+            "abbreviation": "USM",
+            "state": "MS"
+          },
+          {
+            "school": "Texas State",
+            "mascot": "Bobcats",
+            "abbreviation": "TXST",
+            "state": "TX"
+          },
+          {
+            "school": "Troy",
+            "mascot": "Trojans",
+            "abbreviation": "TROY",
+            "state": "AL"
+          }
+        ],
+        "bettingRelevance": "MEDIUM"
+      },
+      "Conference USA": {
+        "grade": 1,
+        "actualTeamCount": 10,
+        "expectedTeamCount": 10,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Florida International",
+            "mascot": "Panthers",
+            "abbreviation": "FIU",
+            "state": "FL"
+          },
+          {
+            "school": "Jacksonville State",
+            "mascot": "Gamecocks",
+            "abbreviation": "JVST",
+            "state": "AL"
+          },
+          {
+            "school": "Liberty",
+            "mascot": "Flames",
+            "abbreviation": "LIB",
+            "state": "VA"
+          },
+          {
+            "school": "Louisiana Tech",
+            "mascot": "Bulldogs",
+            "abbreviation": "LT",
+            "state": "LA"
+          },
+          {
+            "school": "Middle Tennessee",
+            "mascot": "Blue Raiders",
+            "abbreviation": "MTSU",
+            "state": "TN"
+          },
+          {
+            "school": "New Mexico State",
+            "mascot": "Aggies",
+            "abbreviation": "NMSU",
+            "state": "NM"
+          },
+          {
+            "school": "Sam Houston",
+            "mascot": "Bearkats",
+            "abbreviation": "SHSU",
+            "state": "TX"
+          },
+          {
+            "school": "UTEP",
+            "mascot": "Miners",
+            "abbreviation": "UTEP",
+            "state": "TX"
+          },
+          {
+            "school": "Western Kentucky",
+            "mascot": "Hilltoppers",
+            "abbreviation": "WKU",
+            "state": "KY"
+          },
+          {
+            "school": "Kennesaw State",
+            "mascot": "Owls",
+            "abbreviation": "KSU",
+            "state": "GA"
+          }
+        ],
+        "bettingRelevance": "MEDIUM"
+      },
+      "FBS Independents": {
+        "grade": 1,
+        "actualTeamCount": 7,
+        "expectedTeamCount": 7,
+        "isComplete": true,
+        "teams": [
+          {
+            "school": "Army",
+            "mascot": "Black Knights",
+            "abbreviation": "ARMY",
+            "state": "NY"
+          },
+          {
+            "school": "Connecticut",
+            "mascot": "Huskies",
+            "abbreviation": "CONN",
+            "state": "CT"
+          },
+          {
+            "school": "Massachusetts",
+            "mascot": "Minutemen",
+            "abbreviation": "UMASS",
+            "state": "MA"
+          },
+          {
+            "school": "Notre Dame",
+            "mascot": "Fighting Irish",
+            "abbreviation": "ND",
+            "state": "IN"
+          },
+          {
+            "school": "New Mexico State",
+            "mascot": "Aggies",
+            "abbreviation": "NMSU",
+            "state": "NM"
+          },
+          {
+            "school": "Liberty",
+            "mascot": "Flames",
+            "abbreviation": "LIB",
+            "state": "VA"
+          },
+          {
+            "school": "Jacksonville State",
+            "mascot": "Gamecocks",
+            "abbreviation": "JVST",
+            "state": "AL"
+          }
+        ],
+        "bettingRelevance": "VARIABLE"
+      }
+    },
+    "summary": {
+      "completeConferences": 10,
+      "totalConferences": 10,
+      "overallGrade": 1,
+      "totalTeams": 136
+    }
+  },
+  "teamDataValidation": {
+    "teamValidation": {
+      "Alabama": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Arkansas": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Auburn": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Florida": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Georgia": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Kentucky": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "LSU": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Mississippi State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Missouri": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Ole Miss": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "South Carolina": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Tennessee": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Texas": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Texas A&M": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Oklahoma": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Vanderbilt": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "SEC",
+        "bettingPriority": "HIGHEST"
+      },
+      "Illinois": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Indiana": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Iowa": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Maryland": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Michigan": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Michigan State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Minnesota": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Nebraska": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Northwestern": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Ohio State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Penn State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Purdue": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Rutgers": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Wisconsin": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "USC": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "UCLA": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Oregon": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Washington": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big Ten",
+        "bettingPriority": "HIGHEST"
+      },
+      "Baylor": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "BYU": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Cincinnati": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Colorado": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Houston": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Iowa State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Kansas": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Kansas State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Oklahoma State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "TCU": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Texas Tech": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "UCF": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Utah": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "West Virginia": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Arizona": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Arizona State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Big 12",
+        "bettingPriority": "HIGH"
+      },
+      "Boston College": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Clemson": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Duke": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Florida State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Georgia Tech": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Louisville": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Miami": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "NC State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "North Carolina": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Pittsburgh": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Syracuse": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Virginia": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Virginia Tech": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Wake Forest": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "California": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "Stanford": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "SMU": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "ACC",
+        "bettingPriority": "HIGH"
+      },
+      "East Carolina": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Memphis": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Navy": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "South Florida": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Temple": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Tulane": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Tulsa": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "UAB": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "UTSA": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Wichita State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Rice": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "North Texas": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Charlotte": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "FAU": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "American Athletic",
+        "bettingPriority": "MEDIUM"
+      },
+      "Air Force": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Boise State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Colorado State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Fresno State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Hawaii": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Nevada": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "New Mexico": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "San Diego State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "San Jose State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "UNLV": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Utah State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Wyoming": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Mountain West",
+        "bettingPriority": "MEDIUM"
+      },
+      "Akron": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Ball State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Bowling Green": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Buffalo": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Central Michigan": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Eastern Michigan": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Kent State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Miami (OH)": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Northern Illinois": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Ohio": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Toledo": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Western Michigan": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "MAC",
+        "bettingPriority": "MEDIUM"
+      },
+      "Appalachian State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Arkansas State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Coastal Carolina": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Georgia Southern": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Georgia State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "James Madison": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Louisiana": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Louisiana Monroe": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Marshall": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Old Dominion": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "South Alabama": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Southern Miss": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Texas State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Troy": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Sun Belt",
+        "bettingPriority": "MEDIUM"
+      },
+      "Florida International": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "Jacksonville State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Liberty": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Louisiana Tech": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "Middle Tennessee": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "New Mexico State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Sam Houston": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "UTEP": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "Western Kentucky": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "Kennesaw State": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "Conference USA",
+        "bettingPriority": "MEDIUM"
+      },
+      "Army": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Connecticut": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Massachusetts": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      },
+      "Notre Dame": {
+        "isComplete": true,
+        "completenessScore": 1,
+        "missingFields": [],
+        "conference": "FBS Independents",
+        "bettingPriority": "VARIABLE"
+      }
+    },
+    "summary": {
+      "completeTeams": 136,
+      "totalTeams": 136,
+      "completenessRate": 1,
+      "incompleteTeams": 0
+    }
+  },
+  "implementationRoadmap": {
+    "phase1_highest_priority": {
+      "description": "Top-tier betting conferences (SEC, Big Ten)",
+      "conferences": [
+        "SEC",
+        "Big Ten"
+      ],
+      "teamCount": 34,
+      "estimatedEffort": "2-3 weeks",
+      "criticalFeatures": [
+        "Live odds integration",
+        "SP+ ratings display",
+        "Advanced analytics",
+        "Real-time injury reports",
+        "Betting line movements"
+      ]
+    },
+    "phase2_high_priority": {
+      "description": "Major betting conferences (Big 12, ACC)",
+      "conferences": [
+        "Big 12",
+        "ACC"
+      ],
+      "teamCount": 33,
+      "estimatedEffort": "2 weeks",
+      "criticalFeatures": [
+        "Conference standings",
+        "Head-to-head records",
+        "Recruiting rankings",
+        "Coaching changes tracking"
+      ]
+    },
+    "phase3_medium_priority": {
+      "description": "G5 conferences with betting action",
+      "conferences": [
+        "American Athletic",
+        "Mountain West",
+        "MAC",
+        "Sun Belt",
+        "Conference USA"
+      ],
+      "teamCount": 62,
+      "estimatedEffort": "3 weeks",
+      "criticalFeatures": [
+        "Basic team stats",
+        "Schedule integration",
+        "Player rosters",
+        "Venue information"
+      ]
+    },
+    "phase4_independents": {
+      "description": "Independent teams (variable betting relevance)",
+      "conferences": [
+        "FBS Independents"
+      ],
+      "teamCount": 7,
+      "estimatedEffort": "1 week",
+      "criticalFeatures": [
+        "Special scheduling considerations",
+        "Unique betting patterns",
+        "Conference affiliation tracking"
+      ]
+    }
+  },
+  "summary": {
+    "totalConferences": 10,
+    "completeConferences": 10,
+    "conferenceCompleteness": 1,
+    "totalTeams": 136,
+    "completeTeams": 136,
+    "teamDataCompleteness": 1,
+    "readyForImplementation": true
+  }
+}

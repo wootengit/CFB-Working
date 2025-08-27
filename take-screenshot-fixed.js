@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 (async () => {
-  console.log('🚀 Taking screenshot of games-and-matches calendar...');
+  console.log('🚀 Taking screenshot of standings page...');
   
   // Create temp directory
   const tempDir = 'C:\\temp\\playwright-temp';
@@ -21,8 +21,7 @@ const fs = require('fs');
     args: [
       '--no-sandbox', 
       '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      `--user-data-dir=${tempDir}`
+      '--disable-dev-shm-usage'
     ]
   });
   
@@ -30,9 +29,9 @@ const fs = require('fs');
   await page.setViewportSize({ width: 1920, height: 1080 });
   
   try {
-    await page.goto('http://localhost:3000/games-and-matches', { 
+    await page.goto('http://localhost:3003/standings', { 
       waitUntil: 'domcontentloaded',
-      timeout: 15000 
+      timeout: 30000 
     });
     
     console.log('📡 Page loaded, waiting for content...');
@@ -40,11 +39,11 @@ const fs = require('fs');
     
     console.log('📸 Taking screenshot...');
     await page.screenshot({ 
-      path: 'C:\\CFB-WORKING\\CALENDAR-SCREENSHOT.png',
+      path: 'C:\\CFB-WORKING\\STANDINGS-SCREENSHOT.png',
       fullPage: true 
     });
     
-    console.log('✅ SCREENSHOT SAVED: CALENDAR-SCREENSHOT.png');
+    console.log('✅ SCREENSHOT SAVED: STANDINGS-SCREENSHOT.png');
     
   } catch (error) {
     console.log('❌ ERROR:', error.message);

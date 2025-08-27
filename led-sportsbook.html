@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Sportsbook - College Football Odds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: 'SF Mono', 'Monaco', 'Roboto Mono', 'Consolas', monospace;
+            font-variant-numeric: tabular-nums;
+            padding: 20px;
+            overflow-x: auto;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Professional CRT scanlines effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                transparent 50%,
+                rgba(0, 255, 0, 0.03) 50%,
+                rgba(0, 255, 0, 0.05) 51%,
+                transparent 52%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            animation: scanline-move 0.1s linear infinite;
+        }
+
+        @keyframes scanline-move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        /* LED Board Header */
+        .led-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 2px solid #333;
+        }
+
+        .led-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: #FFB000;
+            text-shadow: 
+                0 0 5px #FFB000,
+                0 0 10px #FFB000,
+                0 0 15px #FFB000,
+                0 0 20px #FFB000;
+            margin-bottom: 10px;
+            animation: subtle-glow 3s ease-in-out infinite alternate;
+        }
+
+        .led-datetime {
+            font-size: 1rem;
+            color: #00FF41;
+            text-shadow: 
+                0 0 5px #00FF41,
+                0 0 10px #00FF41;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes subtle-glow {
+            from { text-shadow: 0 0 5px #FFB000, 0 0 10px #FFB000, 0 0 15px #FFB000, 0 0 20px #FFB000; }
+            to { text-shadow: 0 0 8px #FFB000, 0 0 15px #FFB000, 0 0 25px #FFB000, 0 0 30px #FFB000; }
+        }
+
+        /* Main Board Layout */
+        .led-board {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+            background: #111;
+            border: 3px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Column Headers */
+        .led-headers {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 15px 10px;
+            background: #222;
+            border-bottom: 2px solid #444;
+            margin-bottom: 5px;
+        }
+
+        .led-header-cell {
+            color: #FFB000;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-align: center;
+            text-shadow: 0 0 5px currentColor;
+        }
+
+        /* Game Rows */
+        .led-row {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 12px 10px;
+            border-bottom: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .led-row:hover {
+            background: #1a1a1a;
+            transform: scale(1.01);
+        }
+
+        .led-row.flickering {
+            animation: authentic-flicker 0.15s infinite linear alternate;
+        }
+
+        @keyframes authentic-flicker {
+            0% { opacity: 1; }
+            97% { opacity: 1; }
+            98% { opacity: 0.98; }
+            100% { opacity: 0.96; }
+        }
+
+        /* Team Cell */
+        .led-team {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .led-team-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
+
+        .led-team-name {
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 600;
+            text-shadow: 
+                0 0 5px currentColor,
+                0 0 10px currentColor;
+            letter-spacing: 0.05em;
+        }
+
+        .led-record {
+            color: #888;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+
+        /* Data Cells */
+        .led-cell {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* LED Color Coding */
+        .led-positive {
+            color: #00FF41;
+            text-shadow: 
+                0 0 5px #00FF41,
+                0 0 10px #00FF41,
+                0 0 15px #00FF41;
+        }
+
+        .led-negative {
+            color: #FF2D2D;
+            text-shadow: 
+                0 0 5px #FF2D2D,
+                0 0 10px #FF2D2D,
+                0 0 15px #FF2D2D;
+        }
+
+        .led-neutral {
+            color: #FFB000;
+            text-shadow: 
+                0 0 5px #FFB000,
+                0 0 10px #FFB000;
+        }
+
+        .led-spread {
+            color: #2D4FFF;
+            text-shadow: 
+                0 0 5px #2D4FFF,
+                0 0 10px #2D4FFF;
+        }
+
+        .led-rank {
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 0.75rem;
+            color: #FFB000;
+            text-shadow: 0 0 5px currentColor;
+        }
+
+        .led-rank.top-25 {
+            background: #1a4;
+            border-color: #2a6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- LED Board Header -->
+    <div class="led-header">
+        <div class="led-title">COLLEGE FOOTBALL LIVE ODDS</div>
+        <div class="led-datetime" id="datetime"></div>
+    </div>
+
+    <!-- Main LED Board -->
+    <div class="led-board">
+        <!-- Column Headers -->
+        <div class="led-headers">
+            <div class="led-header-cell">TEAM</div>
+            <div class="led-header-cell">REC</div>
+            <div class="led-header-cell">SP+</div>
+            <div class="led-header-cell">SPREAD</div>
+            <div class="led-header-cell">O/U</div>
+            <div class="led-header-cell">ML</div>
+            <div class="led-header-cell">EXP</div>
+        </div>
+
+        <!-- Game Rows -->
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/61.png" alt="Georgia" class="led-team-logo">
+                <span class="led-team-name">GEORGIA</span>
+                <span class="led-record">11-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">11-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank top-25">#6</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">-3.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">52.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-negative">-165</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.22</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/251.png" alt="Texas" class="led-team-logo">
+                <span class="led-team-name">TEXAS</span>
+                <span class="led-record">13-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">13-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank top-25">#7</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">-2.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">49.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-negative">-145</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.31</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/333.png" alt="Alabama" class="led-team-logo">
+                <span class="led-team-name">ALABAMA</span>
+                <span class="led-record">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank top-25">#4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">+1.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">47.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">+125</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.32</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/145.png" alt="Ole Miss" class="led-team-logo">
+                <span class="led-team-name">OLE MISS</span>
+                <span class="led-record">10-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">10-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank top-25">#2</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">-7.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">54.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-negative">-285</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.38</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png" alt="Tennessee" class="led-team-logo">
+                <span class="led-team-name">TENNESSEE</span>
+                <span class="led-record">10-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">10-3</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank top-25">#9</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">-4.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">51.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-negative">-195</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.13</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/245.png" alt="Texas A&M" class="led-team-logo">
+                <span class="led-team-name">TEXAS A&M</span>
+                <span class="led-record">8-5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">8-5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank">#13</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">+2.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">46.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">+115</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.18</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png" alt="South Carolina" class="led-team-logo">
+                <span class="led-team-name">SOUTH CAROLINA</span>
+                <span class="led-record">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank">#14</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">+6.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">48.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">+245</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">1.29</span>
+            </div>
+        </div>
+
+        <div class="led-row">
+            <div class="led-team">
+                <img src="https://a.espncdn.com/i/teamlogos/ncaa/500/99.png" alt="LSU" class="led-team-logo">
+                <span class="led-team-name">LSU</span>
+                <span class="led-record">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">9-4</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-rank">#19</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-spread">+3.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">53.5</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-positive">+155</span>
+            </div>
+            <div class="led-cell">
+                <span class="led-neutral">1.08</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update time every second
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            const timeStr = now.toLocaleTimeString('en-US');
+            document.getElementById('datetime').textContent = `${dateStr} - ${timeStr}`;
+        }
+
+        // Random flicker effect
+        function addFlicker() {
+            const rows = document.querySelectorAll('.led-row');
+            rows.forEach(row => row.classList.remove('flickering'));
+            
+            if (Math.random() > 0.95) {
+                const randomRow = rows[Math.floor(Math.random() * rows.length)];
+                randomRow.classList.add('flickering');
+                setTimeout(() => {
+                    randomRow.classList.remove('flickering');
+                }, 150);
+            }
+        }
+
+        // Initialize
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+        setInterval(addFlicker, 150);
+    </script>
+</body>
+</html>

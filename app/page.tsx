@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter()
   
   useEffect(() => {
-    router.push('/games-and-matches')
+    router.push('/dashboard')
   }, [])
 
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       justifyContent: 'center',
       fontSize: '18px'
     }}>
-      Redirecting to College Football Calendar...
+      Loading Premium Dashboard...
     </div>
   )
 }

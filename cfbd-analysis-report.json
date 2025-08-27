@@ -1,0 +1,110 @@
+{
+  "timestamp": "2025-08-27T06:50:08.848Z",
+  "apiEndpoints": {
+    "teamStats": {
+      "error": true,
+      "message": "Unexpected token '<', \"\n<!-- HTML \"... is not valid JSON"
+    },
+    "teamRecords": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "rankings": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "spRatings": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "srsRatings": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "elo": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "games": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "gameLines": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "gameStats": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "gameMedia": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "teams": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "conferences": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "venues": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "ppa": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "advancedStats": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "teamTalent": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "roster": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "playerStats": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "playerUsage": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "recruiting": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "recruitingPlayers": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "teamHistory": {
+      "requiresAuth": true,
+      "status": 401
+    },
+    "polls": {
+      "error": true,
+      "message": "Unexpected token '<', \"\n<!-- HTML \"... is not valid JSON"
+    },
+    "coaches": {
+      "requiresAuth": true,
+      "status": 401
+    }
+  },
+  "teamInventory": null,
+  "validationResults": null,
+  "summary": {
+    "workingEndpoints": 0,
+    "totalEndpoints": 24,
+    "totalTeams": 0,
+    "totalConferences": 0,
+    "completeConferences": 0
+  }
+}

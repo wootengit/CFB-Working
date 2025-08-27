@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { SlickCalendarPicker } from '@/components/SlickCalendarPicker'
 import { EnhancedLavaGameCard } from '@/components/EnhancedLavaGameCard'
 import FinalGameCard from '@/components/FinalGameCard'
+import { SportsbookDashboard } from '@/components/SportsbookDashboard'
 
 interface GameData {
   id: number
@@ -233,11 +234,95 @@ export default function GamesAndMatchesPage() {
           <p style={{
             fontSize: '20px',
             color: '#94a3b8',
-            margin: '0 0 24px 0',
+            margin: '0 0 16px 0',
             fontWeight: '500'
           }}>
             2025-26 College Football Season • Division 1A & 1AA
           </p>
+          
+          {/* Navigation Links */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '16px',
+            marginBottom: '24px'
+          }}>
+            <a
+              href="/hedge-fund-analysis"
+              style={{
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '12px 24px',
+                color: 'white',
+                fontSize: '14px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 12px rgba(16, 185, 129, 0.2)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(16, 185, 129, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)'
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.2)'
+              }}
+            >
+              🤖 AI Hedge Fund Analysis
+            </a>
+            <a
+              href="/llm-stats"
+              style={{
+                background: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                borderRadius: '12px',
+                padding: '12px 24px',
+                color: 'white',
+                fontSize: '14px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(10px)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.15)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.1)'
+              }}
+            >
+              📊 LLM Stats
+            </a>
+            <a
+              href="/betting-trends"
+              style={{
+                background: 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '12px 24px',
+                color: 'white',
+                fontSize: '14px',
+                fontWeight: '600',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 12px rgba(139, 92, 246, 0.2)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)'
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)'
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.2)'
+              }}
+            >
+              📈 Betting Trends
+            </a>
+          </div>
           
           {/* Division Filter */}
           <div style={{

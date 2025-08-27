@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic Vegas LED Sportsbook Board</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Industrial LED Board - No TV Effects */
+        .sportsbook-board {
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            display: grid;
+            grid-template-rows: 40px 1fr 50px;
+            border: 0;
+            border-radius: 0;
+        }
+
+        /* Top Header */
+        .top-header {
+            background: #000000;
+            color: #FFFF00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+
+        .live-odds {
+            color: #FF0000;
+            font-size: 14px;
+        }
+
+        .current-time {
+            color: #FFFF00;
+        }
+
+        /* Main Board Grid */
+        .main-board {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: #000000;
+            padding: 5px;
+        }
+
+        /* Sport Sections */
+        .sport-section {
+            background: #000000;
+            padding: 5px;
+        }
+
+        .sport-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 5px;
+            font-size: 11px;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+            margin-bottom: 3px;
+        }
+
+        /* Individual Games */
+        .game {
+            background: #000000;
+            margin-bottom: 1px;
+            font-size: 11px;
+            line-height: 14px;
+            padding: 1px 3px;
+        }
+
+        .game-header {
+            color: #FFFF00;
+            font-size: 10px;
+        }
+
+        .team-line {
+            display: grid;
+            grid-template-columns: 120px 40px 35px 40px 35px 40px;
+            gap: 5px;
+            margin: 1px 0;
+        }
+
+        .team-name {
+            color: #FFFF00;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+        }
+
+        .half-spread {
+            color: #FF0000;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .half-spread.dog {
+            color: #00FF00;
+        }
+
+        /* Bottom Ticker */
+        .bottom-ticker {
+            background: #000000;
+            color: #FFFF00;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            font-size: 11px;
+            border-top: 1px solid #333;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll-left 120s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .score {
+            color: #00FF00;
+            margin: 0 20px;
+        }
+
+        .final {
+            color: #FF0000;
+        }
+
+        .live {
+            color: #FFFF00;
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-board">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="live-odds">LIVE ODDS</div>
+            <div class="current-time" id="current-time"></div>
+        </div>
+
+        <!-- Main Board -->
+        <div class="main-board">
+            <!-- College Football Section -->
+            <div class="sport-section">
+                <div class="sport-header">COLLEGE FOOTBALL</div>
+                
+                <div class="game">
+                    <div class="game-header">101 8:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">GEORGIA</div>
+                        <div class="spread-fav">-3.5</div>
+                        <div class="total">52.5</div>
+                        <div class="ml-fav">-165</div>
+                        <div class="half-spread">-2</div>
+                        <div class="total">26</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">ALABAMA</div>
+                        <div class="spread-dog">+3.5</div>
+                        <div class="total">U52</div>
+                        <div class="ml-dog">+145</div>
+                        <div class="half-spread dog">+2</div>
+                        <div class="total">U26</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">102 8:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">TENNESSEE</div>
+                        <div class="spread-fav">-2</div>
+                        <div class="total">49</div>
+                        <div class="ml-fav">-125</div>
+                        <div class="half-spread">-1</div>
+                        <div class="total">24.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">LSU</div>
+                        <div class="spread-dog">+2</div>
+                        <div class="total">U49</div>
+                        <div class="ml-dog">+105</div>
+                        <div class="half-spread dog">+1</div>
+                        <div class="total">U24.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">103 9:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">TEXAS</div>
+                        <div class="spread-fav">-7.5</div>
+                        <div class="total">45.5</div>
+                        <div class="ml-fav">-285</div>
+                        <div class="half-spread">-4</div>
+                        <div class="total">22</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">OKLAHOMA</div>
+                        <div class="spread-dog">+7.5</div>
+                        <div class="total">U45</div>
+                        <div class="ml-dog">+230</div>
+                        <div class="half-spread dog">+4</div>
+                        <div class="total">U22</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">104 9:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">OLE MISS</div>
+                        <div class="spread-fav">-4.5</div>
+                        <div class="total">54.5</div>
+                        <div class="ml-fav">-195</div>
+                        <div class="half-spread">-2.5</div>
+                        <div class="total">27</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">ARKANSAS</div>
+                        <div class="spread-dog">+4.5</div>
+                        <div class="total">U54</div>
+                        <div class="ml-dog">+165</div>
+                        <div class="half-spread dog">+2.5</div>
+                        <div class="total">U27</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">105 10:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">FLORIDA</div>
+                        <div class="spread-dog">+6.5</div>
+                        <div class="total">48.5</div>
+                        <div class="ml-dog">+245</div>
+                        <div class="half-spread dog">+3.5</div>
+                        <div class="total">24</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">KENTUCKY</div>
+                        <div class="spread-fav">-6.5</div>
+                        <div class="total">U48</div>
+                        <div class="ml-fav">-295</div>
+                        <div class="half-spread">-3.5</div>
+                        <div class="total">U24</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">106 10:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">MISSOURI</div>
+                        <div class="spread-dog">+1.5</div>
+                        <div class="total">51.5</div>
+                        <div class="ml-dog">+110</div>
+                        <div class="half-spread dog">+1</div>
+                        <div class="total">25.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">TEXAS A&M</div>
+                        <div class="spread-fav">-1.5</div>
+                        <div class="total">U51</div>
+                        <div class="ml-fav">-130</div>
+                        <div class="half-spread">-1</div>
+                        <div class="total">U25.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">107 11:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">VANDERBILT</div>
+                        <div class="spread-dog">+14.5</div>
+                        <div class="total">46</div>
+                        <div class="ml-dog">+550</div>
+                        <div class="half-spread dog">+7.5</div>
+                        <div class="total">23</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">S CAROLINA</div>
+                        <div class="spread-fav">-14.5</div>
+                        <div class="total">U46</div>
+                        <div class="ml-fav">-750</div>
+                        <div class="half-spread">-7.5</div>
+                        <div class="total">U23</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">108 11:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">MISS STATE</div>
+                        <div class="spread-dog">+10.5</div>
+                        <div class="total">43.5</div>
+                        <div class="ml-dog">+380</div>
+                        <div class="half-spread dog">+5.5</div>
+                        <div class="total">21.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">AUBURN</div>
+                        <div class="spread-fav">-10.5</div>
+                        <div class="total">U43</div>
+                        <div class="ml-fav">-465</div>
+                        <div class="half-spread">-5.5</div>
+                        <div class="total">U21.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">109 12:00A</div>
+                    <div class="team-line">
+                        <div class="team-name">MIAMI FL</div>
+                        <div class="spread-fav">-8.5</div>
+                        <div class="total">52</div>
+                        <div class="ml-fav">-320</div>
+                        <div class="half-spread">-4.5</div>
+                        <div class="total">26</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">VT</div>
+                        <div class="spread-dog">+8.5</div>
+                        <div class="total">U52</div>
+                        <div class="ml-dog">+260</div>
+                        <div class="half-spread dog">+4.5</div>
+                        <div class="total">U26</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">110 12:30A</div>
+                    <div class="team-line">
+                        <div class="team-name">CLEMSON</div>
+                        <div class="spread-fav">-12.5</div>
+                        <div class="total">44</div>
+                        <div class="ml-fav">-485</div>
+                        <div class="half-spread">-6.5</div>
+                        <div class="total">22</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">WAKE FOREST</div>
+                        <div class="spread-dog">+12.5</div>
+                        <div class="total">U44</div>
+                        <div class="ml-dog">+385</div>
+                        <div class="half-spread dog">+6.5</div>
+                        <div class="total">U22</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NFL Section -->
+            <div class="sport-section">
+                <div class="sport-header">NFL FOOTBALL</div>
+                
+                <div class="game">
+                    <div class="game-header">201 1:00P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">CHIEFS</div>
+                        <div class="spread-fav">-3</div>
+                        <div class="total">47</div>
+                        <div class="ml-fav">-155</div>
+                        <div class="half-spread">-1.5</div>
+                        <div class="total">23.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">RAVENS</div>
+                        <div class="spread-dog">+3</div>
+                        <div class="total">U47</div>
+                        <div class="ml-dog">+135</div>
+                        <div class="half-spread dog">+1.5</div>
+                        <div class="total">U23.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">202 1:00P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">BILLS</div>
+                        <div class="spread-fav">-7</div>
+                        <div class="total">45.5</div>
+                        <div class="ml-fav">-285</div>
+                        <div class="half-spread">-3.5</div>
+                        <div class="total">22.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">DOLPHINS</div>
+                        <div class="spread-dog">+7</div>
+                        <div class="total">U45</div>
+                        <div class="ml-dog">+235</div>
+                        <div class="half-spread dog">+3.5</div>
+                        <div class="total">U22.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">203 4:25P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">COWBOYS</div>
+                        <div class="spread-dog">+2.5</div>
+                        <div class="total">52.5</div>
+                        <div class="ml-dog">+125</div>
+                        <div class="half-spread dog">+1</div>
+                        <div class="total">26</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">EAGLES</div>
+                        <div class="spread-fav">-2.5</div>
+                        <div class="total">U52</div>
+                        <div class="ml-fav">-145</div>
+                        <div class="half-spread">-1</div>
+                        <div class="total">U26</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">204 4:25P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">PACKERS</div>
+                        <div class="spread-fav">-4</div>
+                        <div class="total">49</div>
+                        <div class="ml-fav">-185</div>
+                        <div class="half-spread">-2</div>
+                        <div class="total">24.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">BEARS</div>
+                        <div class="spread-dog">+4</div>
+                        <div class="total">U49</div>
+                        <div class="ml-dog">+165</div>
+                        <div class="half-spread dog">+2</div>
+                        <div class="total">U24.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">205 8:20P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">RAMS</div>
+                        <div class="spread-fav">-6</div>
+                        <div class="total">48.5</div>
+                        <div class="ml-fav">-245</div>
+                        <div class="half-spread">-3</div>
+                        <div class="total">24</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">49ERS</div>
+                        <div class="spread-dog">+6</div>
+                        <div class="total">U48</div>
+                        <div class="ml-dog">+205</div>
+                        <div class="half-spread dog">+3</div>
+                        <div class="total">U24</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">206 8:15P MON</div>
+                    <div class="team-line">
+                        <div class="team-name">STEELERS</div>
+                        <div class="spread-dog">+3</div>
+                        <div class="total">41</div>
+                        <div class="ml-dog">+145</div>
+                        <div class="half-spread dog">+1.5</div>
+                        <div class="total">20.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">BROWNS</div>
+                        <div class="spread-fav">-3</div>
+                        <div class="total">U41</div>
+                        <div class="ml-fav">-165</div>
+                        <div class="half-spread">-1.5</div>
+                        <div class="total">U20.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">207 1:00P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">TITANS</div>
+                        <div class="spread-dog">+9</div>
+                        <div class="total">43</div>
+                        <div class="ml-dog">+335</div>
+                        <div class="half-spread dog">+4.5</div>
+                        <div class="total">21.5</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">COLTS</div>
+                        <div class="spread-fav">-9</div>
+                        <div class="total">U43</div>
+                        <div class="ml-fav">-415</div>
+                        <div class="half-spread">-4.5</div>
+                        <div class="total">U21.5</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">208 4:05P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">BRONCOS</div>
+                        <div class="spread-fav">-1</div>
+                        <div class="total">44.5</div>
+                        <div class="ml-fav">-115</div>
+                        <div class="half-spread">PK</div>
+                        <div class="total">22</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">CHARGERS</div>
+                        <div class="spread-dog">+1</div>
+                        <div class="total">U44</div>
+                        <div class="ml-dog">-105</div>
+                        <div class="half-spread dog">PK</div>
+                        <div class="total">U22</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">209 1:00P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">JETS</div>
+                        <div class="spread-dog">+4.5</div>
+                        <div class="total">46</div>
+                        <div class="ml-dog">+185</div>
+                        <div class="half-spread dog">+2.5</div>
+                        <div class="total">23</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">PATRIOTS</div>
+                        <div class="spread-fav">-4.5</div>
+                        <div class="total">U46</div>
+                        <div class="ml-fav">-225</div>
+                        <div class="half-spread">-2.5</div>
+                        <div class="total">U23</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">210 4:25P SUN</div>
+                    <div class="team-line">
+                        <div class="team-name">SEAHAWKS</div>
+                        <div class="spread-dog">+5.5</div>
+                        <div class="total">50</div>
+                        <div class="ml-dog">+205</div>
+                        <div class="half-spread dog">+3</div>
+                        <div class="total">25</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">CARDINALS</div>
+                        <div class="spread-fav">-5.5</div>
+                        <div class="total">U50</div>
+                        <div class="ml-fav">-245</div>
+                        <div class="half-spread">-3</div>
+                        <div class="total">U25</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NBA Section -->
+            <div class="sport-section">
+                <div class="sport-header">NBA BASKETBALL</div>
+                
+                <div class="game">
+                    <div class="game-header">301 8:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">LAKERS</div>
+                        <div class="spread-fav">-2.5</div>
+                        <div class="total">225</div>
+                        <div class="ml-fav">-135</div>
+                        <div class="half-spread">-1</div>
+                        <div class="total">112</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">CELTICS</div>
+                        <div class="spread-dog">+2.5</div>
+                        <div class="total">U225</div>
+                        <div class="ml-dog">+115</div>
+                        <div class="half-spread dog">+1</div>
+                        <div class="total">U112</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">302 8:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">WARRIORS</div>
+                        <div class="spread-dog">+4</div>
+                        <div class="total">232</div>
+                        <div class="ml-dog">+165</div>
+                        <div class="half-spread dog">+2</div>
+                        <div class="total">116</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">NUGGETS</div>
+                        <div class="spread-fav">-4</div>
+                        <div class="total">U232</div>
+                        <div class="ml-fav">-195</div>
+                        <div class="half-spread">-2</div>
+                        <div class="total">U116</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">303 9:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">KNICKS</div>
+                        <div class="spread-fav">-6.5</div>
+                        <div class="total">215</div>
+                        <div class="ml-fav">-265</div>
+                        <div class="half-spread">-3.5</div>
+                        <div class="total">107</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">NETS</div>
+                        <div class="spread-dog">+6.5</div>
+                        <div class="total">U215</div>
+                        <div class="ml-dog">+215</div>
+                        <div class="half-spread dog">+3.5</div>
+                        <div class="total">U107</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">304 9:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">76ERS</div>
+                        <div class="spread-dog">+8</div>
+                        <div class="total">221</div>
+                        <div class="ml-dog">+285</div>
+                        <div class="half-spread dog">+4</div>
+                        <div class="total">110</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">BUCKS</div>
+                        <div class="spread-fav">-8</div>
+                        <div class="total">U221</div>
+                        <div class="ml-fav">-355</div>
+                        <div class="half-spread">-4</div>
+                        <div class="total">U110</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">305 10:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">HEAT</div>
+                        <div class="spread-fav">-3</div>
+                        <div class="total">218</div>
+                        <div class="ml-fav">-155</div>
+                        <div class="half-spread">-1.5</div>
+                        <div class="total">109</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">MAGIC</div>
+                        <div class="spread-dog">+3</div>
+                        <div class="total">U218</div>
+                        <div class="ml-dog">+135</div>
+                        <div class="half-spread dog">+1.5</div>
+                        <div class="total">U109</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">306 10:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">BULLS</div>
+                        <div class="spread-dog">+7.5</div>
+                        <div class="total">228</div>
+                        <div class="ml-dog">+265</div>
+                        <div class="half-spread dog">+4</div>
+                        <div class="total">114</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">CAVALIERS</div>
+                        <div class="spread-fav">-7.5</div>
+                        <div class="total">U228</div>
+                        <div class="ml-fav">-325</div>
+                        <div class="half-spread">-4</div>
+                        <div class="total">U114</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">307 11:00P</div>
+                    <div class="team-line">
+                        <div class="team-name">HAWKS</div>
+                        <div class="spread-dog">+5</div>
+                        <div class="total">233</div>
+                        <div class="ml-dog">+185</div>
+                        <div class="half-spread dog">+2.5</div>
+                        <div class="total">116</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">HORNETS</div>
+                        <div class="spread-fav">-5</div>
+                        <div class="total">U233</div>
+                        <div class="ml-fav">-225</div>
+                        <div class="half-spread">-2.5</div>
+                        <div class="total">U116</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">308 11:30P</div>
+                    <div class="team-line">
+                        <div class="team-name">PISTONS</div>
+                        <div class="spread-dog">+12</div>
+                        <div class="total">219</div>
+                        <div class="ml-dog">+485</div>
+                        <div class="half-spread dog">+6</div>
+                        <div class="total">109</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">RAPTORS</div>
+                        <div class="spread-fav">-12</div>
+                        <div class="total">U219</div>
+                        <div class="ml-fav">-685</div>
+                        <div class="half-spread">-6</div>
+                        <div class="total">U109</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">309 12:00A</div>
+                    <div class="team-line">
+                        <div class="team-name">PACERS</div>
+                        <div class="spread-fav">-1.5</div>
+                        <div class="total">226</div>
+                        <div class="ml-fav">-125</div>
+                        <div class="half-spread">-1</div>
+                        <div class="total">113</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">WIZARDS</div>
+                        <div class="spread-dog">+1.5</div>
+                        <div class="total">U226</div>
+                        <div class="ml-dog">+105</div>
+                        <div class="half-spread dog">+1</div>
+                        <div class="total">U113</div>
+                    </div>
+                </div>
+
+                <div class="game">
+                    <div class="game-header">310 12:30A</div>
+                    <div class="team-line">
+                        <div class="team-name">SUNS</div>
+                        <div class="spread-fav">-9</div>
+                        <div class="total">224</div>
+                        <div class="ml-fav">-385</div>
+                        <div class="half-spread">-4.5</div>
+                        <div class="total">112</div>
+                    </div>
+                    <div class="team-line">
+                        <div class="team-name">KINGS</div>
+                        <div class="spread-dog">+9</div>
+                        <div class="total">U224</div>
+                        <div class="ml-dog">+305</div>
+                        <div class="half-spread dog">+4.5</div>
+                        <div class="total">U112</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Ticker -->
+        <div class="bottom-ticker">
+            <div class="ticker-content">
+                <span class="final">FINAL:</span>
+                <span class="score">MICHIGAN 24  OHIO ST 21</span>
+                <span class="final">FINAL:</span>
+                <span class="score">GEORGIA 31  ALABAMA 17</span>
+                <span class="live">LIVE 3Q:</span>
+                <span class="score">TEXAS 14  OKLAHOMA 10</span>
+                <span class="final">FINAL OT:</span>
+                <span class="score">LSU 35  TENNESSEE 32</span>
+                <span class="live">LIVE 2Q:</span>
+                <span class="score">CLEMSON 21  WAKE FOREST 7</span>
+                <span class="final">FINAL:</span>
+                <span class="score">CHIEFS 28  RAVENS 24</span>
+                <span class="live">LIVE 4Q:</span>
+                <span class="score">BILLS 17  DOLPHINS 14</span>
+                <span class="final">FINAL:</span>
+                <span class="score">LAKERS 115  CELTICS 108</span>
+                <span class="live">LIVE 3Q:</span>
+                <span class="score">WARRIORS 89  NUGGETS 85</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('current-time').textContent = timeStr;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

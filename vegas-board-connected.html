@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegas Sportsbook - API Connected</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .flow-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background: #000000;
+        }
+
+        .sportsbook-board {
+            width: 520px;
+            background: #000000;
+            border: 2px solid #444;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .board-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            border-bottom: 2px solid #444;
+        }
+
+        .status-bar {
+            background: #111;
+            color: #00FF00;
+            padding: 6px 10px;
+            font-size: 11px;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        .column-headers {
+            display: grid;
+            grid-template-columns: 200px 80px 60px;
+            gap: 5px;
+            padding: 6px 10px;
+            background: #111;
+            font-size: 10px;
+            color: #FFFF00;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-cell {
+            text-align: center;
+        }
+
+        .header-cell:first-child {
+            text-align: left;
+        }
+
+        .games-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .game {
+            border-bottom: 1px solid #222;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .game-info {
+            color: #FFFF00;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+
+        /* Alternating game colors like Vegas boards */
+        .game-green .team-name {
+            color: #00FF00;
+        }
+
+        .game-orange .team-name {
+            color: #FFA500;
+        }
+
+        .team-row {
+            display: grid;
+            grid-template-columns: 200px 80px 60px;
+            gap: 5px;
+            align-items: center;
+            margin: 2px 0;
+            height: 16px;
+        }
+
+        .team-name {
+            color: #FFFF00;
+            font-size: 12px;
+            text-align: left;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .loading {
+            color: #FFFF00;
+            text-align: center;
+            padding: 30px;
+            font-size: 16px;
+        }
+
+        .error {
+            color: #FF0000;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        /* Scrollbar styling */
+        .games-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .games-container::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .games-container::-webkit-scrollbar-thumb {
+            background: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .games-container::-webkit-scrollbar-thumb:hover {
+            background: #CCCCCC;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00FF00;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .flow-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: #FFFF00;
+            letter-spacing: 3px;
+        }
+
+        .refresh-timer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: #00FF00;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flow-container">
+        <div class="flow-title">VEGAS SPORTSBOOK - LIVE API</div>
+        
+        <div class="sportsbook-board">
+            <div class="board-header">
+                NCAA WEEK 1 2025 - LIVE ODDS
+                <span class="live-indicator"></span>
+            </div>
+            <div class="status-bar" id="status">CONNECTING TO API...</div>
+            
+            <div class="column-headers">
+                <div class="header-cell">TEAMS</div>
+                <div class="header-cell">TOTAL</div>
+                <div class="header-cell">MONEY</div>
+            </div>
+
+            <div id="games-container" class="games-container">
+                <div class="loading">LOADING LIVE API DATA...</div>
+            </div>
+        </div>
+        
+        <div class="refresh-timer" id="refresh-timer">AUTO-REFRESH: 30s</div>
+    </div>
+
+    <script>
+        let allGames = [];
+        let refreshCountdown = 30;
+        const statusEl = document.getElementById('status');
+        const gamesContainer = document.getElementById('games-container');
+        const refreshTimer = document.getElementById('refresh-timer');
+
+        // Format team name
+        function formatTeamName(name) {
+            return name.toUpperCase()
+                .replace('STATE', 'ST')
+                .replace('MISSISSIPPI', 'MISS')
+                .replace('SOUTHERN', 'S')
+                .replace('NORTHERN', 'N')
+                .replace('EASTERN', 'E')
+                .replace('WESTERN', 'W')
+                .replace('UNIVERSITY', '')
+                .trim()
+                .substring(0, 18);
+        }
+
+        // Format game time
+        function formatGameTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            }).replace(' ', '');
+        }
+
+        // Create game HTML like Vegas boards - spread next to favorite
+        function createGameHTML(game, colorClass) {
+            const time = formatGameTime(game.startDate);
+            
+            const homeIsFavored = game.spread < 0;
+            const favoriteSpread = Math.abs(game.spread);
+            
+            // Determine which team is favorite and format accordingly
+            let awayTeamDisplay, homeTeamDisplay;
+            if (homeIsFavored) {
+                // Home team is favorite
+                homeTeamDisplay = `${formatTeamName(game.homeTeam)} -${favoriteSpread}`;
+                awayTeamDisplay = formatTeamName(game.awayTeam);
+            } else {
+                // Away team is favorite  
+                awayTeamDisplay = `${formatTeamName(game.awayTeam)} -${favoriteSpread}`;
+                homeTeamDisplay = formatTeamName(game.homeTeam);
+            }
+            
+            const homeML = game.homeMoneyline ? 
+                (game.homeMoneyline > 0 ? `+${game.homeMoneyline}` : `${game.homeMoneyline}`) : 
+                'N/A';
+            const awayML = game.awayMoneyline ? 
+                (game.awayMoneyline > 0 ? `+${game.awayMoneyline}` : `${game.awayMoneyline}`) : 
+                'N/A';
+            
+            return `
+                <div class="game ${colorClass}">
+                    <div class="game-info">${time}</div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${awayTeamDisplay}</div>
+                        <div class="total">O${game.overUnder || 'TBD'}</div>
+                        <div class="${game.awayMoneyline < 0 ? 'ml-fav' : 'ml-dog'}">${awayML}</div>
+                    </div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${homeTeamDisplay}</div>
+                        <div class="total">U${game.overUnder || 'TBD'}</div>
+                        <div class="${game.homeMoneyline < 0 ? 'ml-fav' : 'ml-dog'}">${homeML}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render games sorted by date/time with alternating colors
+        function renderGames(games) {
+            if (!games || games.length === 0) {
+                gamesContainer.innerHTML = '<div class="error">NO GAMES FROM API</div>';
+                return;
+            }
+
+            console.log(`✅ Rendering ${games.length} Week 1 games from API`);
+            
+            // Sort games by start date/time
+            const sortedGames = [...games].sort((a, b) => {
+                return new Date(a.startDate) - new Date(b.startDate);
+            });
+            
+            // Color classes like Vegas boards (green/orange alternating)
+            const colorClasses = ['game-green', 'game-orange'];
+            
+            let html = '';
+            sortedGames.forEach((game, index) => {
+                const colorClass = colorClasses[index % colorClasses.length];
+                html += createGameHTML(game, colorClass);
+            });
+
+            gamesContainer.innerHTML = html;
+            statusEl.innerHTML = `🔴 LIVE - ${games.length} WEEK 1 2025 GAMES - API CONNECTED`;
+        }
+
+        // Load games from API with detailed error handling
+        async function loadWeek1Games() {
+            try {
+                statusEl.innerHTML = '🔄 CONNECTING TO LIVE API...';
+                console.log('🔌 Attempting to connect to Week 1 API...');
+                
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+                
+                const response = await fetch('http://localhost:5000/api/games/week1', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+                
+                console.log(`📡 API Response Status: ${response.status}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('📊 API Data Received:', {
+                    success: data.success,
+                    gameCount: data.data ? data.data.length : 0,
+                    message: data.message
+                });
+                
+                if (data.success && data.data && data.data.length > 0) {
+                    allGames = data.data;
+                    console.log(`✅ Successfully loaded ${data.data.length} games from API`);
+                    renderGames(allGames);
+                } else {
+                    throw new Error(`API returned no games: ${data.message || 'Unknown error'}`);
+                }
+                
+            } catch (error) {
+                console.error('❌ API Connection Failed:', error);
+                statusEl.innerHTML = `❌ API ERROR: ${error.message}`;
+                
+                gamesContainer.innerHTML = `
+                    <div class="error">
+                        🚫 CANNOT CONNECT TO API SERVER<br><br>
+                        Error: ${error.message}<br><br>
+                        
+                        Troubleshooting:<br>
+                        • Check server running on port 5000<br>
+                        • Check browser console for CORS errors<br>
+                        • Verify endpoint: http://localhost:5000/api/games/week1<br><br>
+                        
+                        Auto-retry in 30 seconds...
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-refresh with countdown
+        function startAutoRefresh() {
+            setInterval(() => {
+                refreshCountdown--;
+                refreshTimer.textContent = `AUTO-REFRESH: ${refreshCountdown}s`;
+                
+                if (refreshCountdown <= 0) {
+                    refreshCountdown = 30;
+                    console.log('🔄 Auto-refreshing API data...');
+                    loadWeek1Games();
+                }
+            }, 1000);
+        }
+
+        // Initialize with detailed logging
+        window.addEventListener('load', () => {
+            console.log('🎰 VEGAS SPORTSBOOK INITIALIZED - API CONNECTION MODE');
+            console.log('🔗 Target API: http://localhost:5000/api/games/week1');
+            
+            // Initial load
+            loadWeek1Games();
+            
+            // Start auto-refresh
+            startAutoRefresh();
+            
+            // Manual refresh shortcut
+            document.addEventListener('keypress', (e) => {
+                if (e.key === 'r' || e.key === 'R') {
+                    console.log('🔄 Manual refresh triggered');
+                    loadWeek1Games();
+                    refreshCountdown = 30;
+                }
+            });
+            
+            // Test API connectivity every 5 seconds if no games loaded
+            const connectivityCheck = setInterval(() => {
+                if (allGames.length === 0) {
+                    console.log('🔍 No games loaded, retrying API connection...');
+                    loadWeek1Games();
+                } else {
+                    clearInterval(connectivityCheck);
+                    console.log('✅ API connectivity established, stopping retry checks');
+                }
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

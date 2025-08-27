@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL Week 1 NCAA Sportsbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .sportsbook-board {
+            width: 500px;
+            background: #000000;
+            border: 2px solid #444;
+        }
+
+        .board-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 8px;
+            font-size: 16px;
+            border-bottom: 2px solid #444;
+            letter-spacing: 2px;
+        }
+
+        .status-bar {
+            background: #111;
+            color: #00FF00;
+            padding: 5px 8px;
+            font-size: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .column-headers {
+            display: grid;
+            grid-template-columns: 160px 60px 60px 70px 60px 60px;
+            gap: 2px;
+            padding: 5px 8px;
+            background: #111;
+            font-size: 10px;
+            color: #FFFF00;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-cell {
+            text-align: center;
+        }
+
+        .header-cell:first-child {
+            text-align: left;
+        }
+
+        .game {
+            border-bottom: 1px solid #222;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        .game-info {
+            color: #FFFF00;
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+
+        .team-row {
+            display: grid;
+            grid-template-columns: 160px 60px 60px 70px 60px 60px;
+            gap: 2px;
+            align-items: center;
+            margin: 2px 0;
+            height: 16px;
+        }
+
+        .team-name {
+            color: #FFFF00;
+            font-size: 12px;
+            text-align: left;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .record {
+            color: #FFAA00;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .loading {
+            color: #FFFF00;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #FF0000;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        .games-container {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-board">
+        <div class="board-header">NCAA WEEK 1 - REAL ODDS</div>
+        <div class="status-bar" id="status">CONNECTING TO GAMES API...</div>
+        
+        <div class="column-headers">
+            <div class="header-cell">TEAM</div>
+            <div class="header-cell">SPREAD</div>
+            <div class="header-cell">O/U</div>
+            <div class="header-cell">MONEY</div>
+            <div class="header-cell">RECORD</div>
+            <div class="header-cell">LAST 5</div>
+        </div>
+
+        <div id="games-container" class="games-container">
+            <div class="loading">LOADING WEEK 1 GAMES...</div>
+        </div>
+    </div>
+
+    <script>
+        let allGames = [];
+        const statusEl = document.getElementById('status');
+        const gamesContainer = document.getElementById('games-container');
+
+        // Format team name
+        function formatTeamName(name) {
+            return name.toUpperCase()
+                .replace('STATE', 'ST')
+                .replace('MISSISSIPPI', 'MISS')
+                .replace('SOUTHERN', 'S')
+                .replace('NORTHERN', 'N')
+                .replace('EASTERN', 'E')
+                .replace('WESTERN', 'W')
+                .replace('UNIVERSITY', '')
+                .trim()
+                .substring(0, 18);
+        }
+
+        // Format game time
+        function formatGameTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            }).replace(' ', '');
+        }
+
+        // Create game HTML from real API data
+        function createGameHTML(game, gameNum) {
+            const time = formatGameTime(game.startDate);
+            
+            // Home team is negative spread means they're favored
+            const homeIsFavored = game.spread < 0;
+            const awaySpread = homeIsFavored ? `+${Math.abs(game.spread)}` : `${game.spread}`;
+            const homeSpread = homeIsFavored ? `${game.spread}` : `+${Math.abs(game.spread)}`;
+            
+            // Format moneylines
+            const homeML = game.homeMoneyline ? 
+                (game.homeMoneyline > 0 ? `+${game.homeMoneyline}` : `${game.homeMoneyline}`) : 
+                'N/A';
+            const awayML = game.awayMoneyline ? 
+                (game.awayMoneyline > 0 ? `+${game.awayMoneyline}` : `${game.awayMoneyline}`) : 
+                'N/A';
+            
+            return `
+                <div class="game">
+                    <div class="game-info">${gameNum} ${time} - ${game.venue || 'TBD'}</div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(game.awayTeam)}</div>
+                        <div class="${!homeIsFavored ? 'spread-fav' : 'spread-dog'}">${awaySpread}</div>
+                        <div class="total">O${game.overUnder || 'TBD'}</div>
+                        <div class="${game.awayMoneyline < 0 ? 'ml-fav' : 'ml-dog'}">${awayML}</div>
+                        <div class="record">${game.awayRecord.wins}-${game.awayRecord.losses}</div>
+                        <div class="record">${game.awayLast5 || 'N/A'}</div>
+                    </div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(game.homeTeam)}</div>
+                        <div class="${homeIsFavored ? 'spread-fav' : 'spread-dog'}">${homeSpread}</div>
+                        <div class="total">U${game.overUnder || 'TBD'}</div>
+                        <div class="${game.homeMoneyline < 0 ? 'ml-fav' : 'ml-dog'}">${homeML}</div>
+                        <div class="record">${game.homeRecord.wins}-${game.homeRecord.losses}</div>
+                        <div class="record">${game.homeLast5 || 'N/A'}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render all games
+        function renderGames(games) {
+            if (!games || games.length === 0) {
+                gamesContainer.innerHTML = '<div class="error">NO GAMES FOUND</div>';
+                return;
+            }
+
+            console.log(`Rendering ${games.length} Week 1 games`);
+            
+            let html = '';
+            games.forEach((game, index) => {
+                const gameNum = 101 + index;
+                html += createGameHTML(game, gameNum);
+            });
+
+            gamesContainer.innerHTML = html;
+            statusEl.innerHTML = `LIVE - ${games.length} WEEK 1 GAMES WITH REAL ODDS`;
+        }
+
+        // Load from real games API
+        async function loadWeek1Games() {
+            try {
+                statusEl.innerHTML = 'CONNECTING TO REAL GAMES API...';
+                console.log('Fetching Week 1 games from API...');
+                
+                // Connect to Week 1 games server on port 5000
+                let success = false;
+                const response = await fetch('http://localhost:5000/api/games/week1');
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Week 1 API Response:', data);
+                    
+                    if (data.success && data.data && data.data.length > 0) {
+                        allGames = data.data;
+                        statusEl.innerHTML = `API CONNECTED - ${data.data.length} WEEK 1 GAMES`;
+                        success = true;
+                    }
+                }
+                
+                if (success) {
+                    console.log(`Loaded ${allGames.length} Week 1 games with real betting lines`);
+                    renderGames(allGames);
+                } else {
+                    throw new Error('No working API port found');
+                }
+                
+            } catch (error) {
+                console.error('API Error:', error);
+                statusEl.innerHTML = `API ERROR: ${error.message}`;
+                
+                // Show error message
+                gamesContainer.innerHTML = `
+                    <div class="error">
+                        CANNOT CONNECT TO GAMES API<br>
+                        Error: ${error.message}<br>
+                        <br>
+                        Make sure Week 1 server is running on port 5000<br>
+                        API endpoint: http://localhost:5000/api/games/week1
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-refresh every 5 minutes
+        function startAutoRefresh() {
+            setInterval(() => {
+                if (allGames.length > 0) {
+                    console.log('Auto-refreshing odds...');
+                    renderGames(allGames);
+                }
+            }, 300000);
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            console.log('Loading real Week 1 games with betting lines...');
+            loadWeek1Games();
+            startAutoRefresh();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentic LED Sportsbook Board</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            overflow-x: hidden;
+        }
+
+        /* LED Matrix Container */
+        .sportsbook-board {
+            width: 400px;
+            background: #000000;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        /* Header */
+        .board-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            letter-spacing: 1px;
+        }
+
+        /* Game Container */
+        .game {
+            border-bottom: 1px solid #111;
+            padding: 2px 5px;
+            font-size: 11px;
+            line-height: 12px;
+        }
+
+        /* Game Header (Number and Time) */
+        .game-header {
+            color: #FFFF00;
+            font-size: 9px;
+            margin-bottom: 1px;
+        }
+
+        /* Team Row */
+        .team-row {
+            display: grid;
+            grid-template-columns: 120px 35px 40px 35px 40px 35px;
+            gap: 3px;
+            align-items: center;
+            margin: 1px 0;
+            height: 14px;
+        }
+
+        /* Team Name */
+        .team-name {
+            color: #FFFF00;
+            font-size: 11px;
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* Spread */
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        /* Total */
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        /* Moneyline */
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        /* Half Time */
+        .half {
+            color: #FFAA00;
+            text-align: center;
+            font-size: 9px;
+        }
+
+        /* LED Matrix Effect */
+        .led-text {
+            text-shadow: 
+                0 0 2px currentColor,
+                0 0 4px currentColor;
+            filter: contrast(1.2) brightness(1.1);
+        }
+
+        /* Matrix Grid Background */
+        .sportsbook-board::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at center, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 3px 3px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        /* Loading State */
+        .loading {
+            color: #FFFF00;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        /* Column Headers */
+        .column-headers {
+            display: grid;
+            grid-template-columns: 120px 35px 40px 35px 40px 35px;
+            gap: 3px;
+            padding: 3px 5px;
+            background: #111;
+            font-size: 8px;
+            color: #FFFF00;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-board led-text">
+        <!-- Header -->
+        <div class="board-header">COLLEGE FOOTBALL WEEK 1</div>
+        
+        <!-- Column Headers -->
+        <div class="column-headers">
+            <div class="header-cell" style="text-align: left;">TEAM</div>
+            <div class="header-cell">SPREAD</div>
+            <div class="header-cell">TOTAL</div>
+            <div class="header-cell">ML</div>
+            <div class="header-cell">1H</div>
+            <div class="header-cell">1H TOT</div>
+        </div>
+
+        <!-- Games Container -->
+        <div id="games-container">
+            <div class="loading">LOADING WEEK 1 GAMES...</div>
+        </div>
+    </div>
+
+    <script>
+        let gamesData = [];
+
+        // Format team name for display
+        function formatTeamName(name) {
+            return name.toUpperCase()
+                .replace('STATE', 'ST')
+                .replace('UNIVERSITY', 'U')
+                .replace('SOUTHERN', 'S')
+                .replace('NORTHERN', 'N')
+                .replace('EASTERN', 'E')
+                .replace('WESTERN', 'W')
+                .replace('MISSISSIPPI', 'MISS')
+                .substring(0, 15);
+        }
+
+        // Generate realistic odds from team ratings
+        function generateOdds(team1, team2) {
+            const rating1 = team1.spPlusRating || 0;
+            const rating2 = team2.spPlusRating || 0;
+            
+            const ratingDiff = rating1 - rating2;
+            const spread = Math.max(-40, Math.min(40, ratingDiff / 2.8));
+            
+            let team1Spread, team2Spread, team1ML, team2ML;
+            
+            if (spread > 0.5) {
+                team1Spread = -Math.abs(spread).toFixed(1);
+                team2Spread = `+${Math.abs(spread).toFixed(1)}`;
+                team1ML = Math.round(-110 - (Math.abs(spread) * 10));
+                team2ML = Math.round(110 + (Math.abs(spread) * 12));
+            } else {
+                team1Spread = `+${Math.abs(spread).toFixed(1)}`;
+                team2Spread = -Math.abs(spread).toFixed(1);
+                team1ML = Math.round(110 + (Math.abs(spread) * 12));
+                team2ML = Math.round(-110 - (Math.abs(spread) * 10));
+            }
+            
+            const total = 42 + (Math.random() * 25);
+            const halfSpread = spread / 2;
+            const halfTotal = total / 2;
+            
+            return {
+                team1Spread,
+                team2Spread,
+                team1ML: team1ML > 0 ? `+${team1ML}` : `${team1ML}`,
+                team2ML: team2ML > 0 ? `+${team2ML}` : `${team2ML}`,
+                total: total.toFixed(1),
+                halfSpread: halfSpread.toFixed(1),
+                halfTotal: halfTotal.toFixed(1)
+            };
+        }
+
+        // Generate game time for Week 1
+        function generateGameTime(index) {
+            const times = [
+                '12:00P', '12:30P', '1:00P', '1:30P', '2:00P', '2:30P', '3:00P', '3:30P',
+                '4:00P', '4:30P', '5:00P', '5:30P', '6:00P', '6:30P', '7:00P', '7:30P',
+                '8:00P', '8:30P', '9:00P', '9:30P', '10:00P', '10:30P'
+            ];
+            return times[index % times.length];
+        }
+
+        // Create game HTML
+        function createGameHTML(team1, team2, gameNum, time) {
+            const odds = generateOdds(team1, team2);
+            
+            return `
+                <div class="game">
+                    <div class="game-header">${gameNum} ${time}</div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(team1.team)}</div>
+                        <div class="${odds.team1Spread.startsWith('-') ? 'spread-fav' : 'spread-dog'}">${odds.team1Spread}</div>
+                        <div class="total">O${odds.total}</div>
+                        <div class="${odds.team1ML.startsWith('-') ? 'ml-fav' : 'ml-dog'}">${odds.team1ML}</div>
+                        <div class="half">${odds.halfSpread}</div>
+                        <div class="half">O${odds.halfTotal}</div>
+                    </div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(team2.team)}</div>
+                        <div class="${odds.team2Spread.startsWith('-') ? 'spread-fav' : 'spread-dog'}">${odds.team2Spread}</div>
+                        <div class="total">U${odds.total}</div>
+                        <div class="${odds.team2ML.startsWith('-') ? 'ml-fav' : 'ml-dog'}">${odds.team2ML}</div>
+                        <div class="half">${parseFloat(odds.halfSpread) > 0 ? '+' + Math.abs(odds.halfSpread) : odds.halfSpread}</div>
+                        <div class="half">U${odds.halfTotal}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render all games
+        function renderGames(teams) {
+            const container = document.getElementById('games-container');
+            
+            // Create matchups - pair teams up randomly for realistic games
+            const matchups = [];
+            const shuffledTeams = [...teams].sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < shuffledTeams.length - 1; i += 2) {
+                if (shuffledTeams[i + 1]) {
+                    matchups.push([shuffledTeams[i], shuffledTeams[i + 1]]);
+                }
+            }
+
+            let html = '';
+            matchups.forEach((matchup, index) => {
+                const gameNum = 101 + index;
+                const gameTime = generateGameTime(index);
+                html += createGameHTML(matchup[0], matchup[1], gameNum, gameTime);
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Fetch data and render
+        async function loadGames() {
+            try {
+                console.log('Fetching Week 1 college football games...');
+                
+                // Try different ports since server keeps switching
+                const ports = [3000, 3001, 3002];
+                let data = null;
+                
+                for (const port of ports) {
+                    try {
+                        const response = await fetch(`http://localhost:${port}/api/standings/enhanced?year=2025`);
+                        if (response.ok) {
+                            data = await response.json();
+                            console.log(`Connected to API on port ${port}`);
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`Port ${port} failed, trying next...`);
+                    }
+                }
+                
+                if (data && data.success && data.data) {
+                    gamesData = data.data;
+                    console.log(`Loaded ${gamesData.length} teams for Week 1`);
+                    renderGames(gamesData);
+                } else {
+                    throw new Error('No API data available');
+                }
+                
+            } catch (error) {
+                console.error('Error loading games:', error);
+                document.getElementById('games-container').innerHTML = `
+                    <div class="loading" style="color: #FF0000;">
+                        ERROR LOADING WEEK 1 GAMES<br>
+                        CHECK API CONNECTION
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-refresh every 5 minutes
+        function startAutoRefresh() {
+            setInterval(() => {
+                console.log('Refreshing odds...');
+                if (gamesData.length > 0) {
+                    renderGames(gamesData);
+                }
+            }, 300000);
+        }
+
+        // Initialize
+        loadGames();
+        startAutoRefresh();
+    </script>
+</body>
+</html>

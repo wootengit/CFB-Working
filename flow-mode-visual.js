@@ -45,9 +45,9 @@ class FlowModeVisual {
       this.page = await this.browser.newPage();
       await this.page.setViewportSize({ width: 1920, height: 1080 });
 
-      // Navigate directly to Games & Matches calendar
-      console.log('🏈 Connecting to Games & Matches calendar...');
-      await this.page.goto('http://localhost:3002/games-and-matches', { 
+      // Navigate directly to NCAA Sportsbook page
+      console.log('🏈 Connecting to NCAA Sportsbook page...');
+      await this.page.goto('file:///C:/CFB-WORKING/live-ncaa-sportsbook.html', { 
         waitUntil: 'domcontentloaded',
         timeout: 30000 
       });

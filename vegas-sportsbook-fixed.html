@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegas Sportsbook - Week 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            color: #FFFF00;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            overflow-x: hidden;
+            /* CRISP TEXT - NO BLUR */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Sportsbook Board */
+        .sportsbook-board {
+            width: 450px;
+            background: #000000;
+            border: 2px solid #444;
+        }
+
+        /* Header */
+        .board-header {
+            background: #000000;
+            color: #FFFF00;
+            text-align: center;
+            padding: 8px;
+            font-size: 16px;
+            border-bottom: 2px solid #444;
+            letter-spacing: 2px;
+        }
+
+        /* Column Headers */
+        .column-headers {
+            display: grid;
+            grid-template-columns: 140px 50px 50px 60px 50px 50px;
+            gap: 2px;
+            padding: 5px 8px;
+            background: #111;
+            font-size: 10px;
+            color: #FFFF00;
+            border-bottom: 1px solid #333;
+            font-weight: bold;
+        }
+
+        .header-cell {
+            text-align: center;
+        }
+
+        .header-cell:first-child {
+            text-align: left;
+        }
+
+        /* Game Container */
+        .game {
+            border-bottom: 1px solid #222;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        /* Game Number and Time */
+        .game-info {
+            color: #FFFF00;
+            font-size: 10px;
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+
+        /* Team Row */
+        .team-row {
+            display: grid;
+            grid-template-columns: 140px 50px 50px 60px 50px 50px;
+            gap: 2px;
+            align-items: center;
+            margin: 2px 0;
+            height: 16px;
+        }
+
+        /* Team Name */
+        .team-name {
+            color: #FFFF00;
+            font-size: 12px;
+            text-align: left;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* Spread Colors */
+        .spread-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .spread-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Total */
+        .total {
+            color: #FFFF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Moneyline */
+        .ml-fav {
+            color: #FF0000;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .ml-dog {
+            color: #00FF00;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Half Time */
+        .half-spread {
+            color: #FFAA00;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .half-total {
+            color: #FFAA00;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Loading/Error States */
+        .loading {
+            color: #FFFF00;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #FF0000;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background: #111;
+            color: #00FF00;
+            padding: 5px 8px;
+            font-size: 10px;
+            border-bottom: 1px solid #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="sportsbook-board">
+        <!-- Header -->
+        <div class="board-header">COLLEGE FOOTBALL WEEK 1</div>
+        
+        <!-- Status -->
+        <div class="status-bar" id="status">CONNECTING TO API...</div>
+        
+        <!-- Column Headers -->
+        <div class="column-headers">
+            <div class="header-cell">TEAM</div>
+            <div class="header-cell">SPREAD</div>
+            <div class="header-cell">TOTAL</div>
+            <div class="header-cell">MONEY</div>
+            <div class="header-cell">1H SPR</div>
+            <div class="header-cell">1H TOT</div>
+        </div>
+
+        <!-- Games Container -->
+        <div id="games-container">
+            <div class="loading">LOADING WEEK 1 GAMES...</div>
+        </div>
+    </div>
+
+    <script>
+        let allTeams = [];
+        const statusEl = document.getElementById('status');
+        const gamesContainer = document.getElementById('games-container');
+
+        // Format team name - keep it authentic
+        function formatTeamName(name) {
+            return name.toUpperCase()
+                .replace('STATE', 'ST')
+                .replace('SOUTHERN', 'S')
+                .replace('NORTHERN', 'N')
+                .replace('EASTERN', 'E')
+                .replace('WESTERN', 'W')
+                .replace('MISSISSIPPI', 'MISS')
+                .replace('UNIVERSITY', 'U')
+                .substring(0, 16);
+        }
+
+        // Generate realistic Vegas odds
+        function generateVegasOdds(team1, team2) {
+            const rating1 = team1.spPlusRating || 0;
+            const rating2 = team2.spPlusRating || 0;
+            
+            const ratingDiff = rating1 - rating2;
+            let spread = ratingDiff / 3.2;
+            
+            // Round to common Vegas spreads (.5, 1, 1.5, etc.)
+            spread = Math.round(spread * 2) / 2;
+            spread = Math.max(-35, Math.min(35, spread));
+            
+            let team1Spread, team2Spread, team1ML, team2ML;
+            
+            if (Math.abs(spread) < 0.5) {
+                // Pick em
+                team1Spread = 'PK';
+                team2Spread = 'PK';
+                team1ML = -110;
+                team2ML = -110;
+            } else if (spread > 0) {
+                team1Spread = -Math.abs(spread);
+                team2Spread = `+${Math.abs(spread)}`;
+                team1ML = -110 - (Math.abs(spread) * 15);
+                team2ML = 100 + (Math.abs(spread) * 18);
+            } else {
+                team1Spread = `+${Math.abs(spread)}`;
+                team2Spread = -Math.abs(spread);
+                team1ML = 100 + (Math.abs(spread) * 18);
+                team2ML = -110 - (Math.abs(spread) * 15);
+            }
+            
+            // Generate total
+            const baseTotal = 45 + (Math.random() * 20);
+            const total = Math.round(baseTotal * 2) / 2; // Round to .5
+            
+            // Half-time numbers
+            const halfSpread = spread / 2;
+            const halfTotal = total / 2;
+            
+            return {
+                team1Spread: team1Spread === 'PK' ? 'PK' : (team1Spread > 0 ? `+${team1Spread}` : `${team1Spread}`),
+                team2Spread: team2Spread === 'PK' ? 'PK' : (team2Spread > 0 ? `+${team2Spread}` : `${team2Spread}`),
+                team1ML: team1ML > 0 ? `+${team1ML}` : `${team1ML}`,
+                team2ML: team2ML > 0 ? `+${team2ML}` : `${team2ML}`,
+                total: total.toFixed(1),
+                halfSpread1: halfSpread > 0 ? `+${halfSpread.toFixed(1)}` : `${halfSpread.toFixed(1)}`,
+                halfSpread2: halfSpread > 0 ? `-${halfSpread.toFixed(1)}` : `+${Math.abs(halfSpread).toFixed(1)}`,
+                halfTotal: halfTotal.toFixed(1)
+            };
+        }
+
+        // Generate game times
+        function generateGameTime(index) {
+            const times = [
+                '12:00P', '12:30P', '1:00P', '1:30P', '2:00P', '2:30P', '3:00P', '3:30P',
+                '4:00P', '4:30P', '5:00P', '5:30P', '6:00P', '6:30P', '7:00P', '7:30P',
+                '8:00P', '8:30P', '9:00P', '9:30P', '10:00P', '10:30P', '11:00P'
+            ];
+            return times[index % times.length];
+        }
+
+        // Create game HTML
+        function createGameHTML(team1, team2, gameNum, time) {
+            const odds = generateVegasOdds(team1, team2);
+            
+            return `
+                <div class="game">
+                    <div class="game-info">${gameNum} ${time}</div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(team1.team)}</div>
+                        <div class="${odds.team1Spread.includes('-') || odds.team1Spread === 'PK' ? 'spread-fav' : 'spread-dog'}">${odds.team1Spread}</div>
+                        <div class="total">O${odds.total}</div>
+                        <div class="${odds.team1ML.includes('-') ? 'ml-fav' : 'ml-dog'}">${odds.team1ML}</div>
+                        <div class="half-spread">${odds.halfSpread1}</div>
+                        <div class="half-total">O${odds.halfTotal}</div>
+                    </div>
+                    
+                    <div class="team-row">
+                        <div class="team-name">${formatTeamName(team2.team)}</div>
+                        <div class="${odds.team2Spread.includes('-') || odds.team2Spread === 'PK' ? 'spread-fav' : 'spread-dog'}">${odds.team2Spread}</div>
+                        <div class="total">U${odds.total}</div>
+                        <div class="${odds.team2ML.includes('-') ? 'ml-fav' : 'ml-dog'}">${odds.team2ML}</div>
+                        <div class="half-spread">${odds.halfSpread2}</div>
+                        <div class="half-total">U${odds.halfTotal}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render all games
+        function renderAllGames(teams) {
+            if (!teams || teams.length === 0) {
+                gamesContainer.innerHTML = '<div class="error">NO TEAMS DATA</div>';
+                return;
+            }
+
+            // Create realistic matchups
+            const shuffledTeams = [...teams].sort(() => Math.random() - 0.5);
+            const matchups = [];
+            
+            for (let i = 0; i < shuffledTeams.length - 1; i += 2) {
+                if (shuffledTeams[i + 1]) {
+                    matchups.push([shuffledTeams[i], shuffledTeams[i + 1]]);
+                }
+            }
+
+            let html = '';
+            matchups.forEach((matchup, index) => {
+                const gameNum = 101 + index;
+                const gameTime = generateGameTime(index);
+                html += createGameHTML(matchup[0], matchup[1], gameNum, gameTime);
+            });
+
+            gamesContainer.innerHTML = html;
+            statusEl.innerHTML = `LIVE - ${matchups.length} GAMES LOADED`;
+        }
+
+        // Load teams from API
+        async function loadTeamsData() {
+            try {
+                statusEl.innerHTML = 'CONNECTING TO API...';
+                
+                // Test multiple ports
+                const ports = [3002, 3001, 3000];
+                let success = false;
+                
+                for (const port of ports) {
+                    try {
+                        console.log(`Testing port ${port}...`);
+                        const response = await fetch(`http://localhost:${port}/api/standings/enhanced?year=2025`);
+                        
+                        if (response.ok) {
+                            const data = await response.json();
+                            
+                            if (data.success && data.data && data.data.length > 0) {
+                                allTeams = data.data;
+                                statusEl.innerHTML = `API CONNECTED - PORT ${port}`;
+                                console.log(`Loaded ${allTeams.length} teams from port ${port}`);
+                                renderAllGames(allTeams);
+                                success = true;
+                                break;
+                            }
+                        }
+                    } catch (e) {
+                        console.log(`Port ${port} failed:`, e.message);
+                    }
+                }
+                
+                if (!success) {
+                    throw new Error('All API ports failed');
+                }
+                
+            } catch (error) {
+                console.error('API Error:', error);
+                statusEl.innerHTML = 'API CONNECTION FAILED';
+                gamesContainer.innerHTML = `
+                    <div class="error">
+                        ERROR: ${error.message}<br>
+                        CHECK SERVER STATUS
+                    </div>
+                `;
+            }
+        }
+
+        // Auto-refresh odds every 5 minutes
+        function startAutoRefresh() {
+            setInterval(() => {
+                if (allTeams.length > 0) {
+                    console.log('Refreshing odds...');
+                    renderAllGames(allTeams);
+                    statusEl.innerHTML = `REFRESHED - ${Math.floor(allTeams.length/2)} GAMES`;
+                }
+            }, 300000); // 5 minutes
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            loadTeamsData();
+            startAutoRefresh();
+        });
+    </script>
+</body>
+</html>
