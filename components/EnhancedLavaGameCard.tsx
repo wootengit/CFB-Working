@@ -28,6 +28,34 @@ type GameData = {
   humidity?: number
   windSpeed?: number
   feelsLike?: number
+  
+  // Enhanced Statistics
+  homeStats?: {
+    pointsForPerGame: number
+    pointsAgainstPerGame: number
+    margin: number
+    marginPerGame: number
+    atsPercentage: number
+    overUnderPercentage: number
+    favoriteAtsPercentage: number
+    underdogAtsPercentage: number
+    strengthOfSchedule: number
+    strengthOfScheduleRank: number
+    last5Record: { wins: number; losses: number }
+  }
+  awayStats?: {
+    pointsForPerGame: number
+    pointsAgainstPerGame: number
+    margin: number
+    marginPerGame: number
+    atsPercentage: number
+    overUnderPercentage: number
+    favoriteAtsPercentage: number
+    underdogAtsPercentage: number
+    strengthOfSchedule: number
+    strengthOfScheduleRank: number
+    last5Record: { wins: number; losses: number }
+  }
 }
 
 function parseLast5(input: string): Array<'W'|'L'> {
@@ -58,20 +86,136 @@ export const EnhancedLavaGameCard: React.FC<{ game: GameData }> = ({ game }) => 
   }
 
   const details = (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-      <div>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6 }}>Away</div>
-        <div style={{ fontWeight: 700 }}>{game.awayTeam}</div>
-        <div style={{ fontSize: 12, color: '#475569' }}>Record {awaySnapshot.record}</div>
-        <div style={{ fontSize: 12, color: '#475569' }}>Last 5 {game.awayLast5}</div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      {/* Team Headers */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+        <div>
+          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6 }}>Away</div>
+          <div style={{ fontWeight: 700 }}>{game.awayTeam}</div>
+          <div style={{ fontSize: 12, color: '#475569' }}>Record {awaySnapshot.record}</div>
+        </div>
+        <div>
+          <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6, textAlign: 'right' }}>Home</div>
+          <div style={{ fontWeight: 700, textAlign: 'right' }}>{game.homeTeam}</div>
+          <div style={{ fontSize: 12, color: '#475569', textAlign: 'right' }}>Record {homeSnapshot.record}</div>
+        </div>
       </div>
-      <div>
-        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 6, textAlign: 'right' }}>Home</div>
-        <div style={{ fontWeight: 700, textAlign: 'right' }}>{game.homeTeam}</div>
-        <div style={{ fontSize: 12, color: '#475569', textAlign: 'right' }}>Record {homeSnapshot.record}</div>
-        <div style={{ fontSize: 12, color: '#475569', textAlign: 'right' }}>Last 5 {game.homeLast5}</div>
+
+      {/* Enhanced Statistics Grid */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'auto 1fr 1fr', 
+        gap: '8px 12px',
+        backgroundColor: '#f8fafc',
+        padding: '12px',
+        borderRadius: '8px',
+        fontSize: '12px'
+      }}>
+        {/* Headers */}
+        <div style={{ fontWeight: 600, color: '#374151' }}>Stats</div>
+        <div style={{ fontWeight: 600, color: '#374151', textAlign: 'center' }}>{game.awayTeam.slice(0, 10)}</div>
+        <div style={{ fontWeight: 600, color: '#374151', textAlign: 'center' }}>{game.homeTeam.slice(0, 10)}</div>
+        
+        {/* PF/G - Points For per Game */}
+        <div style={{ color: '#64748b' }}>PF/G</div>
+        <div style={{ textAlign: 'center', color: '#16a34a', fontWeight: 600 }}>
+          {game.awayStats?.pointsForPerGame?.toFixed(1) ?? '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#16a34a', fontWeight: 600 }}>
+          {game.homeStats?.pointsForPerGame?.toFixed(1) ?? '—'}
+        </div>
+        
+        {/* PA/G - Points Against per Game */}
+        <div style={{ color: '#64748b' }}>PA/G</div>
+        <div style={{ textAlign: 'center', color: '#dc2626', fontWeight: 600 }}>
+          {game.awayStats?.pointsAgainstPerGame?.toFixed(1) ?? '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#dc2626', fontWeight: 600 }}>
+          {game.homeStats?.pointsAgainstPerGame?.toFixed(1) ?? '—'}
+        </div>
+        
+        {/* MARGIN - Point Differential per Game */}
+        <div style={{ color: '#64748b' }}>MARGIN</div>
+        <div style={{ 
+          textAlign: 'center', 
+          color: (game.awayStats?.marginPerGame ?? 0) >= 0 ? '#16a34a' : '#dc2626',
+          fontWeight: 600 
+        }}>
+          {game.awayStats?.marginPerGame ? 
+            (game.awayStats.marginPerGame >= 0 ? '+' : '') + game.awayStats.marginPerGame.toFixed(1) 
+            : '—'}
+        </div>
+        <div style={{ 
+          textAlign: 'center', 
+          color: (game.homeStats?.marginPerGame ?? 0) >= 0 ? '#16a34a' : '#dc2626',
+          fontWeight: 600 
+        }}>
+          {game.homeStats?.marginPerGame ? 
+            (game.homeStats.marginPerGame >= 0 ? '+' : '') + game.homeStats.marginPerGame.toFixed(1) 
+            : '—'}
+        </div>
+        
+        {/* ATS% - Against The Spread */}
+        <div style={{ color: '#64748b' }}>ATS%</div>
+        <div style={{ textAlign: 'center', color: '#7c3aed', fontWeight: 600 }}>
+          {game.awayStats?.atsPercentage ? game.awayStats.atsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#7c3aed', fontWeight: 600 }}>
+          {game.homeStats?.atsPercentage ? game.homeStats.atsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        
+        {/* O/U% - Over/Under */}
+        <div style={{ color: '#64748b' }}>O/U%</div>
+        <div style={{ textAlign: 'center', color: '#059669', fontWeight: 600 }}>
+          {game.awayStats?.overUnderPercentage ? game.awayStats.overUnderPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#059669', fontWeight: 600 }}>
+          {game.homeStats?.overUnderPercentage ? game.homeStats.overUnderPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        
+        {/* Fav ATS% - Favorite ATS */}
+        <div style={{ color: '#64748b' }}>Fav ATS%</div>
+        <div style={{ textAlign: 'center', color: '#ea580c', fontWeight: 600 }}>
+          {game.awayStats?.favoriteAtsPercentage ? game.awayStats.favoriteAtsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#ea580c', fontWeight: 600 }}>
+          {game.homeStats?.favoriteAtsPercentage ? game.homeStats.favoriteAtsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        
+        {/* Dog ATS% - Underdog ATS */}
+        <div style={{ color: '#64748b' }}>Dog ATS%</div>
+        <div style={{ textAlign: 'center', color: '#0ea5e9', fontWeight: 600 }}>
+          {game.awayStats?.underdogAtsPercentage ? game.awayStats.underdogAtsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#0ea5e9', fontWeight: 600 }}>
+          {game.homeStats?.underdogAtsPercentage ? game.homeStats.underdogAtsPercentage.toFixed(1) + '%' : '—'}
+        </div>
+        
+        {/* L5 Form - Last 5 games */}
+        <div style={{ color: '#64748b' }}>L5 Form</div>
+        <div style={{ textAlign: 'center', fontWeight: 600 }}>
+          {game.awayStats?.last5Record ? 
+            `${game.awayStats.last5Record.wins}-${game.awayStats.last5Record.losses}` 
+            : game.awayLast5 || '—'}
+        </div>
+        <div style={{ textAlign: 'center', fontWeight: 600 }}>
+          {game.homeStats?.last5Record ? 
+            `${game.homeStats.last5Record.wins}-${game.homeStats.last5Record.losses}` 
+            : game.homeLast5 || '—'}
+        </div>
+        
+        {/* SoS - Strength of Schedule */}
+        <div style={{ color: '#64748b' }}>SoS</div>
+        <div style={{ textAlign: 'center', color: '#9333ea', fontWeight: 600 }}>
+          {game.awayStats?.strengthOfSchedule ? game.awayStats.strengthOfSchedule.toFixed(2) : '—'}
+        </div>
+        <div style={{ textAlign: 'center', color: '#9333ea', fontWeight: 600 }}>
+          {game.homeStats?.strengthOfSchedule ? game.homeStats.strengthOfSchedule.toFixed(2) : '—'}
+        </div>
       </div>
-      <div style={{ gridColumn: '1 / -1', fontSize: 12, color: '#475569', display: 'flex', gap: 12, justifyContent: 'space-between' }}>
+
+      {/* Game Info */}
+      <div style={{ fontSize: 12, color: '#475569', display: 'flex', gap: 12, justifyContent: 'space-between' }}>
         <div>Spread: {game.spread ?? '—'}</div>
         <div>Total O/U: {game.overUnder ?? '—'}</div>
         <div>Kickoff: {new Date(game.startDate).toLocaleString()}</div>

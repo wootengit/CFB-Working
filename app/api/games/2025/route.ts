@@ -5,6 +5,7 @@
 import { NextResponse } from 'next/server';
 import { getTeamId } from '@/utils/teamIdMapping';
 import { getWeatherForVenue, mapWeatherToCondition, type WeatherData } from '@/lib/weather-api';
+import { calculateTeamStatistics, type TeamStatistics } from '@/lib/team-statistics';
 
 const CFBD_BASE_URL = 'https://api.collegefootballdata.com';
 const API_KEY = process.env.CFBD_API_KEY || '';
@@ -48,6 +49,34 @@ export interface GameData {
   awayLast5: string;
   homeLogoUrl: string;
   awayLogoUrl: string;
+  
+  // Enhanced Statistics
+  homeStats?: {
+    pointsForPerGame: number;    // PF/G
+    pointsAgainstPerGame: number; // PA/G
+    margin: number;              // MARGIN
+    marginPerGame: number;
+    atsPercentage: number;       // ATS%
+    overUnderPercentage: number; // O/U%
+    favoriteAtsPercentage: number; // Fav ATS%
+    underdogAtsPercentage: number; // Dog ATS%
+    strengthOfSchedule: number;   // SoS
+    strengthOfScheduleRank: number;
+    last5Record: { wins: number; losses: number };
+  };
+  awayStats?: {
+    pointsForPerGame: number;    // PF/G
+    pointsAgainstPerGame: number; // PA/G
+    margin: number;              // MARGIN
+    marginPerGame: number;
+    atsPercentage: number;       // ATS%
+    overUnderPercentage: number; // O/U%
+    favoriteAtsPercentage: number; // Fav ATS%
+    underdogAtsPercentage: number; // Dog ATS%
+    strengthOfSchedule: number;   // SoS
+    strengthOfScheduleRank: number;
+    last5Record: { wins: number; losses: number };
+  };
   weatherCondition?: 'sunny' | 'cloudy' | 'rainy' | 'snowy' | 'windy';
   temperature?: number;
   humidity?: number;
@@ -281,12 +310,52 @@ export async function GET(request: Request) {
     // Fetch games from CFBD - Use 2025 season (current season)
     const games = await fetchCFBDGames(2025, week ? parseInt(week) : undefined);
     
-    // Fetch supporting data including weather
+    // Collect unique teams for statistics calculation
+    const allTeams = [...new Set([
+      ...games.map((game: any) => game.homeTeam),
+      ...games.map((game: any) => game.awayTeam)
+    ])];
+    
+    // Fetch supporting data including weather and comprehensive statistics
     const [teamRecords, bettingLines, weatherData] = await Promise.all([
       fetchTeamRecords(2025),
       fetchBettingLines(2025, week ? parseInt(week) : undefined),
       fetchWeatherForGames(games)
     ]);
+    
+    // Calculate comprehensive statistics for all teams (in batches to avoid rate limits)
+    console.log(`📊 Calculating comprehensive statistics for ${allTeams.length} teams...`);
+    const teamStatsMap = new Map<string, any>();
+    
+    // Process teams in smaller batches to avoid overwhelming the API
+    const batchSize = 3;
+    for (let i = 0; i < allTeams.length; i += batchSize) {
+      const batch = allTeams.slice(i, i + batchSize);
+      
+      const batchPromises = batch.map(async (teamName: string) => {
+        try {
+          const stats = await calculateTeamStatistics(teamName, 2025);
+          return { teamName, stats };
+        } catch (error) {
+          console.warn(`Failed to calculate stats for ${teamName}:`, error);
+          return { teamName, stats: null };
+        }
+      });
+      
+      const batchResults = await Promise.all(batchPromises);
+      batchResults.forEach(({ teamName, stats }) => {
+        if (stats) {
+          teamStatsMap.set(teamName, stats);
+        }
+      });
+      
+      // Small delay between batches to respect rate limits
+      if (i + batchSize < allTeams.length) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
+    
+    console.log(`✅ Calculated stats for ${teamStatsMap.size}/${allTeams.length} teams`);
     
     // Process games into our format
     const processedGames: GameData[] = games
@@ -327,6 +396,10 @@ export async function GET(request: Request) {
         const venue = game.venue || 'Unknown';
         const weather = weatherData[venue];
         const weatherCondition = mapWeatherToCondition(weather);
+        
+        // Get comprehensive statistics for both teams
+        const homeStats = teamStatsMap.get(game.homeTeam);
+        const awayStats = teamStatsMap.get(game.awayTeam);
         
         return {
           id: game.id,
@@ -388,6 +461,34 @@ export async function GET(request: Request) {
           humidity: weather?.humidity,
           windSpeed: weather?.windSpeed,
           feelsLike: weather?.feelsLike,
+          
+          // Enhanced Statistics - PF/G, PA/G, MARGIN, ATS%, O/U%, Fav ATS%, Dog ATS%, SoS
+          homeStats: homeStats ? {
+            pointsForPerGame: homeStats.pointsForPerGame,
+            pointsAgainstPerGame: homeStats.pointsAgainstPerGame,
+            margin: homeStats.margin,
+            marginPerGame: homeStats.marginPerGame,
+            atsPercentage: homeStats.atsPercentage,
+            overUnderPercentage: homeStats.overUnderPercentage,
+            favoriteAtsPercentage: homeStats.favoriteAtsPercentage,
+            underdogAtsPercentage: homeStats.underdogAtsPercentage,
+            strengthOfSchedule: homeStats.strengthOfSchedule,
+            strengthOfScheduleRank: homeStats.strengthOfScheduleRank,
+            last5Record: homeStats.last5Record,
+          } : undefined,
+          awayStats: awayStats ? {
+            pointsForPerGame: awayStats.pointsForPerGame,
+            pointsAgainstPerGame: awayStats.pointsAgainstPerGame,
+            margin: awayStats.margin,
+            marginPerGame: awayStats.marginPerGame,
+            atsPercentage: awayStats.atsPercentage,
+            overUnderPercentage: awayStats.overUnderPercentage,
+            favoriteAtsPercentage: awayStats.favoriteAtsPercentage,
+            underdogAtsPercentage: awayStats.underdogAtsPercentage,
+            strengthOfSchedule: awayStats.strengthOfSchedule,
+            strengthOfScheduleRank: awayStats.strengthOfScheduleRank,
+            last5Record: awayStats.last5Record,
+          } : undefined,
         };
       });
     
